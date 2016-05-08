@@ -8,6 +8,8 @@ class Root extends Component {
 
   constructor(props) {
     super(props);
+    console.disableYellowBox = true;
+
     //CodePush.sync();
   }
 

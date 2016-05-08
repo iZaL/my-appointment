@@ -78,12 +78,12 @@ export default scenes = Actions.create(
                titleStyle={{ color:'white' }}
         />
 
-      </Scene>
-
-    </Scene>
 
     <Scene key="login" component={Login} title="Login"   hideNavBar={true} />
     <Scene key="register" component={Register} title="Register" hideNavBar={true} />
     <Scene key="loginDialog" component={LoginDialog} hideNavBar={true} />
+    </Scene>
+    </Scene>
+
   </Scene>
 );

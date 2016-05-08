@@ -9,6 +9,9 @@ export default class CompanyDescription extends Component {
         <Text>
           {this.props.company.description_en}
         </Text>
+        <Text>
+          {this.props.company.phone}
+        </Text>
       </View>
     );
   }

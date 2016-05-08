@@ -31,9 +31,9 @@ function serviceFailure(error) {
 
 export function fetchService(serviceID,requiredFields=[]) {
   const url = API_ROOT + '/services/' + serviceID;
-  return (dispatch) => {
+  return (dispatch,getState) => {
 
-    const service = getState().entities.service[serviceID];
+    const service = getState().entities.services[serviceID];
     if (service && requiredFields.every(key => service.hasOwnProperty(key))) {
       return null
     }

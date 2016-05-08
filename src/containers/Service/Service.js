@@ -33,7 +33,6 @@ class Service extends Component {
 
   favoriteCompany(company) {
     if(!this.props.userReducer.isAuthenticated) {
-      Actions.root();
       Actions.loginDialog({dialogText:'Please login to add to favorites'});
     } else {
       const {dispatch} = this.props;

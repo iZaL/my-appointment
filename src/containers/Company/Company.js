@@ -26,7 +26,7 @@ class Company extends Component {
     itemID:PropTypes.number.isRequired
   };
 
-  componentWillMount() {
+  componentDidMount() {
     const {dispatch} = this.props;
     dispatch(fetchCompany(this.props.itemID,['services','employees','favorites']));
   }

@@ -25,7 +25,7 @@ export default class LoginDialog extends Component {
             onPress={()=>Actions.register()}
             buttonText='Sign up now !'
           />
-          <Text style={styles.minFeatureText} onPress={Actions.pop}>
+          <Text style={styles.minFeatureText} onPress={()=>Actions.main()}>
             Browse the site with limited features
           </Text>
         </View>
