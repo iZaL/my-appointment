@@ -1,5 +1,5 @@
 'use strict';
-import React, { ComponentPropTypes} from 'react';
+import React, { Component, PropTypes} from 'react';
 import { TouchableHighlight, ListView, StyleSheet, Text, View } from 'react-native';
 import { Icon } from 'react-native-icons';
 import { Actions } from 'react-native-router-flux';
