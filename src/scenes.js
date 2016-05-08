@@ -8,7 +8,7 @@ import Category from './containers/Category/Category';
 import Company from './containers/Company/Company';
 import Appointment from './containers/Appointment/Appointment';
 import Map from './containers/Company/Map';
-import Settings from './containers/Settings';
+import Settings from './containers/Settings/Settings';
 import Favorites from './containers/User/Favorites';
 import Appointments from './containers/User/Appointments';
 import Search from './containers/Company/Search';

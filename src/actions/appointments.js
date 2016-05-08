@@ -79,7 +79,7 @@ export function createAppointment(company,service,date,time,employee) {
             if (json.success) {
               dispatch(createAppointmentSuccess());
             } else {
-              Promise.reject(json);
+              dispatch(createAppointmentFailure(json.message))
             }
           })
       }).catch((err)=> dispatch(createAppointmentFailure(err)));

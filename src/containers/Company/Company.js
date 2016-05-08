@@ -8,6 +8,7 @@ import ServiceList from './../../components/Service/ServiceList';
 import LoadingIndicator from './../../components/LoadingIndicator';
 import CompanyMap from './../../components/Company/CompanyMap';
 import CompanyDescription from './../../components/Company/CompanyDescription';
+import CompanyContact from './../../components/Company/CompanyContact';
 import { Actions } from 'react-native-router-flux';
 
 class Company extends Component {
@@ -67,7 +68,10 @@ class Company extends Component {
     };
 
     if(this.state.selectedIndex === 1) {
-      selectedComponent = <CompanyDescription company={company} />
+      selectedComponent =  <View>
+          <CompanyDescription company={company} />
+          <CompanyContact company={company} />
+        </View>
     } else if(this.state.selectedIndex === 2) {
       selectedComponent = <CompanyMap
         company={company}
