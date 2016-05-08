@@ -1,6 +1,6 @@
 'use strict';
-import React, { PropTypes } from 'react';
-import { Component,ListView,ScrollView, TouchableHighlight, StyleSheet, Text, View,AlertIOS } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { ListView,ScrollView, TouchableHighlight, StyleSheet, Text, View,AlertIOS } from 'react-native';
 import { Icon } from 'react-native-icons';
 import LoadingIndicator from './../LoadingIndicator';
 const Actions = require('react-native-router-flux').Actions;

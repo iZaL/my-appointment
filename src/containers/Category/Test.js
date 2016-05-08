@@ -1,6 +1,6 @@
 'use strict';
-import React, { PropTypes } from 'react';
-import { Component, View, Image,Text, ScrollView } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { View, Image,Text, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { assets } from './../../utils/assets';
 import CategoryList from './../../components/Category/CategoryList';

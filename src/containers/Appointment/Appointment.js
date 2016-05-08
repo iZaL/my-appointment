@@ -1,6 +1,6 @@
 'use strict';
-import React, { PropTypes } from 'react';
-import { Component,ScrollView,AlertIOS,View,Text } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { ScrollView,AlertIOS,View,Text } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchTimings } from './../../actions/timings';
 import { createAppointment, invalidateCreatedAppointment } from './../../actions/appointments';

@@ -1,6 +1,6 @@
 'use strict'
-import React from 'react';
-import { Component, StyleSheet, Text, View, Image, TouchableHighlight, TextInput } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import {  StyleSheet, Text, View, Image, TouchableHighlight, TextInput } from 'react-native';
 import { assets } from './../../utils/assets';
 import FormButton from './../FormButton';
 import stylesheet from './../../assets/style/form';

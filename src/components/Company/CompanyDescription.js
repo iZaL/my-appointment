@@ -1,6 +1,6 @@
 'use strict';
-import React, { PropTypes } from 'react';
-import { Component,StyleSheet,View,Text } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { StyleSheet,View,Text } from 'react-native';
 
 export default class CompanyDescription extends Component {
   render() {

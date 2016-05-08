@@ -1,6 +1,6 @@
 'use strict';
-import React from 'react';
-import { Component, StyleSheet, Text, View,  TouchableHighlight, TextInput } from 'react-native';
+import React, {Component,PropTypes} from 'react';
+import {  StyleSheet, Text, View,  TouchableHighlight, TextInput } from 'react-native';
 import FormButton from './../FormButton';
 import stylesheet from './../../assets/style/form';
 import t from 'tcomb-form-native';

@@ -1,6 +1,6 @@
 'use strict';
-import React, {PropTypes}  from 'react';
-import { Component, Image, View } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { Image, View } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchCategory } from './../../actions/Category/category';
 import { favoriteCompany } from './../../actions/favorites';

@@ -1,6 +1,6 @@
 'use strict';
-import React, {PropTypes} from 'react';
-import { Component, TouchableHighlight, ListView, StyleSheet, Text, View } from 'react-native';
+import React, { ComponentPropTypes} from 'react';
+import { TouchableHighlight, ListView, StyleSheet, Text, View } from 'react-native';
 import { Icon } from 'react-native-icons';
 import { Actions } from 'react-native-router-flux';
 import LoadingIndicator from './../../components/LoadingIndicator';

@@ -1,18 +1,24 @@
 'use strict';
 
-import React, { PropTypes } from 'react';
-import { Component, Image, StyleSheet, Text, TouchableHighlight, View, ListView } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { Image, StyleSheet, Text, TouchableHighlight, View, ListView } from 'react-native';
 import { assets } from './../../utils/assets';
+import LoadingIndicator from './../../components/LoadingIndicator';
 
 export default class CategoryList extends Component {
   //
   static propTypes = ({
-    categories : PropTypes.object.isRequired
+    categories : PropTypes.object.isRequired,
+    categoriesReducer:PropTypes.object.isRequired,
+    loadCategory:PropTypes.func.isRequired
   });
-//<Image style={styles.thumbnail} source={{uri:category.image}} resizeModel={'contain'}/>
+
+  renderHeader() {
+    console.log(this.props);
+    return this.props.categoriesReducer.isFetching && <LoadingIndicator />
+  }
 
   renderRow(category) {
-    console.log('image',assets[category.image]);
     var img = require(`./../../assets/img/clinic.png`);
     return (
       <TouchableHighlight onPress={() => this.props.loadCategory(category)} underlayColor="transparent">
@@ -37,6 +43,8 @@ export default class CategoryList extends Component {
         automaticallyAdjustContentInsets={false}
         enableEmptySections={true} //@todo remove this in future version
         ref='listView'
+        contentInset={{top:64,bottom:50}}
+        renderHeader={()=>this.renderHeader()}
       />
     )
 
@@ -45,11 +53,10 @@ export default class CategoryList extends Component {
 
 const styles = StyleSheet.create({
   list: {
+    flex:1,
+    backgroundColor:'white',
     justifyContent: 'center',
-    alignItems:'center',
-    alignSelf:'center',
     flexDirection: 'column',
-    paddingTop:200
   },
   row: {
     justifyContent: 'center',

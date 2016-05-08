@@ -1,6 +1,6 @@
 'use strict';
-import React from 'react';
-import { Component, ScrollView, Image, View } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { ScrollView, Image, View } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { fetchAppointments,cancelAppointment } from './../../actions/appointments';

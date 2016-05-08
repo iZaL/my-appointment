@@ -6,7 +6,6 @@ import { Actions } from 'react-native-router-flux';
 import { fetchCategories } from './../../actions/Category/categories';
 import { assets } from './../../utils/assets';
 import CategoryList from './../../components/Category/CategoryList';
-import LoadingIndicator from './../../components/LoadingIndicator';
 
 class Categories extends Component {
 
@@ -29,18 +28,11 @@ class Categories extends Component {
   render() {
     const { categories,categoriesReducer } = this.props;
     return (
-      <Image source={assets.lotus} style={{
-        flex: 1,
-        width:null,
-        height:null,
-        flexWrap:'wrap',
-        backgroundColor:'white',
-        paddingTop:64
-      }}
-      >
-        {categoriesReducer.isFetching &&  <LoadingIndicator />}
-        <CategoryList categories={categories} loadCategory={this.loadCategory}/>
-      </Image>
+        <CategoryList
+          categories={categories}
+          loadCategory={this.loadCategory}
+          categoriesReducer={categoriesReducer}
+        />
     );
   }
 }

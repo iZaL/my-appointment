@@ -1,6 +1,6 @@
 'use strict';
-import React from 'react';
-import { Component, ScrollView, Image, View,RefreshControl } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { ScrollView, Image, View,RefreshControl } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchFavorites,favoriteCompany } from './../../actions/favorites';
 import { assets } from './../../utils/assets';

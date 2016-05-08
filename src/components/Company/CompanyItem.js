@@ -1,6 +1,6 @@
 'use strict';
-import React from 'react';
-import { Component, Image, StyleSheet, Text, TouchableHighlight, View, ListView} from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { Image, StyleSheet, Text, TouchableHighlight, View, ListView} from 'react-native';
 import { Icon } from 'react-native-icons';
 
 export default class CompanyItem extends Component {

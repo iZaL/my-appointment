@@ -1,6 +1,6 @@
 'use strict';
-import React, { PropTypes } from 'react';
-import { Component,StyleSheet,View,TouchableOpacity,Text } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { StyleSheet,View,TouchableOpacity,Text } from 'react-native';
 import MapView from 'react-native-maps';
 
 export default class CompanyMap extends Component {

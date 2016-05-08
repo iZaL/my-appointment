@@ -1,6 +1,6 @@
 'use strict';
-import React from 'react';
-import { Component, ScrollView, View, Image } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { ScrollView, View, Image } from 'react-native';
 import { login,onLoginFormFieldChange } from '../../actions/Auth/login';
 import { connect } from 'react-redux';
 import LoginScene from './../../components/Auth/LoginScene';

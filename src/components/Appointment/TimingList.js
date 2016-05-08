@@ -1,6 +1,6 @@
 'use strict';
-import React, { PropTypes } from 'react';
-import { Component,ListView,TouchableHighlight,StyleSheet,Text,View,AlertIOS } from 'react-native';
+import React, { Component,PropTypes } from 'react';
+import { ListView,TouchableHighlight,StyleSheet,Text,View,AlertIOS } from 'react-native';
 import LoadingIndicator from './../LoadingIndicator';
 import Seperator from './../Seperator';
 

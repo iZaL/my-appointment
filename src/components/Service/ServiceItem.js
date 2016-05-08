@@ -1,7 +1,6 @@
 'use strict';
-
-import React from 'react-native';
-import { Component, Image, StyleSheet, Text, TouchableHighlight, View, ListView} from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { Image, StyleSheet, Text, TouchableHighlight, View, ListView} from 'react-native';
 import { Icon } from 'react-native-icons';
 const CalendarPicker = require('react-native-calendar-picker');
 
