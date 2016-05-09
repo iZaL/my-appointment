@@ -1,11 +1,10 @@
-/* @flow */
 'use strict';
 import React, { Component } from 'react';
+import { StyleSheet } from 'react-native';
 import { Router, Reducer } from 'react-native-router-flux'
-import { StyleSheet,Text } from 'react-native';
 import { loginUserByToken } from './actions/Auth/login';
 import { connect } from 'react-redux';
-import scenes from './scenes';
+import { scenes } from './scenes';
 
 const reducerCreate = params=>{
   const defaultReducer = Reducer(params);
@@ -33,7 +32,6 @@ class App extends Component {
   }
 
 }
-
 
 function mapStateToProps(state) {
   return {

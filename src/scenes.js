@@ -1,5 +1,6 @@
+'use strict';
 import React, { Component } from 'react';
-import { Scene, Reducer, Router, Switch, TabBar, Modal, Schema, Actions } from 'react-native-router-flux'
+import { Scene, Reducer, Router, Switch, TabBar, Modal, Schema, Actions } from 'react-native-router-flux';
 import Login from './containers/Auth/Login';
 import Register from './containers/Auth/Register';
 import Categories from './containers/Category/Categories';
@@ -17,7 +18,7 @@ import TabIcon from './components/TabIcon';
 import LoginDialog from './components/LoginDialog';
 import NavigationDrawer from './components/NavigationDrawer';
 
-export default scenes = Actions.create(
+export const scenes = Actions.create(
   <Scene key="root" component={Modal} >
     <Scene key="tabbar" component={NavigationDrawer} >
 
@@ -78,11 +79,10 @@ export default scenes = Actions.create(
                titleStyle={{ color:'white' }}
         />
 
-
-    <Scene key="login" component={Login} title="Login"   hideNavBar={true} />
-    <Scene key="register" component={Register} title="Register" hideNavBar={true} />
-    <Scene key="loginDialog" component={LoginDialog} hideNavBar={true} />
-    </Scene>
+        <Scene key="login" component={Login} hideNavBar={true} />
+        <Scene key="register" component={Register} hideNavBar={true} />
+        <Scene key="loginDialog" component={LoginDialog} hideNavBar={true} />
+      </Scene>
     </Scene>
 
   </Scene>
