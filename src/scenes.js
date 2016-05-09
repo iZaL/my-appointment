@@ -17,12 +17,13 @@ import Service from './containers/Service/Service';
 import TabIcon from './components/TabIcon';
 import LoginDialog from './components/LoginDialog';
 import NavigationDrawer from './components/NavigationDrawer';
+import IntroCarousel from './components/IntroCarousel';
 
 export const scenes = Actions.create(
   <Scene key="root" component={Modal} >
     <Scene key="tabbar" component={NavigationDrawer} >
 
-      <Scene key="home" tabs={true} default="main"
+      <Scene key="home" tabs={true} default="introCarousel"
              tabBarStyle={{
               backgroundColor:'#99ddff' ,
               height:40
@@ -36,10 +37,10 @@ export const scenes = Actions.create(
                navigationBarStyle={{ backgroundColor:'#99ddff' }}
                titleStyle={{ color:'white' }}
         >
-          <Scene key="categories" component={Categories} tite="" initial={true} hideNavBar={false} />
-          <Scene key="categoryEntity" component={Category} tite="" />
-          <Scene key="companyEntity" component={Company} tite=""/>
-          <Scene key="appointmentContainer" component={Appointment} tite=""/>
+          <Scene key="categories" component={Categories} initial={true} hideNavBar={false} rightTitle="intro" onRight={() => Actions.introCarousel()} />
+          <Scene key="categoryEntity" component={Category} />
+          <Scene key="companyEntity" component={Company} />
+          <Scene key="appointmentContainer" component={Appointment} />
         </Scene>
 
         <Scene key="maps" component={Map} icon={TabIcon}
@@ -82,6 +83,7 @@ export const scenes = Actions.create(
         <Scene key="login" component={Login} hideNavBar={true} />
         <Scene key="register" component={Register} hideNavBar={true} />
         <Scene key="loginDialog" component={LoginDialog} hideNavBar={true} />
+        <Scene initial={true} key="introCarousel" component={IntroCarousel} hideTabBar={true} hideNavBar={true}/>
       </Scene>
     </Scene>
 
