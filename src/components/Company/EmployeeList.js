@@ -88,7 +88,7 @@ var styles = StyleSheet.create({
     alignSelf:'flex-end'
   },
   separator: {
-    height:0.5,
+    height:1,
     backgroundColor:'#f0f5f5',
   },
 

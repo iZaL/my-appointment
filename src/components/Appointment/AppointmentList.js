@@ -12,10 +12,8 @@ export default class AppointmentList extends Component {
   render() {
     const {selectedEmployee,listEmployees,service} = this.props;
     return (
-      <View style={styles.cellContainer}>
-
-        <Seperator  />
-
+      <View style={styles.container}>
+        <View style={styles.separator} />
         <View style={styles.cellWrapper}>
           <View style={styles.leftCol}>
             <Icon
@@ -48,10 +46,6 @@ export default class AppointmentList extends Component {
             </TouchableHighlight>
           </View>
         </View>
-        <View style={styles.separatorWrapper}>
-          <View style={{flex:1}}/>
-          <View style={styles.separator} />
-        </View>
       </View>
     );
   }
@@ -64,11 +58,13 @@ AppointmentList.propTypes = {
 };
 
 var styles = StyleSheet.create({
-  container: {},
-  cellContainer:{},
+  container: {
+  },
+  cellContainer:{
+  },
   cellWrapper: {
-    flexDirection:'row',
     flex:1,
+    flexDirection:'row',
     alignItems:'center',
     padding:10,
   },
@@ -88,16 +84,9 @@ var styles = StyleSheet.create({
     borderRadius:30,
     justifyContent:'center'
   },
-  separatorWrapper:{
-    flexDirection:'row',
-    flex:1,
-    justifyContent:'flex-start',
-    alignItems:'center',
-  },
   separator: {
-    height:0.5,
+    height:1,
     backgroundColor:'#f0f5f5',
-    flex:4
   },
   serviceName: {
     fontSize:13,

@@ -31,7 +31,7 @@ export default class TimingList extends Component {
     let dataSource = timings ? ds.cloneWithRows(timings) : ds.cloneWithRows([]);
     return (
       <View >
-        <Seperator />
+        <View style={styles.separator}/>
 
         {timingsReducer.isFetching ? <LoadingIndicator style={{marginTop:10}}/> : <View/>}
         <ListView
@@ -60,7 +60,7 @@ TimingList.propTypes = {
 
 var styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FFFFFD',
+    flex:1,
     marginBottom:20
   },
   cellContainer:{
@@ -89,49 +89,16 @@ var styles = StyleSheet.create({
     justifyContent:'flex-start',
     flex:2,
   },
-  priceWrapper:{
-    justifyContent:'flex-end',
-    flexDirection:'row',
-    flex:1,
-    alignItems:'center'
-  },
   name: {
-    color: 'white',
+    color: '#FFFFFD',
     fontSize:14,
     fontWeight:'700',
     textAlign:'center'
 
   },
-  price: {
-    textAlign:'right',
-    color:'gray',
-    fontSize:13
-  },
-  bookButtonWrapper:{
-    flexDirection:'row',
-    marginLeft:10,
-    justifyContent:'center',
-    padding:4,
-    paddingLeft:10,
-    paddingRight:10,
-    borderRadius:2,
-    backgroundColor:'blue',
-
-  },
-  bookButton: {
-    color:'white',
-    textAlign:'right',
-    fontSize:12,
-    alignSelf:'center',
-    paddingLeft:3
-  },
   separator: {
     height:1,
-    backgroundColor:'#E8E8E8'
-  },
-  calendarIcon :{
-    height:20,
-    width:20
+    backgroundColor:'#f0f5f5',
   },
 
 
