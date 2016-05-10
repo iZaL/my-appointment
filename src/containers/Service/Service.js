@@ -1,6 +1,6 @@
 'use strict';
 import React, { Component, PropTypes } from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchService } from './../../actions/Service/service';
 import { favoriteCompany } from './../../actions/favorites';
@@ -43,14 +43,14 @@ class Service extends Component {
   render() {
     const {serviceReducer, companies } = this.props;
     return (
-      <ScrollView style={{ flex:1,backgroundColor:'white' }} contentContainerStyle={{paddingTop: 64}} contentInset={{ bottom:50 }} >
-        {serviceReducer.isFetching ? <LoadingIndicator /> : <View />}
+      <Image source={require('./../../assets/img/info-background.png')} style={{flex: 1,width: null,height: null,paddingTop: 10,backgroundColor:'white'}} >
+        {serviceReducer.isFetching && <LoadingIndicator />  }
         <CompanyList
           loadCompany={this.loadCompany.bind(this)}
           favoriteCompany={this.favoriteCompany.bind(this)}
           companies={companies}
         />
-      </ScrollView>
+      </Image>
     );
   }
 }

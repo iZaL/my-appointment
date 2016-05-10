@@ -21,6 +21,7 @@ import NavigationDrawer from './components/NavigationDrawer';
 import IntroCarousel from './components/IntroCarousel';
 import About from './components/About';
 import Term from './components/Term';
+import Contact from './components/Contact';
 import Profile from './containers/User/Profile';
 
 export const scenes = Actions.create(
@@ -71,10 +72,11 @@ export const scenes = Actions.create(
                navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                titleStyle={{ color:'white' }}
         >
-          <Scene key="settingsScene" component={Settings} />
+          <Scene key="settingsScene" component={Settings} title="Settings"/>
           <Scene key="about" component={About}  hideTabBar={true} hideNavBar={true}/>
           <Scene key="term" component={Term}  hideTabBar={true} hideNavBar={true}/>
           <Scene key="profile" component={Profile}  hideTabBar={true} hideNavBar={true}/>
+          <Scene key="contact" component={Contact}  hideTabBar={true} hideNavBar={true}/>
         </Scene>
 
         <Scene key="serviceTab"

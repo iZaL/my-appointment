@@ -26,19 +26,11 @@ class Settings extends Component {
         return Actions.term();
       case 'profile':
         return Actions.profile();
-      case 'instagram' :
-        return this.openLink('instagram://user?username=pets');
-      case 'facebook' :
-        return this.openLink('fb://profile/630026573700812');
-      case 'twitter' :
-        return this.openLink('twitter://user?screen_name=music');
+      case 'contact':
+        return Actions.contact();
       default :
         return;
     }
-  }
-
-  openLink(url) {
-    Linking.openURL(url);
   }
 
   logout() {
@@ -47,15 +39,12 @@ class Settings extends Component {
 
   render() {
     return (
-      <ScrollView style={{flex:1,backgroundColor: 'white',paddingTop:64}}>
+      <ScrollView style={{flex:1,backgroundColor: 'white',paddingTop:80}}>
         <SettingsCell icon="ion|power" title="Logout" callback={()=>this.logout()} />
         <SettingsCell icon="ion|person" title="Profile" callback={()=>this.loadLink('profile')} />
         <SettingsCell icon="ion|information-circled" title="About" callback={()=>this.loadLink('about')} />
         <SettingsCell icon="ion|help-circled" title="Contact Us" callback={()=>this.loadLink('contact')} />
         <SettingsCell icon="ion|ios-checkmark" title="Terms and Conditions" callback={()=>this.loadLink('term')} />
-        <SettingsCell icon="ion|social-instagram-outline" title="Follow us on Instagram " callback={()=>this.loadLink('instagram')} />
-        <SettingsCell icon="ion|social-twitter-outline" title="Follow us on Twitter" callback={()=>this.loadLink('twitter')} />
-        <SettingsCell icon="ion|social-facebook-outline" title="Join our Facebook Page" callback={()=>this.loadLink('facebook')} />
       </ScrollView>
     );
   }

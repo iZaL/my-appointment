@@ -9,7 +9,7 @@ export default class ServiceList extends Component {
   renderRow(service) {
     return (
       <View style={styles.cellContainer}>
-        <TouchableHighlight onPress={() => ''} underlayColor='transparent'>
+        <TouchableHighlight onPress={() => this.props.loadDateTime(service)} underlayColor='transparent'>
           <View style={styles.cellWrapper}>
             <View style={styles.titleWrapper}>
               <Text style={styles.name}>
@@ -20,19 +20,17 @@ export default class ServiceList extends Component {
               <Text style={styles.price}>
                 {service.pivot.price ? service.pivot.price|0 : '-'} KD
               </Text>
-              <TouchableHighlight onPress={() => this.props.loadDateTime(service)} underlayColor='transparent'>
-                <View style={styles.bookButtonWrapper} >
-                  <Icon
-                    name='ion|calendar'
-                    size={20}
-                    color='white'
-                    style={styles.calendarIcon}
-                  />
-                  <Text style={styles.bookButton}>
-                    Book
-                  </Text>
-                </View>
-              </TouchableHighlight>
+              <View style={styles.bookButtonWrapper} >
+                <Icon
+                  name='ion|calendar'
+                  size={20}
+                  color='white'
+                  style={styles.calendarIcon}
+                />
+                <Text style={styles.bookButton}>
+                  Book
+                </Text>
+              </View>
             </View>
           </View>
         </TouchableHighlight>

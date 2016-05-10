@@ -18,9 +18,9 @@ export default class SettingsCell extends Component {
               <View style={styles.leftCol}>
                 <Icon
                   name={this.props.icon}
-                  size={20}
+                  size={26}
                   color={'tomato'}
-                  style={{width:20,height:20,alignSelf:'center',fontWeight:100}}
+                  style={{width:26,height:26,alignSelf:'center',fontWeight:100}}
                 />
               </View>
               <View style={styles.middleCol}>
@@ -45,11 +45,11 @@ export default class SettingsCell extends Component {
 var styles = StyleSheet.create({
   container: {
     flex:1,
-    backgroundColor:'white',
   },
   cellWrapper: {
     flex:1,
     flexDirection:'row',
+    alignItems:'center',
     padding:10,
   },
   rightCol:{

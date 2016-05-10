@@ -10,7 +10,7 @@ export default class ProfileScene extends Component {
     return (
       <PageViewer
         title="Profile"
-        headerImage={require('./../assets/img/notifications-background.png')}
+        headerImage={require('./../assets/img/schedule-background.png')}
       >
         <View style={styles.container}>
           <Text>Profile Page</Text>

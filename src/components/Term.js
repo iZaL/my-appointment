@@ -10,7 +10,7 @@ export default class Term extends Component {
     return (
       <PageViewer
         title="Terms and Condition"
-        headerImage={require('./../assets/img/info-background.png')}
+        headerImage={require('./../assets/img/maps-background.png')}
       >
         <View style={styles.container}>
           <Text>Terms and Condition</Text>
