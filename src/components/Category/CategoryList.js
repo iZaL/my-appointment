@@ -56,11 +56,12 @@ export default class CategoryList extends Component {
           contentContainerStyle={styles.contentContainer}
           dataSource={dataSource}
           renderRow={this.renderRow.bind(this)}
-          automaticallyAdjustContentInsets={false}
           enableEmptySections={true} //@todo remove this in future version
           ref='listView'
           renderHeader={()=>this.renderHeader()}
           contentInset={{ top:100, bottom:100 }}
+          showsVerticalScrollIndicator={false}
+          automaticallyAdjustContentInsets={false}
         />
       </Image>
     )

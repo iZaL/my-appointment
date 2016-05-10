@@ -20,15 +20,13 @@ class Settings extends Component {
 
   loadLink(name){
     switch(name) {
+      case 'about':
+        return Actions.about();
       case 'profile':
         Actions.mediasRouter();
         return Actions.userScene({
           title:this.props.authUser.name,
           userID:this.props.authUser.id
-        });
-        case 'about':
-        return Actions.about({
-          title:'About'
         });
       case 'instagram' :
         return this.openLink('instagram://user?username=pets');

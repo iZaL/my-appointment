@@ -19,7 +19,7 @@ export default class CompanyList extends Component {
   renderRow(company) {
     const {loadCompany} = this.props;
     return (
-      <View style={styles.container}>
+      <View style={styles.cellWrapper}>
         <TouchableHighlight onPress={() => loadCompany(company)} underlayColor="transparent">
           <View style={{justifyContent:'center',alignItems:'center'}}>
             <Image style={styles.thumbnail} source={{uri:company.image}}/>
@@ -57,28 +57,26 @@ export default class CompanyList extends Component {
 
     return (
       <ListView
-        contentContainerStyle={styles.list}
+        contentContainerStyle={styles.contentContainer}
         dataSource={dataSource}
         renderRow={this.renderRow.bind(this)}
-        contentInset={{bottom:49}}
-        style={{paddingTop:64}}
-        automaticallyAdjustContentInsets={false}
         enableEmptySections={true} //@todo remove this in future version
-
+        showsVerticalScrollIndicator={false}
+        automaticallyAdjustContentInsets={false}
         ref='listView'
       />
     )
-
   }
 }
 
 
 var styles = StyleSheet.create({
+  contentContainer:{
+    paddingVertical:64,
+    paddingHorizontal:5
 
-  list:{
-    padding:10
   },
-  container: {
+  cellWrapper: {
     marginBottom: 10,
     paddingTop:10,
     paddingBottom:10,

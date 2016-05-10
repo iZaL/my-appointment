@@ -64,11 +64,14 @@ export const scenes = Actions.create(
                hideNavBar={true}
 
         />
-        <Scene key="settings" component={Settings} icon={TabIcon}  title="Settings"
+        <Scene key="settings" icon={TabIcon}  title="Settings"
                selectedTabIcon="ion|ios-gear" tabIcon="ion|ios-gear-outline"
                navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                titleStyle={{ color:'white' }}
-        />
+        >
+          <Scene key="settingsScene" component={Settings} />
+          <Scene key="about" component={About}  hideTabBar={true} hideNavBar={true}/>
+        </Scene>
 
         <Scene key="serviceTab"
                navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
@@ -86,7 +89,6 @@ export const scenes = Actions.create(
         <Scene key="register" component={Register} hideNavBar={true} />
         <Scene key="loginDialog" component={LoginDialog} hideNavBar={true} />
         <Scene initial={true} key="introCarousel" component={IntroCarousel}  hideTabBar={true} hideNavBar={true}/>
-        <Scene key="about" component={About}  hideTabBar={true} hideNavBar={true}/>
       </Scene>
     </Scene>
 
