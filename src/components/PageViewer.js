@@ -123,7 +123,7 @@ export default class PageViewer extends Component {
 const styles = StyleSheet.create({
   fill: {
     flex: 1,
-    backgroundColor:'#e7e7e7'
+    backgroundColor:'white'
   },
   content: {
     flex: 1,

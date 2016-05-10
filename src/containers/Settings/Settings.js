@@ -22,12 +22,10 @@ class Settings extends Component {
     switch(name) {
       case 'about':
         return Actions.about();
+      case 'term':
+        return Actions.term();
       case 'profile':
-        Actions.mediasRouter();
-        return Actions.userScene({
-          title:this.props.authUser.name,
-          userID:this.props.authUser.id
-        });
+        return Actions.profile();
       case 'instagram' :
         return this.openLink('instagram://user?username=pets');
       case 'facebook' :
@@ -54,10 +52,10 @@ class Settings extends Component {
         <SettingsCell icon="ion|person" title="Profile" callback={()=>this.loadLink('profile')} />
         <SettingsCell icon="ion|information-circled" title="About" callback={()=>this.loadLink('about')} />
         <SettingsCell icon="ion|help-circled" title="Contact Us" callback={()=>this.loadLink('contact')} />
-        <SettingsCell icon="ion|ios-checkmark" title="Terms and Conditions" callback={()=>this.loadLink('terms')} />
+        <SettingsCell icon="ion|ios-checkmark" title="Terms and Conditions" callback={()=>this.loadLink('term')} />
         <SettingsCell icon="ion|social-instagram-outline" title="Follow us on Instagram " callback={()=>this.loadLink('instagram')} />
-        <SettingsCell icon="ion|social-facebook-outline" title="Join our Facebook Page" callback={()=>this.loadLink('facebook')} />
         <SettingsCell icon="ion|social-twitter-outline" title="Follow us on Twitter" callback={()=>this.loadLink('twitter')} />
+        <SettingsCell icon="ion|social-facebook-outline" title="Join our Facebook Page" callback={()=>this.loadLink('facebook')} />
       </ScrollView>
     );
   }

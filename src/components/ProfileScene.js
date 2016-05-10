@@ -4,16 +4,16 @@ import PageViewer from './PageViewer';
 import {Actions } from 'react-native-router-flux';
 import { ScrollView, StyleSheet, Text, View} from 'react-native';
 
-export default class About extends Component {
+export default class ProfileScene extends Component {
 
   render() {
     return (
       <PageViewer
-        title="About"
-        headerImage={require('./../assets/img/info-background.png')}
+        title="Profile"
+        headerImage={require('./../assets/img/notifications-background.png')}
       >
         <View style={styles.container}>
-          <Text>about us about us about us</Text>
+          <Text>Profile Page</Text>
         </View>
       </PageViewer>
     )
