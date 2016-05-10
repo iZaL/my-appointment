@@ -29,7 +29,7 @@ export default class Login extends Component {
     dispatch(login(credentials))
       .then((success)=> {
         if(success) {
-          Actions.tabbar();
+          Actions.main();
         } else {
           alert('Wrong Credentials, Try again');
         }
@@ -43,7 +43,7 @@ export default class Login extends Component {
 
   handleForgotPasswordRoute() {
     // @todo: implement route
-    Actions.tabbar();
+    Actions.main();
   }
 
   onFieldChange(value, field) {

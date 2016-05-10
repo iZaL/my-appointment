@@ -1,9 +1,10 @@
 import React, { Component, PropTypes} from 'react';
-import { StatusBar,ListView,ScrollView, TouchableHighlight, StyleSheet, Text, View,AlertIOS, Dimensions } from 'react-native';
+import { StatusBar,TouchableOpacity, StyleSheet, Text, View,} from 'react-native';
 import { Icon } from 'react-native-icons';
 import PromoImage from './PromoImage';
-var {width, height} = Dimensions.get('window');
 var Carousel = require('react-native-carousel');
+import { Actions } from 'react-native-router-flux';
+
 export default class IntroCarousel extends Component {
 
   componentWillMount() {
@@ -16,12 +17,26 @@ export default class IntroCarousel extends Component {
 
   render() {
     return (
-      <Carousel delay={5000} style={styles.container}>
-        <PromoImage image="bg.png" />
-        <PromoImage image="bg.png" />
-        <PromoImage image="bg.png" />
-        <PromoImage image="bg.png" />
-      </Carousel>
+      <View >
+        <Carousel delay={5000} style={styles.container} indicatorSize={30} indicatorOffset={90}>
+          <PromoImage image={require('./../assets/img/bg.png')}
+                      header="My Appointment"
+                      description="book your appointment"
+                      promoText=""
+          />
+          <PromoImage image={require('./../assets/img/bg.png')}
+                      header="Heading"
+                      description="description"
+                      promoText="Promo Text"
+          />
+
+        </Carousel>
+        <View style={styles.skipWrapper}>
+          <TouchableOpacity onPress={()=>Actions.main()} >
+            <Text style={styles.skipText}>Skip</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     );
   }
 }
@@ -33,4 +48,13 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'transparent',
   },
+  skipWrapper:{
+    bottom:50,
+    alignItems:'center'
+  },
+  skipText: {
+    color:'white',
+    textDecorationLine:'underline',
+    fontSize:16
+  }
 });

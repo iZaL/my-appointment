@@ -17,14 +17,28 @@ export default class CategoryList extends Component {
     console.log(this.props);
     return this.props.categoriesReducer.isFetching && <LoadingIndicator />
   }
+  getCategoryImage(name){
+    var name = name.toLowerCase();
+    if(name == 'salon') {
+      return require('./../../assets/img/salon.png');
+    } else if(name == 'clinic') {
+      return require('./../../assets/img/clinic.png');
+    } else if(name == 'spa') {
+      return require('./../../assets/img/spa.png');
+    } else if(name == 'home service') {
+      return require('./../../assets/img/spa.png');
+    }
+  }
 
   renderRow(category) {
-    var img = require(`./../../assets/img/clinic.png`);
+    var img = this.getCategoryImage(category.name_en);
     return (
       <TouchableHighlight onPress={() => this.props.loadCategory(category)} underlayColor="transparent">
         <View style={styles.row}>
-          <Image source={img} underlayColor="transparent" style={{flex: 1,width: 75,height: 75,padding: 10,flexWrap:'wrap',backgroundColor:'white'}}/>
-          <Text style={styles.text}> {category.name_en}</Text>
+          <View style={styles.cellWrapper}>
+            <Image source={img} underlayColor="transparent" style={styles.thumbnail}/>
+            <Text style={styles.text}> {category.name_en}</Text>
+          </View>
         </View>
       </TouchableHighlight>
     )
@@ -36,45 +50,59 @@ export default class CategoryList extends Component {
     let dataSource = categories ? ds.cloneWithRows(categories) : ds.cloneWithRows([]);
 
     return (
-      <ListView
-        contentContainerStyle={styles.list}
-        dataSource={dataSource}
-        renderRow={this.renderRow.bind(this)}
-        automaticallyAdjustContentInsets={false}
-        enableEmptySections={true} //@todo remove this in future version
-        ref='listView'
-        contentInset={{top:64,bottom:50}}
-        renderHeader={()=>this.renderHeader()}
-      />
+      <Image style={styles.container} source={require('./../../assets/img/bg.png')} >
+        <ListView
+          contentContainerStyle={styles.contentContainer}
+          dataSource={dataSource}
+          renderRow={this.renderRow.bind(this)}
+          automaticallyAdjustContentInsets={false}
+          enableEmptySections={true} //@todo remove this in future version
+          ref='listView'
+          renderHeader={()=>this.renderHeader()}
+        />
+      </Image>
     )
 
   }
 }
 
 const styles = StyleSheet.create({
-  list: {
+  container:{
+    flex: 1,
+    width: null,
+    height: null,
+    paddingTop: 10,
+    backgroundColor:'white'
+  },
+  contentContainer:{
     flex:1,
-    backgroundColor:'white',
     justifyContent: 'center',
-    flexDirection: 'column',
   },
   row: {
-    justifyContent: 'center',
-    borderRadius:50,
-    alignItems: 'center',
-    marginBottom:15
+    flex:1,
+    alignItems:'center',
+    opacity:.9,
+    padding:10,
+  },
+  cellWrapper: {
+    width:150,
+    height:150,
+    borderRadius:75,
+    backgroundColor:'white',
+    opacity: 0.7,
+    alignItems:'center',
+    overflow:'hidden',
+    justifyContent:'center'
   },
   thumbnail: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 80,
+    height: 80,
   },
   text: {
-    alignSelf:'center',
     color:'black',
-    fontSize:26,
+    fontSize:20,
     fontWeight:'800',
-    fontFamily:'SnellRoundhand'
+    fontFamily:'SnellRoundhand',
   },
 
 });

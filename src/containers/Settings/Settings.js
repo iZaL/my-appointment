@@ -26,6 +26,11 @@ class Settings extends Component {
           title:this.props.authUser.name,
           userID:this.props.authUser.id
         });
+        case 'about':
+        return Actions.about({
+          title:'About'
+        });
+
       default :
         return;
     }

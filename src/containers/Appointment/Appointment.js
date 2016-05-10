@@ -12,6 +12,7 @@ import AppointmentConfirm from './../../components/Appointment/AppointmentConfir
 import EmployeePicker from './../../components/Company/EmployeePicker';
 import LoadingIndicator from './../../components/LoadingIndicator';
 import { Actions } from 'react-native-router-flux';
+import FormButton from './../../components/FormButton';
 
 class Appointment extends Component {
 
@@ -64,7 +65,7 @@ class Appointment extends Component {
 
     this.setState({
       selectedTime: time,
-      showAppointmentConfirmModal:true
+      //showAppointmentConfirmModal:true
     });
   };
 
@@ -94,6 +95,12 @@ class Appointment extends Component {
     this.props.dispatch(createAppointment(this.props.companyID,this.props.serviceID,this.state.selectedDate,this.state.selectedTime,this.state.selectedEmployee))
       .then(()=>console.log('success'))
       .catch(()=>console.log('error'));
+  }
+
+  handleNext() {
+    this.setState({
+      showAppointmentConfirmModal:true
+    });
   }
 
   render() {
@@ -142,6 +149,13 @@ class Appointment extends Component {
           inValidateAppointment={this.inValidateAppointment.bind(this)}
         />
 
+        {!this.state.showAppointmentConfirmModal &&
+        <FormButton
+          onPress={this.handleNext.bind(this)}
+          buttonText='Next'
+          containerStyle={{padding:5,margin:10,marginTop:0,marginBottom:0}}
+        />
+        }
       </View>
     );
   }
