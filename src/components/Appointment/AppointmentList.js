@@ -5,6 +5,7 @@ import { Icon } from 'react-native-icons';
 import LoadingIndicator from './../../components/LoadingIndicator';
 import Seperator from './../Seperator';
 const Actions = require('react-native-router-flux').Actions;
+import { APP_STYLES } from './../../utils/AppStyles';
 
 export default class AppointmentList extends Component {
 
@@ -103,7 +104,7 @@ var styles = StyleSheet.create({
     color:'#239077'
   },
   employeeSelectWrapper: {
-    backgroundColor:'#99ddff',
+    backgroundColor:APP_STYLES.primaryColor,
     padding:5,
     marginTop:10,
     flexDirection:'row',

@@ -9,6 +9,7 @@ import LoadingIndicator from './../../components/LoadingIndicator';
 import CompanyMap from './../../components/Company/CompanyMap';
 import CompanyDescription from './../../components/Company/CompanyDescription';
 import CompanyContact from './../../components/Company/CompanyContact';
+import { APP_STYLES } from './../../utils/AppStyles';
 import { Actions } from 'react-native-router-flux';
 
 class Company extends Component {
@@ -69,9 +70,9 @@ class Company extends Component {
 
     if(this.state.selectedIndex === 1) {
       selectedComponent =  <View>
-          <CompanyDescription company={company} />
-          <CompanyContact company={company} />
-        </View>
+        <CompanyDescription company={company} />
+        <CompanyContact company={company} />
+      </View>
     } else if(this.state.selectedIndex === 2) {
       selectedComponent = <CompanyMap
         company={company}
@@ -90,8 +91,8 @@ class Company extends Component {
       <ScrollView style={{ flex:1,backgroundColor:'white' }} contentContainerStyle={{paddingTop: 64}} contentInset={{ bottom:50 }} >
         <CompanyItem company={company}/>
         <View style={{flex:1,margin:5,marginTop:20}}>
-          <SegmentedControlIOS values={['Services', 'Description', 'Map']} tintColor="#99ddff" momentary={true} selectedIndex={0}
-                               onChange={this.onChange}
+          <SegmentedControlIOS values={['Services', 'Description','Map']} tintColor={APP_STYLES.primaryColor}  selectedIndex={this.state.selectedIndex}
+                               onChange={(event)=> this.onChange(event)}
           />
           {selectedComponent}
         </View>

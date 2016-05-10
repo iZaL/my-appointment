@@ -3,6 +3,7 @@ import React, { Component,PropTypes } from 'react';
 import { ListView,TouchableHighlight,StyleSheet,Text,View,AlertIOS } from 'react-native';
 import LoadingIndicator from './../LoadingIndicator';
 import Seperator from './../Seperator';
+import { APP_STYLES } from './../../utils/AppStyles';
 
 export default class TimingList extends Component {
 
@@ -72,7 +73,7 @@ var styles = StyleSheet.create({
     marginBottom:0
   },
   activeCell : {
-    backgroundColor:'#99ddff'
+    backgroundColor:APP_STYLES.primaryColor
   },
   cellWrapper: {
     flexDirection:'row',

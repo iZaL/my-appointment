@@ -1,6 +1,7 @@
 'use strict';
 import React, { Component } from 'react';
 import { Scene, Reducer, Router, Switch, TabBar, Modal, Schema, Actions } from 'react-native-router-flux';
+import { APP_STYLES } from './utils/AppStyles';
 import Login from './containers/Auth/Login';
 import Register from './containers/Auth/Register';
 import Categories from './containers/Category/Categories';
@@ -26,16 +27,16 @@ export const scenes = Actions.create(
 
       <Scene key="home" tabs={true} default="introCarousel"
              tabBarStyle={{
-              backgroundColor:'#99ddff' ,
+              backgroundColor:APP_STYLES.primaryColor ,
               height:40
              }}
-             navigationBarStyle={{ backgroundColor:'#99ddff' }}
+             navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
       >
         <Scene key="main"
                icon={TabIcon}
                selectedTabIcon="ion|ios-home"
                tabIcon="ion|ios-home-outline"
-               navigationBarStyle={{ backgroundColor:'#99ddff' }}
+               navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                titleStyle={{ color:'white' }}
         >
           <Scene key="categories" component={Categories} initial={true} hideNavBar={false} />
@@ -51,33 +52,33 @@ export const scenes = Actions.create(
 
         <Scene key="favorites" component={Favorites} icon={TabIcon} title="Favorites"
                selectedTabIcon="ion|android-favorite" tabIcon="ion|android-favorite-outline"
-               navigationBarStyle={{ backgroundColor:'#99ddff' }}
+               navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                titleStyle={{ color:'white' }}
                hideNavBar={true}
         />
 
         <Scene key="appointments" component={Appointments}  icon={TabIcon} title="Appointments"
                selectedTabIcon="ion|ios-alarm" tabIcon="ion|ios-alarm-outline"
-               navigationBarStyle={{ backgroundColor:'#99ddff' }}
+               navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                titleStyle={{ color:'white' }}
                hideNavBar={true}
 
         />
         <Scene key="settings" component={Settings} icon={TabIcon}  title="Settings"
                selectedTabIcon="ion|ios-gear" tabIcon="ion|ios-gear-outline"
-               navigationBarStyle={{ backgroundColor:'#99ddff' }}
+               navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                titleStyle={{ color:'white' }}
         />
 
         <Scene key="serviceTab"
-               navigationBarStyle={{ backgroundColor:'#99ddff' }}
+               navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                titleStyle={{ color:'white' }}
         >
           <Scene key="serviceEntity" component={Service} title="Service" type="reset"/>
         </Scene>
 
         <Scene key="search" component={Search} title="search" hideNavBar={false}
-               navigationBarStyle={{ backgroundColor:'#99ddff' }}
+               navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                titleStyle={{ color:'white' }}
         />
 

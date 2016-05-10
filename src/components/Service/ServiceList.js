@@ -2,6 +2,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Image, StyleSheet, Text, TouchableHighlight, View, ListView } from 'react-native';
 import { Icon } from 'react-native-icons';
+import { APP_STYLES } from './../../utils/AppStyles';
 
 export default class ServiceList extends Component {
 
@@ -100,7 +101,7 @@ var styles = StyleSheet.create({
   bookButtonWrapper:{
     flexDirection:'row',
     marginLeft:10,
-    backgroundColor:'#99ddff',
+    backgroundColor:APP_STYLES.primaryColor,
     justifyContent:'center',
     padding:4,
     paddingLeft:10,

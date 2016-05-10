@@ -12,51 +12,44 @@ export default class SettingsCell extends Component {
 
   render() {
     return (
-      <View style={styles.cellContainer}>
-
-        <View style={styles.separator} />
-
-        <TouchableHighlight onPress={() => this.props.callback()} underlayColor='transparent'>
-          <View style={styles.cellWrapper}>
-            <View style={styles.leftCol}>
-              <Icon
-                name={this.props.icon}
-                size={20}
-                color={'tomato'}
-                style={{width:20,height:20,alignSelf:'center',fontWeight:100}}
-              />
+        <View style={styles.container}>
+          <TouchableHighlight onPress={() => this.props.callback()} underlayColor='transparent'>
+            <View style={styles.cellWrapper}>
+              <View style={styles.leftCol}>
+                <Icon
+                  name={this.props.icon}
+                  size={20}
+                  color={'tomato'}
+                  style={{width:20,height:20,alignSelf:'center',fontWeight:100}}
+                />
+              </View>
+              <View style={styles.middleCol}>
+                <Text>{this.props.title}</Text>
+              </View>
+              <View style={styles.rightCol}>
+                <Icon
+                  name='ion|chevron-right'
+                  size={20}
+                  color={'#f0f5f5'}
+                  style={{width:20,height:20,alignSelf:'flex-end',fontWeight:'200'}}
+                />
+              </View>
             </View>
-            <View style={styles.middleCol}>
-              <Text>{this.props.title}</Text>
-            </View>
-            <View style={styles.rightCol}>
-              <Icon
-                name='ion|chevron-right'
-                size={20}
-                color={'#f0f5f5'}
-                style={{width:20,height:20,alignSelf:'flex-end',fontWeight:'200'}}
-              />
-            </View>
-          </View>
-        </TouchableHighlight>
-
-        <View style={styles.separator} />
-
-      </View>
-
+          </TouchableHighlight>
+          <View style={styles.separator} />
+        </View>
     );
   }
 }
 
 var styles = StyleSheet.create({
-  cellContainer:{
+  container: {
+    flex:1,
     backgroundColor:'white',
   },
   cellWrapper: {
-    flexDirection:'row',
     flex:1,
-    justifyContent:'flex-start',
-    alignItems:'center',
+    flexDirection:'row',
     padding:10,
   },
   rightCol:{
@@ -78,8 +71,8 @@ var styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   separator: {
-    height:1,
-    borderBottomColor:'#f0f5f5',
+    backgroundColor:'#e1e1e1',
+    height:1
   }
 
 });

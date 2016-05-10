@@ -36,23 +36,15 @@ class Appointment extends Component {
     };
   }
 
-  componentWillMount() {
-    //if(!this.props.userReducer.isAuthenticated) {
-    //  Actions.loginDialog({dialogText:'Please Login to view and manage your Favorites'});
-    //}
-  }
-
   componentDidMount() {
     const {dispatch} = this.props;
     dispatch(fetchTimings());
     if(this.props.userReducer.isAuthenticated) {
       dispatch(invalidateCreatedAppointment());
-      //dispatch(fetchTimings());
     }
   }
 
   listEmployees() {
-    //this.refs.scrollView.scrollTo({x: 0});
     this.setState({ showEmployeeListModal:true });
   }
 
@@ -61,11 +53,8 @@ class Appointment extends Component {
   }
 
   onTimeSelect(time) {
-    //this.refs.scrollView.scrollTo({x: 0});
-
     this.setState({
       selectedTime: time,
-      //showAppointmentConfirmModal:true
     });
   };
 
@@ -153,7 +142,7 @@ class Appointment extends Component {
         <FormButton
           onPress={this.handleNext.bind(this)}
           buttonText='Next'
-          containerStyle={{padding:5,margin:10,marginTop:0,marginBottom:0}}
+          containerStyle={{padding:5,margin:10,marginTop:0,marginBottom:0,backgroundColor:'tomato',opacity:0.7}}
         />
         }
       </View>

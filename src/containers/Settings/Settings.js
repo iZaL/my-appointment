@@ -42,7 +42,7 @@ class Settings extends Component {
 
   render() {
     return (
-      <ScrollView contentContainerStyle={{backgroundColor: '#f0f5f5',paddingTop:64}}>
+      <ScrollView style={{flex:1,backgroundColor: 'white',paddingTop:64}}>
         <SettingsCell icon="ion|power" title="Logout" callback={()=>this.logout()} />
         <SettingsCell icon="ion|person" title="Profile" callback={()=>this.loadScene('profile')} />
         <SettingsCell icon="ion|information-circled" title="About" callback={()=>this.loadScene('about')} />
@@ -51,7 +51,6 @@ class Settings extends Component {
         <SettingsCell icon="ion|social-instagram-outline" title="Follow " callback={()=>this.loadScene('instagram')} />
       </ScrollView>
     );
-
   }
 }
 
