@@ -14,19 +14,20 @@ export default class CategoryList extends Component {
   });
 
   renderHeader() {
-    console.log(this.props);
     return this.props.categoriesReducer.isFetching && <LoadingIndicator />
   }
   getCategoryImage(name){
-    var name = name.toLowerCase();
+
+    var name = name.replace(/\s+/g, '-').toLowerCase();
+    console.log('name',name);
     if(name == 'salon') {
       return require('./../../assets/img/salon.png');
     } else if(name == 'clinic') {
       return require('./../../assets/img/clinic.png');
     } else if(name == 'spa') {
       return require('./../../assets/img/spa.png');
-    } else if(name == 'home service') {
-      return require('./../../assets/img/spa.png');
+    } else if(name == 'home-service') {
+      return require('./../../assets/img/home-service.png');
     }
   }
 
@@ -50,7 +51,7 @@ export default class CategoryList extends Component {
     let dataSource = categories ? ds.cloneWithRows(categories) : ds.cloneWithRows([]);
 
     return (
-      <Image style={styles.container} source={require('./../../assets/img/bg.png')} >
+      <Image style={styles.container} source={require('./../../assets/img/bghome.png')}  >
         <ListView
           contentContainerStyle={styles.contentContainer}
           dataSource={dataSource}
@@ -59,6 +60,7 @@ export default class CategoryList extends Component {
           enableEmptySections={true} //@todo remove this in future version
           ref='listView'
           renderHeader={()=>this.renderHeader()}
+          contentInset={{ top:100, bottom:100 }}
         />
       </Image>
     )
@@ -71,7 +73,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: null,
     height: null,
-    paddingTop: 10,
+    paddingTop: 64,
     backgroundColor:'white'
   },
   contentContainer:{

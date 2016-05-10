@@ -19,7 +19,7 @@ export default class IntroCarousel extends Component {
     return (
       <View >
         <Carousel delay={5000} style={styles.container} indicatorSize={30} indicatorOffset={90}>
-          <PromoImage image={require('./../assets/img/bg.png')}
+          <PromoImage image={require('./../assets/img/bghome.png')}
                       header="My Appointment"
                       description="book your appointment"
                       promoText=""

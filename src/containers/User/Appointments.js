@@ -50,7 +50,7 @@ class Appointments extends Component {
           isEmpty(appointmentsArray) &&
           <NoResult
             title="No Appointments Yet"
-            description=" "
+            description="login to manage your appointments"
             buttonText="Explore Salons"
             callback={()=>Actions.main()}
           />

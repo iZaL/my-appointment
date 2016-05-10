@@ -24,6 +24,10 @@
 	<string>75HgBnx2e2TEqeGylgjAYYfU2K7sV11xDbpZe</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>snapchat</string>
+		<string>fb</string>
+		<string>twitter</string>
+		<string>instagram</string>
 		<string>comgooglemaps</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>

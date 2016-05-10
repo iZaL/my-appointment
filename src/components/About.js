@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {Actions } from 'react-native-router-flux';
+
 import {
   Animated,
   Image,
@@ -26,7 +28,7 @@ export default class About extends Component {
   _renderScrollViewContent() {
     return (
       <View style={styles.scrollViewContent}>
-
+        <Text onPress={()=>Actions.main()}>close</Text>
       </View>
     );
   }
@@ -82,7 +84,7 @@ export default class About extends Component {
               styles.backgroundImage,
               {opacity: imageOpacity, transform: [{translateY: imageTranslate}]},
             ]}
-            source={require('./../assets/img/logo.png')}
+            source={require('./../assets/img/info-background.png')}
           />
           <Animated.View
             style={[

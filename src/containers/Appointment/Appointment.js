@@ -38,8 +38,8 @@ class Appointment extends Component {
 
   componentDidMount() {
     const {dispatch} = this.props;
-    dispatch(fetchTimings());
     if(this.props.userReducer.isAuthenticated) {
+      dispatch(fetchTimings());
       dispatch(invalidateCreatedAppointment());
     }
   }
@@ -96,8 +96,13 @@ class Appointment extends Component {
 
     const {timings,employees,company,userReducer,service,timingsReducer} = this.props;
     return (
-      <View style={{ flex:1, backgroundColor:'white', paddingTop:64 }} contentInset={{bottom:40}} ref="scrollView">
-
+      <ScrollView
+        style={{ flex:1, backgroundColor:'white' }}
+        contentContainerStyle={{paddingVertical:64}}
+        ref="scrollView"
+        showsVerticalScrollIndicator={false}
+        automaticallyAdjustContentInsets={false}
+      >
         <Calendar
           selectedDate={this.state.selectedDate}
           onDateChange={this.onDateChange.bind(this)}
@@ -138,14 +143,14 @@ class Appointment extends Component {
           inValidateAppointment={this.inValidateAppointment.bind(this)}
         />
 
-        {!this.state.showAppointmentConfirmModal &&
+        {!this.state.showAppointmentConfirmModal  &&
         <FormButton
           onPress={this.handleNext.bind(this)}
           buttonText='Next'
           containerStyle={{padding:5,margin:10,marginTop:0,marginBottom:0,backgroundColor:'tomato',opacity:0.7}}
         />
         }
-      </View>
+      </ScrollView>
     );
   }
 }

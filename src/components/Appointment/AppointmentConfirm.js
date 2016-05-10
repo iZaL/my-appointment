@@ -55,7 +55,7 @@ export default class AppointmentConfirm extends Component {
     const { selectedDate,selectedTime,selectedEmployee,company,userReducer,service } = this.props;
 
     return (
-      <View style={{justifyContent:'center',alignItems:'center'}}>
+      <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
         <Text style={{ fontSize:20,color:'#003333' }}>ALMOST DONE !</Text>
         <Text style={{ paddingTop:20, fontSize:13, textAlign:'center',color:'#003333',fontFamily:'menlo',lineHeight:25 }}> You Wanted a
           <Text style={{ color:'#722A2A'}}> {service.name_en} </Text>

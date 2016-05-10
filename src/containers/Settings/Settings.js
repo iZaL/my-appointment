@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListView, ScrollView, TouchableHighlight, StyleSheet, Text, View,AlertIOS } from 'react-native';
+import { ListView, ScrollView, TouchableHighlight, StyleSheet, Text, View,AlertIOS,Linking } from 'react-native';
 import { logoutUser } from './../../actions/Auth/login';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
@@ -18,7 +18,7 @@ class Settings extends Component {
     Actions.main();
   }
 
-  loadScene(name){
+  loadLink(name){
     switch(name) {
       case 'profile':
         Actions.mediasRouter();
@@ -30,10 +30,19 @@ class Settings extends Component {
         return Actions.about({
           title:'About'
         });
-
+      case 'instagram' :
+        return this.openLink('instagram://user?username=pets');
+      case 'facebook' :
+        return this.openLink('fb://profile/630026573700812');
+      case 'twitter' :
+        return this.openLink('twitter://user?screen_name=music');
       default :
         return;
     }
+  }
+
+  openLink(url) {
+    Linking.openURL(url);
   }
 
   logout() {
@@ -44,11 +53,13 @@ class Settings extends Component {
     return (
       <ScrollView style={{flex:1,backgroundColor: 'white',paddingTop:64}}>
         <SettingsCell icon="ion|power" title="Logout" callback={()=>this.logout()} />
-        <SettingsCell icon="ion|person" title="Profile" callback={()=>this.loadScene('profile')} />
-        <SettingsCell icon="ion|information-circled" title="About" callback={()=>this.loadScene('about')} />
-        <SettingsCell icon="ion|help-circled" title="Contact Us" callback={()=>this.loadScene('contact')} />
-        <SettingsCell icon="ion|ios-checkmark" title="Terms and Conditions" callback={()=>this.loadScene('terms')} />
-        <SettingsCell icon="ion|social-instagram-outline" title="Follow " callback={()=>this.loadScene('instagram')} />
+        <SettingsCell icon="ion|person" title="Profile" callback={()=>this.loadLink('profile')} />
+        <SettingsCell icon="ion|information-circled" title="About" callback={()=>this.loadLink('about')} />
+        <SettingsCell icon="ion|help-circled" title="Contact Us" callback={()=>this.loadLink('contact')} />
+        <SettingsCell icon="ion|ios-checkmark" title="Terms and Conditions" callback={()=>this.loadLink('terms')} />
+        <SettingsCell icon="ion|social-instagram-outline" title="Follow us on Instagram " callback={()=>this.loadLink('instagram')} />
+        <SettingsCell icon="ion|social-facebook-outline" title="Join our Facebook Page" callback={()=>this.loadLink('facebook')} />
+        <SettingsCell icon="ion|social-twitter-outline" title="Follow us on Twitter" callback={()=>this.loadLink('twitter')} />
       </ScrollView>
     );
   }

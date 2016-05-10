@@ -1,6 +1,6 @@
 'use strict';
 import React, {Component ,PropTypes} from 'react';
-import { Image, StyleSheet, Text, TouchableHighlight, View, ListView} from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View, ListView, Linking} from 'react-native';
 import { Icon } from 'react-native-icons';
 
 export default class CompanyContact extends Component {
@@ -9,7 +9,27 @@ export default class CompanyContact extends Component {
     company:PropTypes.object.isRequired
   }
 
-  renderContent(company) {
+  loadLink(company,url) {
+    switch(company) {
+      case 'instagram' :
+        return this.openLink(`instagram://user?username=${url}`);
+      case 'facebook' :
+        return this.openLink(`fb://profile/630026573700812`);
+      case 'twitter' :
+        return this.openLink(`twitter://user?screen_name=music`);
+      case 'snapchat' :
+        return this.openLink(`snapchat://add/jessicamalba`);
+      default :
+        return;
+    }
+  }
+
+  openLink(url) {
+    Linking.openURL(url);
+  }
+
+  render() {
+    const {company} = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.sectionWrapper}>
@@ -17,51 +37,54 @@ export default class CompanyContact extends Component {
         </View>
         <View style={styles.sectionWrapper}>
           <View style={styles.iconSection}>
+            <TouchableOpacity onPress={()=>this.loadLink('instagram','pets')}>
+              <View style={styles.iconWrapper}>
+                <Icon
+                  name='ion|social-instagram-outline'
+                  size={20}
+                  color={'tomato'}
+                  style={styles.icon}
+                />
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>this.loadLink('twitter','pets')}>
+              <View style={styles.iconWrapper}>
+                <Icon
+                  name='ion|social-twitter-outline'
+                  size={20}
+                  color={'tomato'}
+                  style={styles.icon}
+                />
+              </View>
 
-            <View style={styles.iconWrapper}>
-              <Icon
-                name='ion|social-instagram-outline'
-                size={20}
-                color={'tomato'}
-                style={styles.icon}
-              />
-            </View>
-            <View style={styles.iconWrapper}>
-              <Icon
-                name='ion|social-twitter-outline'
-                size={20}
-                color={'tomato'}
-                style={styles.icon}
-              />
-            </View>
-            <View style={styles.iconWrapper}>
-              <Icon
-                name='ion|social-snapchat-outline'
-                size={20}
-                color={'tomato'}
-                style={styles.icon}
-              />
-            </View>
-            <View style={styles.iconWrapper}>
-              <Icon
-                name='ion|social-facebook-outline'
-                size={20}
-                color={'tomato'}
-                style={styles.icon}
-              />
-            </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={()=>this.loadLink('snapchat','pets')}>
+              <View style={styles.iconWrapper}>
+                <Icon
+                  name='ion|social-snapchat-outline'
+                  size={20}
+                  color={'tomato'}
+                  style={styles.icon}
+                />
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={()=>this.loadLink('facebook','pets')}>
+              <View style={styles.iconWrapper}>
+                <Icon
+                  name='ion|social-facebook-outline'
+                  size={20}
+                  color={'tomato'}
+                  style={styles.icon}
+                />
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
-    )
-  }
 
-  render() {
-    const {company} = this.props;
-    if (company.id && company.id > 0) {
-      return this.renderContent(company);
-    }
-    return <View/>;
+    )
   }
 
 }

@@ -7,7 +7,7 @@ export default class SettingsCell extends Component {
   static propTypes = {
     callback:PropTypes.func.isRequired,
     icon: PropTypes.string.isRequired,
-    title:PropTypes.string.isRequired
+    title:PropTypes.string.isRequired,
   };
 
   render() {
