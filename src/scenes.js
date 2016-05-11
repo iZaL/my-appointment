@@ -1,5 +1,6 @@
 'use strict';
 import React, { Component } from 'react';
+import {Image } from 'react-native';
 import { Scene, Reducer, Router, Switch, TabBar, Modal, Schema, Actions } from 'react-native-router-flux';
 import { APP_STYLES } from './utils/AppStyles';
 import Login from './containers/Auth/Login';
@@ -34,6 +35,7 @@ export const scenes = Actions.create(
               height:40
              }}
              navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
+             drawerImage={<Image source={require('./assets/img/hamburger.png')} style={{height:30,width:30}}  />}
       >
         <Scene key="main"
                icon={TabIcon}
@@ -73,10 +75,10 @@ export const scenes = Actions.create(
                titleStyle={{ color:'white' }}
         >
           <Scene key="settingsScene" component={Settings} title="Settings"/>
-          <Scene key="about" component={About}  hideTabBar={true} hideNavBar={true}/>
-          <Scene key="term" component={Term}  hideTabBar={true} hideNavBar={true}/>
-          <Scene key="profile" component={Profile}  hideTabBar={true} hideNavBar={true}/>
-          <Scene key="contact" component={Contact}  hideTabBar={true} hideNavBar={true}/>
+          <Scene key="about" component={About}  hideTabBar={true} hideNavBar={true} direction="vertical"/>
+          <Scene key="term" component={Term}  hideTabBar={true} hideNavBar={true} direction="vertical"/>
+          <Scene key="profile" component={Profile}  hideTabBar={true} hideNavBar={true} direction="vertical"/>
+          <Scene key="contact" component={Contact}  hideTabBar={true} hideNavBar={true} direction="vertical"/>
         </Scene>
 
         <Scene key="serviceTab"

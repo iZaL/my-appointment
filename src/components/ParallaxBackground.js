@@ -26,7 +26,7 @@
 'use strict';
 
 var Animated = require('Animated');
-//var resolveAssetSource = require('resolveAssetSource');
+var resolveAssetSource = require('resolveAssetSource');
 var React = require('React');
 var StyleSheet = require('StyleSheet');
 var View = require('View');
@@ -90,9 +90,8 @@ class ParallaxBackground extends React.Component {
       return null;
     }
 
-    const source = backgroundImage; // resolve
+    const source = resolveAssetSource(backgroundImage);
     if (!source) {
-      console.log('not a back image');
       return null;
     }
     const {width} = source;

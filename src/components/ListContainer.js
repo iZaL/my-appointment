@@ -29,50 +29,86 @@ var Animated = require('Animated');
 var NativeModules = require('NativeModules');
 var Dimensions = require('Dimensions');
 var F8Header = require('./F8Header');
-//var F8SegmentedControl = require('F8SegmentedControl');
+var F8SegmentedControl = require('F8SegmentedControl');
 var ParallaxBackground = require('./ParallaxBackground');
 var React = require('React');
 var StyleSheet = require('./F8StyleSheet');
 var View = require('View');
 var { Text } = require('./F8Text');
-//var ViewPager = require('./ViewPager');
+var ViewPager = require('./ViewPager');
 var Platform = require('Platform');
 
 import type {Item as HeaderItem} from 'F8Header';
 
-//type Props = {
-//  title: string;
-//  leftItem?: HeaderItem;
-//  rightItem?: HeaderItem;
-//  extraItems?: Array<HeaderItem>;
-//  selectedSegment?: number;
-//  selectedSectionColor: string;
-//  backgroundImage: number;
-//  backgroundColor: string;
-//  parallaxContent: ?ReactElement;
-//  stickyHeader?: ?ReactElement;
-//  onSegmentChange?: (segment: number) => void;
-//  children: any;
-//};
-//
-//type State = {
-//  idx: number;
-//  anim: Animated.Value;
-//  stickyHeaderHeight: number;
-//};
+type Props = {
+  title: string;
+  leftItem?: HeaderItem;
+  rightItem?: HeaderItem;
+  extraItems?: Array<HeaderItem>;
+  selectedSegment?: number;
+  selectedSectionColor: string;
+  backgroundImage: number;
+  backgroundColor: string;
+  parallaxContent: ?ReactElement;
+  stickyHeader?: ?ReactElement;
+  onSegmentChange?: (segment: number) => void;
+  children: any;
+};
+
+type State = {
+  idx: number;
+  anim: Animated.Value;
+  stickyHeaderHeight: number;
+};
 
 const EMPTY_CELL_HEIGHT = Dimensions.get('window').height > 600 ? 200 : 150;
 
-class ListContainer extends React.Component {
+var ActivityIndicatorIOS = require('ActivityIndicatorIOS');
+var ProgressBarAndroid = require('ProgressBarAndroid');
+const ActivityIndicator = Platform.OS === 'ios'
+  ? ActivityIndicatorIOS
+  : ProgressBarAndroid;
 
-  constructor(props) {
+
+class RelayLoading extends React.Component {
+  render() {
+    const child = React.Children.only(this.props.children);
+    console.log('child',child);
+    if (!child.type.getFragmentNames) {
+      return child;
+    }
+
+    return <View/>;
+  }
+
+  renderChild(child, props) {
+    if (!props) {
+      return (
+        <View style={{height: 400}}>
+          {child.props.renderHeader && child.props.renderHeader()}
+          <View style={{flex: 1, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center'}}>
+            <ActivityIndicator />
+          </View>
+        </View>
+      );
+    }
+    return React.cloneElement(child, {...this.props, ...props});
+  }
+}
+
+class ListContainer extends React.Component {
+  props: Props;
+  _refs: Array<any>;
+  _pinned: any;
+
+  constructor(props: Props) {
     super(props);
 
     this.state = ({
-      idx:  0,
+      idx: this.props.selectedSegment || 0,
       anim: new Animated.Value(0),
       stickyHeaderHeight: 0,
-    });
+    }: State);
 
     this.renderFakeHeader = this.renderFakeHeader.bind(this);
     this.handleStickyHeaderLayout = this.handleStickyHeaderLayout.bind(this);
@@ -85,8 +121,36 @@ class ListContainer extends React.Component {
     var leftItem = this.props.leftItem;
 
     const segments = [];
+    const content = React.Children.map(this.props.children, (child, idx) => {
+      segments.push(child.props.title);
+      return <RelayLoading>{React.cloneElement(child, {
+        ref: (ref) => this._refs[idx] = ref,
+        onScroll: (e) => this.handleScroll(idx, e),
+        style: styles.listView,
+        showsVerticalScrollIndicator: false,
+        scrollEventThrottle: 16,
+        contentInset: {bottom: 49, top: 0},
+        automaticallyAdjustContentInsets: false,
+        renderHeader: this.renderFakeHeader,
+        scrollsToTop: idx === this.state.idx,
+      })}</RelayLoading>;
+    });
 
     let {stickyHeader} = this.props;
+    if (segments.length > 1) {
+      stickyHeader = (
+        <View>
+          <F8SegmentedControl
+            values={segments}
+            selectedIndex={this.state.idx}
+            selectionColor={this.props.selectedSectionColor}
+            onChange={this.handleSelectSegment}
+          />
+          {stickyHeader}
+        </View>
+      );
+    }
+    // TODO: Bind to ViewPager animation
     const backgroundShift = segments.length === 1
       ? 0
       : this.state.idx / (segments.length - 1);
@@ -95,8 +159,8 @@ class ListContainer extends React.Component {
       <View style={styles.container}>
         <View style={styles.headerWrapper}>
           <ParallaxBackground
-            minHeight={this.state.stickyHeaderHeight + 64}
-            maxHeight={EMPTY_CELL_HEIGHT + this.state.stickyHeaderHeight + 64}
+            minHeight={this.state.stickyHeaderHeight + F8Header.height}
+            maxHeight={EMPTY_CELL_HEIGHT + this.state.stickyHeaderHeight + F8Header.height}
             offset={this.state.anim}
             backgroundImage={this.props.backgroundImage}
             backgroundShift={backgroundShift}
@@ -112,12 +176,21 @@ class ListContainer extends React.Component {
           </F8Header>
           {this.renderFixedStickyHeader(stickyHeader)}
         </View>
+        <ViewPager
+          count={segments.length}
+          selectedIndex={this.state.idx}
+          onSelectedIndexChange={this.handleSelectSegment}>
+          {content}
+        </ViewPager>
         {this.renderFloatingStickyHeader(stickyHeader)}
       </View>
     );
   }
 
   renderParallaxContent() {
+    if (Platform.OS === 'android') {
+      return <View />;
+    }
     if (this.props.parallaxContent) {
       return this.props.parallaxContent;
     }
@@ -128,7 +201,10 @@ class ListContainer extends React.Component {
     );
   }
 
-  renderHeaderTitle() {
+  renderHeaderTitle(): ?ReactElement {
+    if (Platform.OS === 'android') {
+      return null;
+    }
     var transform;
     if (!this.props.parallaxContent) {
       var distance = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
@@ -147,14 +223,16 @@ class ListContainer extends React.Component {
     );
   }
 
-  handleScroll(idx, e) {
+  handleScroll(idx: number, e: any) {
     if (idx !== this.state.idx) {
       return;
     }
     let y = 0;
-    this.state.anim.setValue(e.nativeEvent.contentOffset.y);
-    const height = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
-    y = Math.min(e.nativeEvent.contentOffset.y, height);
+    if (Platform.OS === 'ios') {
+      this.state.anim.setValue(e.nativeEvent.contentOffset.y);
+      const height = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
+      y = Math.min(e.nativeEvent.contentOffset.y, height);
+    }
     this._refs.forEach((ref, ii) => {
       if (ii !== idx && ref) {
         ref.scrollTo && ref.scrollTo({y, animated: false});
@@ -164,17 +242,24 @@ class ListContainer extends React.Component {
   }
 
   renderFakeHeader() {
+    if (Platform.OS === 'ios') {
       const height = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
       return (
         <View style={{height}} />
       );
+    }
   }
 
-  renderFixedStickyHeader(stickyHeader) {
-     return <View style={{height: this.state.stickyHeaderHeight}} />
+  renderFixedStickyHeader(stickyHeader: ?ReactElement) {
+    return Platform.OS === 'ios'
+      ? <View style={{height: this.state.stickyHeaderHeight}} />
+      : stickyHeader;
   }
 
-  renderFloatingStickyHeader(stickyHeader) {
+  renderFloatingStickyHeader(stickyHeader: ?ReactElement) {
+    if (!stickyHeader || Platform.OS !== 'ios') {
+      return;
+    }
     var opacity = this.state.stickyHeaderHeight === 0 ? 0 : 1;
     var transform;
 
@@ -199,18 +284,18 @@ class ListContainer extends React.Component {
     );
   }
 
-  handleStickyHeaderLayout({nativeEvent: { layout, target }}) {
+  handleStickyHeaderLayout({nativeEvent: { layout, target }}: any) {
     this.setState({stickyHeaderHeight: layout.height});
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: Props) {
     if (typeof nextProps.selectedSegment === 'number' &&
       nextProps.selectedSegment !== this.state.idx) {
       this.setState({idx: nextProps.selectedSegment});
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps: Props, prevState: State) {
     if (!NativeModules.F8Scrolling) {
       return;
     }
@@ -236,7 +321,7 @@ class ListContainer extends React.Component {
     }
   }
 
-  handleSelectSegment(idx) {
+  handleSelectSegment(idx: number) {
     if (this.state.idx !== idx) {
       const {onSegmentChange} = this.props;
       this.setState({idx}, () => onSegmentChange && onSegmentChange(idx));
@@ -252,17 +337,33 @@ ListContainer.defaultProps = {
   selectedSectionColor: 'white',
 };
 
+ListContainer.contextTypes = {
+  openDrawer: React.PropTypes.func,
+  hasUnreadNotifications: React.PropTypes.number,
+};
+
 var styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
   },
   headerWrapper: {
+    android: {
+      elevation: 2,
+      backgroundColor: 'transparent',
+      // FIXME: elevation doesn't seem to work without setting border
+      borderRightWidth: 1,
+      marginRight: -1,
+      borderRightColor: 'transparent',
+    }
   },
   listView: {
     ios: {
       backgroundColor: 'transparent',
     },
+    android: {
+      backgroundColor: 'white',
+    }
   },
   headerTitle: {
     color: 'white',
@@ -277,7 +378,7 @@ var styles = StyleSheet.create({
   },
   stickyHeader: {
     position: 'absolute',
-    top: 64,
+    top: F8Header.height,
     left: 0,
     right: 0,
   },

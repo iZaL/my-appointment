@@ -5,7 +5,7 @@ import {Actions } from 'react-native-router-flux';
 import { ScrollView, View, StyleSheet, Text} from 'react-native';
 
 var ListContainer = require('./ListContainer');
-
+var PureListView = require('./PureListView');
 
 export default class About extends Component {
 
@@ -19,17 +19,14 @@ export default class About extends Component {
       //    <Text>about us about us about us</Text>
       //  </View>
       //</PageViewer>
-
       <ListContainer
-
         title="Maps"
         backgroundImage={require('./../assets/img/info-background.png')}
         backgroundColor={'#9176D2'}>
-
-        <View>
-          <Text>Hi</Text>
-        </View>
-
+        <PureListView
+          title='Overview'
+          renderEmptyList={() => <View><Text>asdsad</Text></View>}
+        />
       </ListContainer>
 
     )
