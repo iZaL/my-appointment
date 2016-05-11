@@ -84,7 +84,7 @@ class ParallaxBackground extends React.Component {
     );
   }
 
-  renderBackgroundImage(): ?ReactElement {
+  renderBackgroundImage() {
     const {backgroundImage, minHeight, maxHeight, offset} = this.props;
     if (!backgroundImage) {
       return null;
@@ -123,7 +123,7 @@ class ParallaxBackground extends React.Component {
     );
   }
 
-  renderContent(): ?ReactElement {
+  renderContent() {
     if (React.Children.count(this.props.children) === 0) {
       return null;
     }

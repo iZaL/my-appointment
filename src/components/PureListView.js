@@ -47,12 +47,11 @@ type Props = {
 
 // FIXME: Android has a bug when scrolling ListView the view insertions
 // will make it go reverse. Temporary fix - pre-render more rows
-const LIST_VIEW_PAGE_SIZE = Platform.OS === 'android' ? 20 : 1;
+const LIST_VIEW_PAGE_SIZE = 1;
 
 class PureListView extends React.Component {
-  props: Props;
 
-  constructor(props: Props) {
+  constructor(props) {
     super(props);
     let dataSource = new ListView.DataSource({
       getRowData: (dataBlob, sid, rid) => dataBlob[sid][rid],
@@ -92,6 +91,7 @@ class PureListView extends React.Component {
         renderFooter={this.renderFooter}
         contentInset={{bottom, top: contentInset.top}}
         onContentSizeChange={this.onContentSizeChange}
+        enableEmptySections={true}
       />
     );
   }
@@ -102,15 +102,15 @@ class PureListView extends React.Component {
     }
   }
 
-  scrollTo(...args: Array<any>) {
+  scrollTo(...args) {
     this.refs.listview.scrollTo(...args);
   }
 
-  getScrollResponder(): any {
+  getScrollResponder() {
     return this.refs.listview.getScrollResponder();
   }
 
-  renderFooter(): ?ReactElement {
+  renderFooter() {
     if (this.state.dataSource.getRowCount() === 0) {
       return this.props.renderEmptyList && this.props.renderEmptyList();
     }

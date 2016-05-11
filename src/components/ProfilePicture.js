@@ -19,25 +19,35 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE
  *
- * @providesModule F8StyleSheet
  * @flow
  */
-
 'use strict';
 
-import {StyleSheet, Platform} from 'react-native';
+var Image = require('Image');
+var React = require('React');
+var PixelRatio = require('PixelRatio');
 
-export function create(styles: Object): {[name: string]: number} {
-  const platformStyles = {};
-  Object.keys(styles).forEach((name) => {
-    let {ios, android, ...style} = {...styles[name]};
-    if (ios && Platform.OS === 'ios') {
-      style = {...style, ...ios};
-    }
-    if (android && Platform.OS === 'android') {
-      style = {...style, ...android};
-    }
-    platformStyles[name] = style;
-  });
-  return StyleSheet.create(platformStyles);
+class ProfilePicture extends React.Component {
+  props: {
+    userID: string;
+    size: number;
+  };
+
+  render() {
+    const {size} = this.props;
+    const scaledSize = size * PixelRatio.get();
+    const uri = `http://graph.facebook.com/630026573700812/picture?width=${scaledSize}&height=${scaledSize}`;
+    return (
+      <Image
+        source={{uri}}
+        style={{
+          width: size,
+          height: size,
+          borderRadius: size / 2,
+        }}
+      />
+    );
+  }
 }
+
+module.exports = ProfilePicture;

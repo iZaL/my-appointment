@@ -35,7 +35,7 @@ export const scenes = Actions.create(
               height:40
              }}
              navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
-             drawerImage={<Image source={require('./assets/img/hamburger.png')} style={{height:30,width:30}}  />}
+             drawerImage={<Image source={require('./assets/img/hamburger.png') } style={{height:30,width:30}}  />}
       >
         <Scene key="main"
                icon={TabIcon}
@@ -69,13 +69,13 @@ export const scenes = Actions.create(
                hideNavBar={true}
 
         />
-        <Scene key="settings" icon={TabIcon}  title="Settings"
+        <Scene initial={true} key="settings" icon={TabIcon}  title="Settings"
                selectedTabIcon="ion|ios-gear" tabIcon="ion|ios-gear-outline"
                navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                titleStyle={{ color:'white' }}
         >
+          <Scene key="about" component={About} hideNavBar={true} />
           <Scene key="settingsScene" component={Settings} title="Settings"/>
-          <Scene key="about" component={About}  hideTabBar={true} hideNavBar={true} direction="vertical"/>
           <Scene key="term" component={Term}  hideTabBar={true} hideNavBar={true} direction="vertical"/>
           <Scene key="profile" component={Profile}  hideTabBar={true} hideNavBar={true} direction="vertical"/>
           <Scene key="contact" component={Contact}  hideTabBar={true} hideNavBar={true} direction="vertical"/>
@@ -96,7 +96,7 @@ export const scenes = Actions.create(
         <Scene key="login" component={Login} hideNavBar={true} />
         <Scene key="register" component={Register} hideNavBar={true} />
         <Scene key="loginDialog" component={LoginDialog} hideNavBar={true} />
-        <Scene initial={true} key="introCarousel" component={IntroCarousel}  hideTabBar={true} hideNavBar={true}/>
+        <Scene  key="introCarousel" component={IntroCarousel}  hideTabBar={true} hideNavBar={true}/>
       </Scene>
     </Scene>
 

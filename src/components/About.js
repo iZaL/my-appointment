@@ -6,37 +6,97 @@ import { ScrollView, View, StyleSheet, Text} from 'react-native';
 
 var ListContainer = require('./ListContainer');
 var PureListView = require('./PureListView');
-
+var ProfilePicture = require('./ProfilePicture');
+var FilterHeader = require('./FilterHeader');
 export default class About extends Component {
 
+  openFilterScreen() {
+    return Actions.pop();
+  }
+
+  filterItem() {
+    return {
+      icon: require('./../assets/img/hamburger.png'),
+      title: 'Filter',
+      onPress: this.openFilterScreen,
+    }
+  }
+
   render() {
+    const filterHeader = <FilterHeader filter={['ass','aaaasa']} />
+
+    const profilePicture = <ProfilePicture  size={100} />;
+
     return (
-      //<PageViewer
-      //  title="About"
-      //  headerImage={require('./../assets/img/info-background.png')}
-      //>
-      //  <View style={styles.container}>
-      //    <Text>about us about us about us</Text>
-      //  </View>
-      //</PageViewer>
-      <ListContainer
-        title="Maps"
-        backgroundImage={require('./../assets/img/info-background.png')}
-        backgroundColor={'#9176D2'}>
-        <PureListView
-          title='Overview'
-          renderEmptyList={() => <View><Text>asdsad</Text></View>}
-        />
-      </ListContainer>
+      <View style={styles.container}>
+        <ListContainer
+          title="Maps"
+          backgroundImage={require('./../assets/img/schedule-background.png')}
+          backgroundColor={'#9176D2'}
+          leftItem={this.filterItem()}
+        >
+          <PureListView
+            title='ABCD'
+            renderEmptyList={() =>
+            <View style={styles.container}>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+              <Text>asdasd</Text>
+            </View>
+          }
+          />
+          <PureListView
+            title='ABCDE'
+            renderEmptyList={() =>
+            <View style={styles.container} >
+            </View>
+          }
+          />
+        </ListContainer>
+      </View>
 
     )
   }
 }
 
+
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop:10
+    flex:1,
   },
 
 });

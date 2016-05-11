@@ -1,44 +1,13 @@
-/**
- * Copyright 2016 Facebook, Inc.
- *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE
- *
- * @flow
- * @providesModule F8SegmentedControl
- */
 'use strict';
 
 var React = require('React');
-var StyleSheet = require('./F8StyleSheet');
+var StyleSheet = require('StyleSheet');
 var { Text } = require('./F8Text');
 var TouchableOpacity = require('TouchableOpacity');
 var View = require('View');
 var Platform = require('Platform');
 
 class F8SegmentedControl extends React.Component {
-  props: {
-    values: Array<string>;
-    selectionColor: ?string;
-    selectedIndex: number;
-    onChange: (newIndex: number) => void;
-    style: any;
-  };
 
   render() {
     var segments = this.props.values.map(
@@ -61,12 +30,6 @@ class F8SegmentedControl extends React.Component {
 }
 
 class Segment extends React.Component {
-  props: {
-    value: string;
-    isSelected: boolean;
-    selectionColor: string;
-    onPress: () => void;
-  };
 
   render() {
     var selectedButtonStyle;
@@ -74,9 +37,7 @@ class Segment extends React.Component {
       selectedButtonStyle = { borderColor: this.props.selectionColor };
     }
     var deselectedLabelStyle;
-    if (!this.props.isSelected && Platform.OS === 'android') {
-      deselectedLabelStyle = styles.deselectedLabel;
-    }
+
     var title = this.props.value && this.props.value.toUpperCase();
 
     var accessibilityTraits = ['button'];
@@ -102,34 +63,22 @@ const HEIGHT = 32;
 
 var styles = StyleSheet.create({
   container: {
+    flex:1,
     flexDirection: 'row',
     backgroundColor: 'transparent',
-    ios: {
-      paddingBottom: 6,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    android: {
-      paddingLeft: 60,
-    },
+    paddingBottom: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   button: {
     borderColor: 'transparent',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',
-    ios: {
-      height: HEIGHT,
-      paddingHorizontal: 20,
-      borderRadius: HEIGHT / 2,
-      borderWidth: 1,
-    },
-    android: {
-      paddingBottom: 6,
-      paddingHorizontal: 10,
-      borderBottomWidth: 3,
-      marginRight: 10,
-    },
+    height: HEIGHT,
+    paddingHorizontal: 20,
+    borderRadius: HEIGHT / 2,
+    borderWidth: 1,
   },
   label: {
     letterSpacing: 1,

@@ -21,6 +21,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		35346ECA1CE3E9580077259A /* F8Scrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 35346EC91CE3E9580077259A /* F8Scrolling.m */; };
 		35CE88B81CB9919A00A80531 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35CE88B71CB9919A00A80531 /* libz.tbd */; };
 		35CE88B91CB991BB00A80531 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35CE88A91CB9910900A80531 /* libCodePush.a */; };
 		35CE88BA1CB991C700A80531 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35CE88A61CB9910900A80531 /* libAirMaps.a */; };
@@ -152,6 +153,8 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		2709A4D030C14B1F93F50FC8 /* CodePush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 0; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		2BF4672352844524BC597CC9 /* ReactNativeIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 0; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeIcons.xcodeproj; path = "../node_modules/react-native-icons/ios/ReactNativeIcons.xcodeproj"; sourceTree = "<group>"; };
+		35346EC81CE3E9580077259A /* F8Scrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F8Scrolling.h; path = ../../projects/f8app/ios/F8Scrolling.h; sourceTree = "<group>"; };
+		35346EC91CE3E9580077259A /* F8Scrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = F8Scrolling.m; path = ../../projects/f8app/ios/F8Scrolling.m; sourceTree = "<group>"; };
 		35CE88B71CB9919A00A80531 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		35CE88BC1CB9926A00A80531 /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ionicons.ttf; path = "../node_modules/react-native-icons/ios/ReactNativeIcons/Libraries/FontAwesomeKit/ionicons.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -267,6 +270,8 @@
 		13B07FAE1A68108700A75B9A /* MyAppointment */ = {
 			isa = PBXGroup;
 			children = (
+				35346EC81CE3E9580077259A /* F8Scrolling.h */,
+				35346EC91CE3E9580077259A /* F8Scrolling.m */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -645,6 +650,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				35346ECA1CE3E9580077259A /* F8Scrolling.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
