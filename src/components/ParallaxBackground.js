@@ -1,41 +1,13 @@
 /**
- * Copyright 2016 Facebook, Inc.
- *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE
- *
  * @flow
- * @providesModule ParallaxBackground
  */
-
 'use strict';
+import React, { Component, PropTypes } from 'react';
+import { View, StyleSheet, Animated, TouchableOpacity, Text, Dimensions, Image } from 'react-native';
 
-var Animated = require('Animated');
 var resolveAssetSource = require('resolveAssetSource');
-var React = require('React');
-var StyleSheet = require('StyleSheet');
-var View = require('View');
-var Image = require('Image');
-var Dimensions = require('Dimensions');
 
-const HEIGHT = Dimensions.get('window').height > 600
-  ? 200
-  : 150;
+const HEIGHT = Dimensions.get('window').height > 600 ? 200 : 150;
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 type Props = {
@@ -48,7 +20,8 @@ type Props = {
   children: any;
 }
 
-class ParallaxBackground extends React.Component {
+class ParallaxBackground extends Component {
+
   props: Props;
 
   constructor(props: Props) {

@@ -3,7 +3,7 @@
  */
 'use strict';
 import React, { Component, PropTypes } from 'react';
-import { View, StyleSheet, Animated, TouchableOpacity, Text, Dimensions } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Text, Dimensions } from 'react-native';
 
 class F8SegmentedControl extends Component {
 
