@@ -33,7 +33,6 @@ export default class About extends Component {
           title="Maps"
           backgroundImage={require('./../assets/img/schedule-background.png')}
           backgroundColor={'#9176D2'}
-          leftItem={this.filterItem()}
         >
           <PureListView
             title='ABCD'

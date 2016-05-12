@@ -3,9 +3,7 @@
  */
 'use strict';
 import React, { Component, PropTypes } from 'react';
-
 var ReactNative = require('react-native');
-
 var { View, StyleSheet, Animated, NativeModules, Text, Dimensions } = ReactNative;
 
 var F8Header = require('./F8Header');

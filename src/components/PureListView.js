@@ -1,34 +1,10 @@
 /**
- * Copyright 2016 Facebook, Inc.
- *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE
- *
  * @flow
  */
 'use strict';
-
-var ListView = require('ListView');
-var Dimensions = require('Dimensions');
-var Platform = require('Platform');
-var StyleSheet = require('StyleSheet');
-var React = require('React');
-var View = require('View');
+import React, { Component, PropTypes } from 'react';
+var ReactNative = require('react-native');
+var { View, StyleSheet, ListView, Dimensions } = ReactNative;
 
 type Rows = Array<Object>;
 type RowsAndSections = {
@@ -45,13 +21,10 @@ type Props = {
   contentInset: { top: number; bottom: number; };
 };
 
-// FIXME: Android has a bug when scrolling ListView the view insertions
-// will make it go reverse. Temporary fix - pre-render more rows
-const LIST_VIEW_PAGE_SIZE = 1;
-
 class PureListView extends React.Component {
+  props: Props;
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
     let dataSource = new ListView.DataSource({
       getRowData: (dataBlob, sid, rid) => dataBlob[sid][rid],
@@ -84,14 +57,13 @@ class PureListView extends React.Component {
     return (
       <ListView
         initialListSize={10}
-        pageSize={LIST_VIEW_PAGE_SIZE}
+        pageSize={1}
         {...this.props}
         ref="listview"
         dataSource={this.state.dataSource}
         renderFooter={this.renderFooter}
         contentInset={{bottom, top: contentInset.top}}
         onContentSizeChange={this.onContentSizeChange}
-        enableEmptySections={true}
       />
     );
   }
@@ -102,15 +74,15 @@ class PureListView extends React.Component {
     }
   }
 
-  scrollTo(...args) {
+  scrollTo(...args: Array<any>) {
     this.refs.listview.scrollTo(...args);
   }
 
-  getScrollResponder() {
+  getScrollResponder(): any {
     return this.refs.listview.getScrollResponder();
   }
 
-  renderFooter() {
+  renderFooter(): ?ReactElement {
     if (this.state.dataSource.getRowCount() === 0) {
       return this.props.renderEmptyList && this.props.renderEmptyList();
     }
