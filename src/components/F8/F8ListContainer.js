@@ -3,15 +3,13 @@
  */
 'use strict';
 import React, { Component, PropTypes } from 'react';
-var ReactNative = require('react-native');
-var { View, StyleSheet, Animated, NativeModules, Text, Dimensions } = ReactNative;
+import ReactNative, { View, StyleSheet, Animated, NativeModules, Text, Dimensions } from 'react-native';
+import F8Header from './F8Header';
+import F8SegmentedControl from './F8SegmentedControl';
+import F8ParallaxBackground from './F8ParallaxBackground';
+import F8ViewPager from './F8ViewPager';
 
-var F8Header = require('./F8Header');
-var F8SegmentedControl = require('./F8SegmentedControl');
-var ParallaxBackground = require('./ParallaxBackground');
-var ViewPager = require('./ViewPager');
-
-import type {Item as HeaderItem} from './F8Header';
+import type { Item as HeaderItem} from './F8Header';
 
 type Props = {
   title: string;
@@ -36,19 +34,6 @@ type State = {
 
 const EMPTY_CELL_HEIGHT = Dimensions.get('window').height > 600 ? 200 : 150;
 
-//var ActivityIndicatorIOS = require('ActivityIndicatorIOS');
-//var ProgressBarAndroid = require('ProgressBarAndroid');
-//const ActivityIndicator = Platform.OS === 'ios'
-//  ? ActivityIndicatorIOS
-//  : ProgressBarAndroid;
-
-//var Relay = require('react-relay');
-//var RelayRenderer = require('react-relay/lib/RelayRenderer.js');
-
-//class MainRoute extends Relay.Route {}
-//MainRoute.queries = { viewer: () => Relay.QL`query { viewer }` };
-//MainRoute.routeName = 'MainRoute';
-
 class Container extends Component {
   render() {
     const child = React.Children.only(this.props.children);
@@ -56,7 +41,7 @@ class Container extends Component {
   }
 }
 
-class ListContainer extends Component {
+export default class F8ListContainer extends Component {
 
   props: Props;
   _refs: Array<any>;
@@ -119,7 +104,7 @@ class ListContainer extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.headerWrapper}>
-          <ParallaxBackground
+          <F8ParallaxBackground
             minHeight={this.state.stickyHeaderHeight + F8Header.height}
             maxHeight={EMPTY_CELL_HEIGHT + this.state.stickyHeaderHeight + F8Header.height}
             offset={this.state.anim}
@@ -127,7 +112,7 @@ class ListContainer extends Component {
             backgroundShift={backgroundShift}
             backgroundColor={this.props.backgroundColor}>
             {this.renderParallaxContent()}
-          </ParallaxBackground>
+          </F8ParallaxBackground>
           <F8Header
             title={this.props.title}
             leftItem={leftItem}
@@ -137,12 +122,12 @@ class ListContainer extends Component {
           </F8Header>
           {this.renderFixedStickyHeader(stickyHeader)}
         </View>
-        <ViewPager
+        <F8ViewPager
           count={segments.length}
           selectedIndex={this.state.idx}
           onSelectedIndexChange={this.handleSelectSegment}>
           {content}
-        </ViewPager>
+        </F8ViewPager>
         {this.renderFloatingStickyHeader(stickyHeader)}
       </View>
     );
@@ -282,11 +267,11 @@ class ListContainer extends Component {
   }
 }
 
-ListContainer.defaultProps = {
+F8ListContainer.defaultProps = {
   selectedSectionColor: 'white',
 };
 
-ListContainer.contextTypes = {
+F8ListContainer.contextTypes = {
   openDrawer: React.PropTypes.func,
   hasUnreadNotifications: React.PropTypes.number,
 };
@@ -317,5 +302,3 @@ var styles = StyleSheet.create({
     right: 0,
   },
 });
-
-module.exports = ListContainer;

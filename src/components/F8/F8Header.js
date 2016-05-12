@@ -1,13 +1,11 @@
+/**
+ * @flow
+ */
 'use strict';
+import React, { Component, PropTypes } from 'react';
+import { View, StyleSheet, TouchableOpacity, Text, Image } from 'react-native';
 
 var F8Colors = require('./F8Colors');
-var React = require('React');
-var Platform = require('Platform');
-var StyleSheet = require('StyleSheet');
-var { Text } = require('./F8Text');
-var TouchableOpacity = require('TouchableOpacity');
-var View = require('View');
-var Image = require('Image');
 
 export type Layout =
     'default'      // Use platform defaults (icon on Android, text on iOS)
@@ -16,7 +14,7 @@ export type Layout =
 
 export type Foreground = 'light' | 'dark';
 
-class F8HeaderIOS extends React.Component {
+class F8HeaderIOS extends Component {
 
   render() {
     const {leftItem, title, rightItem, foreground} = this.props;
@@ -49,7 +47,7 @@ class F8HeaderIOS extends React.Component {
 
 }
 
-class ItemWrapperIOS extends React.Component {
+class ItemWrapperIOS extends Component {
 
   render() {
     const {item, color} = this.props;
@@ -83,8 +81,8 @@ class ItemWrapperIOS extends React.Component {
 }
 
 
-var STATUS_BAR_HEIGHT = Platform.OS === 'ios' ? 20 : 25;
-var HEADER_HEIGHT = Platform.OS === 'ios' ? 44 + STATUS_BAR_HEIGHT : 56 + STATUS_BAR_HEIGHT;
+var STATUS_BAR_HEIGHT =20;
+var HEADER_HEIGHT = 44 + STATUS_BAR_HEIGHT;
 
 var styles = StyleSheet.create({
   toolbarContainer: {

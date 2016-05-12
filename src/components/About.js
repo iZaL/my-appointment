@@ -1,13 +1,13 @@
 'use strict';
 import React, {Component,PropTypes} from 'react';
 import PageViewer from './PageViewer';
-import {Actions } from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import { ScrollView, View, StyleSheet, Text} from 'react-native';
-
-var ListContainer = require('./ListContainer');
-var PureListView = require('./PureListView');
+import F8ListContainer from './F8/F8ListContainer';
+import F8PureListView from './F8/F8PureListView';
 var ProfilePicture = require('./ProfilePicture');
 var FilterHeader = require('./FilterHeader');
+
 export default class About extends Component {
 
   openFilterScreen() {
@@ -29,12 +29,15 @@ export default class About extends Component {
 
     return (
       <View style={styles.container}>
-        <ListContainer
+        <F8ListContainer
           title="Maps"
           backgroundImage={require('./../assets/img/schedule-background.png')}
           backgroundColor={'#9176D2'}
+          parallaxContent={profilePicture}
+          leftItem={this.filterItem()}
+          stickyHeader={filterHeader}
         >
-          <PureListView
+          <F8PureListView
             title='ABCD'
             renderEmptyList={() =>
             <View style={styles.container}>
@@ -77,14 +80,14 @@ export default class About extends Component {
             </View>
           }
           />
-          <PureListView
+          <F8PureListView
             title='ABCDE'
             renderEmptyList={() =>
             <View style={styles.container} >
             </View>
           }
           />
-        </ListContainer>
+        </F8ListContainer>
       </View>
 
     )

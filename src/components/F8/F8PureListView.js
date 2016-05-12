@@ -20,7 +20,7 @@ type Props = {
   contentInset: { top: number; bottom: number; };
 };
 
-class PureListView extends Component {
+export default class F8PureListView extends Component {
   props: Props;
 
   constructor(props: Props) {
@@ -90,7 +90,7 @@ class PureListView extends Component {
   }
 }
 
-PureListView.defaultProps = {
+F8PureListView.defaultProps = {
   data: [],
   contentInset: { top: 0, bottom: 0 },
   // TODO: This has to be scrollview height + fake header
@@ -114,5 +114,3 @@ var styles = StyleSheet.create({
     height: 1,
   },
 });
-
-module.exports = PureListView;

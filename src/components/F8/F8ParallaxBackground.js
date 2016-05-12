@@ -4,8 +4,7 @@
 'use strict';
 import React, { Component, PropTypes } from 'react';
 import { View, StyleSheet, Animated, TouchableOpacity, Text, Dimensions, Image } from 'react-native';
-
-var resolveAssetSource = require('resolveAssetSource');
+import resolveAssetSource from 'resolveAssetSource';
 
 const HEIGHT = Dimensions.get('window').height > 600 ? 200 : 150;
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -20,7 +19,7 @@ type Props = {
   children: any;
 }
 
-class ParallaxBackground extends Component {
+export default class F8ParallaxBackground extends Component {
 
   props: Props;
 
@@ -124,7 +123,7 @@ class ParallaxBackground extends Component {
 }
 
 // TODO: Remove this magic numbers
-ParallaxBackground.HEIGHT = HEIGHT;
+F8ParallaxBackground.HEIGHT = HEIGHT;
 
 var HEADER_HEIGHT = HEIGHT + 156;
 
@@ -147,6 +146,3 @@ var styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
 });
-
-
-module.exports = ParallaxBackground;

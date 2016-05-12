@@ -5,7 +5,7 @@
 import React, { Component, PropTypes } from 'react';
 import { View, StyleSheet, TouchableOpacity, Text, Dimensions } from 'react-native';
 
-class F8SegmentedControl extends Component {
+export default class F8SegmentedControl extends Component {
 
   render() {
     var segments = this.props.values.map(
@@ -87,5 +87,3 @@ var styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.7)',
   },
 });
-
-module.exports = F8SegmentedControl;
