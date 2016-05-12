@@ -3,8 +3,7 @@
  */
 'use strict';
 import React, { Component, PropTypes } from 'react';
-var ReactNative = require('react-native');
-var { View, StyleSheet, ListView, Dimensions } = ReactNative;
+import { View, StyleSheet, ListView, Dimensions } from 'react-native';
 
 type Rows = Array<Object>;
 type RowsAndSections = {
@@ -21,7 +20,7 @@ type Props = {
   contentInset: { top: number; bottom: number; };
 };
 
-class PureListView extends React.Component {
+class PureListView extends Component {
   props: Props;
 
   constructor(props: Props) {

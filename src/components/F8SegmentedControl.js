@@ -1,13 +1,11 @@
+/**
+ * @flow
+ */
 'use strict';
+import React, { Component, PropTypes } from 'react';
+import { View, StyleSheet, Animated, TouchableOpacity, Text, Dimensions } from 'react-native';
 
-var React = require('React');
-var StyleSheet = require('StyleSheet');
-var { Text } = require('./F8Text');
-var TouchableOpacity = require('TouchableOpacity');
-var View = require('View');
-var Platform = require('Platform');
-
-class F8SegmentedControl extends React.Component {
+class F8SegmentedControl extends Component {
 
   render() {
     var segments = this.props.values.map(
@@ -29,7 +27,7 @@ class F8SegmentedControl extends React.Component {
   }
 }
 
-class Segment extends React.Component {
+class Segment extends Component {
 
   render() {
     var selectedButtonStyle;
