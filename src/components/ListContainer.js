@@ -2,78 +2,101 @@
  * @flow
  */
 'use strict';
-var Animated = require('Animated');
-var NativeModules = require('NativeModules');
-var Dimensions = require('Dimensions');
+import React, { Component, PropTypes } from 'react';
+
+var ReactNative = require('react-native');
+
+var { View, StyleSheet, Animated, NativeModules, Text, Dimensions } = ReactNative;
+
 var F8Header = require('./F8Header');
 var F8SegmentedControl = require('./F8SegmentedControl');
 var ParallaxBackground = require('./ParallaxBackground');
-var React = require('React');
-var StyleSheet = require('StyleSheet');
-var View = require('View');
-var { Text } = require('./F8Text');
 var ViewPager = require('./ViewPager');
-var Platform = require('Platform');
-const EMPTY_CELL_HEIGHT = Dimensions.get('window').height > 600 ? 200 : 150;
-const ActivityIndicator = require('ActivityIndicatorIOS');
 
 import type {Item as HeaderItem} from './F8Header';
 
-class Container extends React.Component {
+type Props = {
+  title: string;
+  leftItem?: HeaderItem;
+  rightItem?: HeaderItem;
+  extraItems?: Array<HeaderItem>;
+  selectedSegment?: number;
+  selectedSectionColor: string;
+  backgroundImage: number;
+  backgroundColor: string;
+  parallaxContent: ?ReactElement;
+  stickyHeader?: ?ReactElement;
+  onSegmentChange?: (segment: number) => void;
+  children: any;
+};
+
+type State = {
+  idx: number;
+  anim: Animated.Value;
+  stickyHeaderHeight: number;
+};
+
+const EMPTY_CELL_HEIGHT = Dimensions.get('window').height > 600 ? 200 : 150;
+
+//var ActivityIndicatorIOS = require('ActivityIndicatorIOS');
+//var ProgressBarAndroid = require('ProgressBarAndroid');
+//const ActivityIndicator = Platform.OS === 'ios'
+//  ? ActivityIndicatorIOS
+//  : ProgressBarAndroid;
+
+//var Relay = require('react-relay');
+//var RelayRenderer = require('react-relay/lib/RelayRenderer.js');
+
+//class MainRoute extends Relay.Route {}
+//MainRoute.queries = { viewer: () => Relay.QL`query { viewer }` };
+//MainRoute.routeName = 'MainRoute';
+
+class Container extends Component {
   render() {
     const child = React.Children.only(this.props.children);
-    if (!child.type.getFragmentNames) {
-      return child;
-    }
-    return (
-      <View style={{height: 400}}>
-        {child.props.renderHeader && child.props.renderHeader()}
-        <View style={{flex: 1, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center'}}>
-          <ActivityIndicator />
-        </View>
-      </View>
-    )
+    return child;
   }
-
 }
 
-class ListContainer extends React.Component {
-  constructor(props) {
+class ListContainer extends Component {
+
+  props: Props;
+  _refs: Array<any>;
+  _pinned: any;
+
+  constructor(props: Props) {
     super(props);
+
     this.state = ({
       idx: this.props.selectedSegment || 0,
       anim: new Animated.Value(0),
       stickyHeaderHeight: 0,
-    });
+    }: State);
+
     this.renderFakeHeader = this.renderFakeHeader.bind(this);
     this.handleStickyHeaderLayout = this.handleStickyHeaderLayout.bind(this);
+    this.handleShowMenu = this.handleShowMenu.bind(this);
     this.handleSelectSegment = this.handleSelectSegment.bind(this);
     this._refs = [];
-
   }
 
   render() {
     var leftItem = this.props.leftItem;
+
     const segments = [];
     const content = React.Children.map(this.props.children, (child, idx) => {
       segments.push(child.props.title);
-      return (
-        <Container>
-          {
-            React.cloneElement(child, {
-              ref: (ref) => this._refs[idx] = ref,
-              onScroll: (e) => this.handleScroll(idx, e),
-              style: styles.listView,
-              showsVerticalScrollIndicator: false,
-              scrollEventThrottle: 16,
-              contentInset: {bottom: 40, top: 0},
-              automaticallyAdjustContentInsets: false,
-              renderHeader: this.renderFakeHeader,
-              scrollsToTop: idx === this.state.idx,
-            })
-          }
-        </Container>
-      );
+      return <Container>{React.cloneElement(child, {
+        ref: (ref) => this._refs[idx] = ref,
+        onScroll: (e) => this.handleScroll(idx, e),
+        style: styles.listView,
+        showsVerticalScrollIndicator: false,
+        scrollEventThrottle: 16,
+        contentInset: {bottom: 49, top: 0},
+        automaticallyAdjustContentInsets: false,
+        renderHeader: this.renderFakeHeader,
+        scrollsToTop: idx === this.state.idx,
+      })}</Container>;
     });
 
     let {stickyHeader} = this.props;
@@ -138,7 +161,7 @@ class ListContainer extends React.Component {
     );
   }
 
-  renderHeaderTitle() {
+  renderHeaderTitle(): ?ReactElement {
     var transform;
     if (!this.props.parallaxContent) {
       var distance = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
@@ -157,7 +180,7 @@ class ListContainer extends React.Component {
     );
   }
 
-  handleScroll(idx, e) {
+  handleScroll(idx: number, e: any) {
     if (idx !== this.state.idx) {
       return;
     }
@@ -180,12 +203,12 @@ class ListContainer extends React.Component {
     );
   }
 
-  renderFixedStickyHeader() {
+  renderFixedStickyHeader(stickyHeader: ?ReactElement) {
     return <View style={{height: this.state.stickyHeaderHeight}} />;
   }
 
-  renderFloatingStickyHeader(stickyHeader) {
-    if (!stickyHeader || Platform.OS !== 'ios') {
+  renderFloatingStickyHeader(stickyHeader: ?ReactElement) {
+    if (!stickyHeader) {
       return;
     }
     var opacity = this.state.stickyHeaderHeight === 0 ? 0 : 1;
@@ -212,18 +235,18 @@ class ListContainer extends React.Component {
     );
   }
 
-  handleStickyHeaderLayout({nativeEvent: { layout, target }}) {
+  handleStickyHeaderLayout({nativeEvent: { layout, target }}: any) {
     this.setState({stickyHeaderHeight: layout.height});
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: Props) {
     if (typeof nextProps.selectedSegment === 'number' &&
       nextProps.selectedSegment !== this.state.idx) {
       this.setState({idx: nextProps.selectedSegment});
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps: Props, prevState: State) {
     if (!NativeModules.F8Scrolling) {
       return;
     }
@@ -233,33 +256,41 @@ class ListContainer extends React.Component {
       var distance = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
 
       if (this._refs[prevState.idx] && this._refs[prevState.idx].getScrollResponder) {
-        const oldScrollViewTag = React.findNodeHandle(
+        const oldScrollViewTag = ReactNative.findNodeHandle(
           this._refs[prevState.idx].getScrollResponder()
         );
         NativeModules.F8Scrolling.unpin(oldScrollViewTag);
       }
 
       if (this._refs[this.state.idx] && this._refs[this.state.idx].getScrollResponder) {
-        const newScrollViewTag = React.findNodeHandle(
+        const newScrollViewTag = ReactNative.findNodeHandle(
           this._refs[this.state.idx].getScrollResponder()
         );
-        const pinnedViewTag = React.findNodeHandle(this._pinned);
+        const pinnedViewTag = ReactNative.findNodeHandle(this._pinned);
         NativeModules.F8Scrolling.pin(newScrollViewTag, pinnedViewTag, distance);
       }
     }
   }
 
-  handleSelectSegment(idx) {
+  handleSelectSegment(idx: number) {
     if (this.state.idx !== idx) {
       const {onSegmentChange} = this.props;
       this.setState({idx}, () => onSegmentChange && onSegmentChange(idx));
     }
   }
 
+  handleShowMenu() {
+    this.context.openDrawer();
+  }
 }
 
 ListContainer.defaultProps = {
   selectedSectionColor: 'white',
+};
+
+ListContainer.contextTypes = {
+  openDrawer: React.PropTypes.func,
+  hasUnreadNotifications: React.PropTypes.number,
 };
 
 var styles = StyleSheet.create({
