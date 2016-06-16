@@ -1,10 +1,10 @@
-import {Record} from 'immutable';
+import { Record } from 'immutable';
 
 import {
-  CATEGORIES_REQUEST,
-  CATEGORIES_SUCCESS,
-  CATEGORIES_FAILURE,
-} from '../../constants/ActionTypes'
+  SERVICE_REQUEST,
+  SERVICE_SUCCESS,
+  SERVICE_FAILURE
+} from './../constants/ActionTypes'
 
 const InitialState = Record({
   isFetching: false,
@@ -13,18 +13,17 @@ const InitialState = Record({
 
 const initialState = new InitialState;
 
-export default function categoriesReducer(state = initialState, action = {}) {
+export default function serviceReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case CATEGORIES_REQUEST:
+    case SERVICE_REQUEST:
       return state
         .set('isFetching',true)
         .set('error',null);
-
-    case CATEGORIES_SUCCESS:
+    case SERVICE_SUCCESS:
       return state
         .set('isFetching',false)
         .set('error',null);
-    case CATEGORIES_FAILURE:
+    case SERVICE_FAILURE:
       return state
         .set('isFetching',false)
         .set('error',action.error);

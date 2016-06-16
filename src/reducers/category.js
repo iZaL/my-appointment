@@ -4,7 +4,7 @@ import {
   CATEGORY_REQUEST,
   CATEGORY_SUCCESS,
   CATEGORY_FAILURE,
-} from '../../constants/ActionTypes';
+} from './../constants/ActionTypes';
 
 const InitialState = Record({
   isFetching: false,

@@ -1,10 +1,10 @@
 import { Record } from 'immutable';
 
 import {
-  COMPANIES_REQUEST,
-  COMPANIES_SUCCESS,
-  COMPANIES_FAILURE,
-} from '../../constants/ActionTypes'
+  SERVICES_REQUEST,
+  SERVICES_SUCCESS,
+  SERVICES_FAILURE,
+} from './../constants/ActionTypes'
 
 const InitialState = Record({
   isFetching: false,
@@ -13,17 +13,17 @@ const InitialState = Record({
 
 const initialState = new InitialState;
 
-export default function companiesReducer(state = initialState, action = {}) {
+export default function servicesReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case COMPANIES_REQUEST:
+    case SERVICES_REQUEST:
       return state
         .set('isFetching',true)
         .set('error',null);
-    case COMPANIES_SUCCESS:
+    case SERVICES_SUCCESS:
       return state
         .set('isFetching',false)
         .set('error',null);
-    case COMPANIES_FAILURE:
+    case SERVICES_FAILURE:
       return state
         .set('isFetching',false)
         .set('error',action.error);

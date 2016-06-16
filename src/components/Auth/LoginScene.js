@@ -1,92 +1,51 @@
 'use strict'
 import React, { Component, PropTypes } from 'react';
 import {  StyleSheet, Text, View, Image, TouchableHighlight, TextInput } from 'react-native';
-import { assets } from './../../utils/assets';
 import FormButton from './../FormButton';
-import stylesheet from './../../assets/style/form';
 import LoadingIndicator from './../../components/LoadingIndicator';
-import t from 'tcomb-form-native/lib';
-const Form = t.form.Form;
 
 export default class LoginScene extends Component {
 
-  handleLogin() {
-    this.props.onLoginPress();
-  }
-
-  handleForgotPasswordRoutePress() {
-    this.props.onForgotPasswordRoutePress();
-  }
-
-  handleRegisterRoutePress() {
-    this.props.onRegisterRoutePress();
-  }
-
   render() {
 
-    Form.stylesheet = stylesheet;
-
-    const {login} = this.props;
-
-    let email = {
-      label: 'Email',
-      placeholder: 'Email',
-      keyboardType: 'email-address',
-      editable: !login.isFetching,
-      hasError: login.form.fields.emailHasError,
-      error: 'Please enter valid email',
-      autoCapitalize:'none',
-      autoCorrect:false
-    };
-
-    let password = {
-      label: 'Password',
-      placeholder: 'Password',
-      maxLength: 12,
-      secureTextEntry: true,
-      editable: !login.isFetching,
-      hasError: login.form.fields.passwordHasError,
-      error: 'Must have 6-12 numbers, letters or special characters'
-    };
-
-    const loginForm = t.struct({
-      email: t.String,
-      password: t.String
-    });
-
-    const options = {
-      fields: {
-        email: email,
-        password: password
-      }
-    };
+    const {email,password,handleForm,loginReducer, loginUser, handleRegisterRoutePress, handleForgotPasswordRoutePress } = this.props;
 
     return (
       <View style={styles.container}>
 
 
-        {login.isFetching ? <LoadingIndicator /> : <View />}
+        {loginReducer.isFetching ? <LoadingIndicator /> : <View />}
 
-        <Form ref="form"
-              type={loginForm}
-              options={options}
-              value={this.props.credentials}
-              onChange={this.props.onChange}
+
+        <TextInput
+          style={[styles.textInput,styles.textArea]}
+          onChangeText={(value) => handleForm('email',value)}
+          value={email}
+          maxLength={40}
+          placeholderTextColor="gray"
         />
 
+        <TextInput
+          style={[styles.textInput]}
+          onChangeText={(value) => handleForm('password',value)}
+          value={password}
+          maxLength={40}
+          placeholderTextColor="gray"
+        />
+        
         <FormButton
-          disabled={login.isFetching}
-          onPress={this.handleLogin.bind(this)}
+          disabled={loginReducer.isFetching}
+          onPress={loginUser()}
           buttonText='Login'
         />
 
-        <TouchableHighlight onPress={this.handleRegisterRoutePress.bind(this)} underlayColor='transparent'
+        <TouchableHighlight onPress={handleRegisterRoutePress()} underlayColor='transparent'
                             style={[styles.center,styles.mTop20]}
         >
           <Text style={[styles.label,styles.textUnderline]}>Dont have an account? Register</Text>
         </TouchableHighlight>
 
-        <TouchableHighlight onPress={this.handleForgotPasswordRoutePress.bind(this)} style={[styles.center,styles.mTop20]}
+        <TouchableHighlight onPress={handleForgotPasswordRoutePress()} style={[styles.center,styles.mTop20]}
                             underlayColor='transparent' >
           <Text style={[styles.label,styles.textUnderline]}>Forgot your password ?</Text>
         </TouchableHighlight>
@@ -97,6 +56,10 @@ export default class LoginScene extends Component {
   }
 
 }
+
+LoginScene.propTypes = ({
+  
+});
 
 var styles = StyleSheet.create({
 

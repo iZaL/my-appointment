@@ -25,7 +25,6 @@
     "redux-logger": "^2.6.1",
     "redux-storage": "^4.0.1",
     "redux-thunk": "^2.1.0",
-    "tcomb-form-native": "^0.5.1",
     "validate.js": "^0.10.0",
     "why-did-you-update": "0.0.8"
   }

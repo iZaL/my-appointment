@@ -1,7 +1,7 @@
 'use strict';
 import React, { Component, PropTypes } from 'react';
 import { ScrollView, View, Image } from 'react-native';
-import { login,onLoginFormFieldChange } from '../../actions/Auth/login';
+import { login } from '../../actions/Auth/login';
 import { connect } from 'react-redux';
 import LoginScene from './../../components/Auth/LoginScene';
 import { Actions } from 'react-native-router-flux';
@@ -10,21 +10,19 @@ export default class Login extends Component {
 
   constructor(props) {
     super(props);
-
+    
     this.state = {
-      credentials: { email : this.props.login.form.fields.email, password : this.props.login.form.fields.password }
+      email: 'admin@test.com',
+      password: 'password'
     };
-  }
+    
+    this.handleForm = this.handleForm.bind(this);
+  };
 
-  componentDidMount() {
-    this.setState({
-      credentials : {email : 'admin@test.com',password:'password'}
-    });
-  }
-
-  handleLogin() {
+  loginUser() {
+    
     const {dispatch} = this.props;
-    const credentials = this.state.credentials;
+    const credentials = {email:this.state.email,password:this.state.password};
 
     dispatch(login(credentials))
       .then((success)=> {
@@ -38,32 +36,34 @@ export default class Login extends Component {
   }
 
   handleRegisterRoute() {
-    Actions.register();
+    console.log('handleRegisterRoute');
+
+    return Actions.register();
   }
 
   handleForgotPasswordRoute() {
-    // @todo: implement route
-    Actions.main();
-  }
+    console.log('handleForgotPasswordRoute');
 
-  onFieldChange(value, field) {
-    let changedField = field[0];
-    const { dispatch } = this.props;
-    //dispatch(onLoginFormFieldChange(changedField, value[changedField]));
-    this.setState({credentials: value});
+    // @todo: implement route
+    return Actions.main();
+  }
+  
+  handleForm(name,value) {
+    console.log('name',name);
+    console.log('value',value);
   }
 
   render() {
-    const { login } = this.props;
+    const { loginReducer } = this.props;
     return (
       <ScrollView contentContainerStyle={{flex:1,paddingTop: 64,backgroundColor:'white'}}>
         <LoginScene
-          login={login}
-          credentials={this.state.credentials}
-          onLoginPress={this.handleLogin.bind(this)}
-          onRegisterRoutePress={this.handleRegisterRoute.bind(this)}
-          onForgotPasswordRoutePress={this.handleForgotPasswordRoute.bind(this)}
-          onChange={this.onFieldChange.bind(this)}
+          {...this.state}
+          loginReducer={loginReducer}
+          loginUser={this.loginUser}
+          onRegisterRoutePress={this.handleRegisterRoute}
+          onForgotPasswordRoutePress={this.handleForgotPasswordRoute}
+          handleForm={this.handleForm}
         />
       </ScrollView>
     );
@@ -72,8 +72,7 @@ export default class Login extends Component {
 
 function mapStateToProps(state) {
   return {
-    ...state,
-    login : state.login
+    loginReducer : state.loginReducer
   }
 }
 

@@ -8,7 +8,7 @@ import {
   COMPANY_SEARCH_SUCCESS,
   COMPANY_SEARCH_FAILURE,
   SET_COMPANY_SERVICE
-} from '../../constants/ActionTypes'
+} from './../constants/ActionTypes'
 
 const InitialState = Record({
   isFetching: false,

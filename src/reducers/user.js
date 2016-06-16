@@ -1,7 +1,6 @@
 import { Record } from 'immutable';
 
 import {
-  SET_USER,
   APPOINTMENTS_REQUEST,
   APPOINTMENTS_SUCCESS,
   APPOINTMENTS_FAILURE,
@@ -12,12 +11,9 @@ import {
   FAVORITES_REQUEST,
   FAVORITES_SUCCESS,
   FAVORITES_FAILURE,
-  DELETE_APPOINTMENT,
-  UNFAVORITE_COMPANY,
-  FAVORITE_COMPANY,
   LOGIN_SUCCESS,
   LOGOUT_USER,
-} from '../../constants/ActionTypes';
+} from './../constants/ActionTypes';
 
 const InitialState= Record({
   isAuthenticated :false,
