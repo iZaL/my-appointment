@@ -1,6 +1,6 @@
-import React, {Component} from "react-native"
+import React, {Component} from "react";
 import SideMenu from "./../components/SideMenu";
-import Drawer from "react-native-drawer"
+import Drawer from "react-native-drawer";
 import {DefaultRenderer} from "react-native-router-flux";
 
 export default class extends Component {

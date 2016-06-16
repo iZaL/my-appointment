@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react';
-import { StyleSheet,View,Text,Image,Component,TouchableOpacity } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { StyleSheet,View,Text,Image,TouchableOpacity } from 'react-native';
 import { assets } from './../utils/assets';
 import FormButton from './../components/FormButton';
 import Actions from 'react-native-router-flux';
