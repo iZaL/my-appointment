@@ -27,7 +27,7 @@ export default class ConfirmedAppointmentList extends Component {
                 name='calendar'
                 size={20}
                 color={'red'}
-                style={{width:20,height:20,alignSelf:'center',fontWeight:100}}
+                style={{width:20,height:20,alignSelf:'center',fontWeight:'100'}}
               />
               <Text style={styles.month}>{month}</Text>
             </View>
@@ -37,7 +37,7 @@ export default class ConfirmedAppointmentList extends Component {
                 name='clock'
                 size={20}
                 color={'#999999'}
-                style={{width:20,height:20,alignSelf:'center',fontWeight:100}}
+                style={{width:20,height:20,alignSelf:'center',fontWeight:'100'}}
               />
               <Text style={{ paddingLeft:5,color:'#999999',fontWeight:'500',fontSize:13}}>{timing.time_en}</Text>
             </View>

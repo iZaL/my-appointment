@@ -106,7 +106,7 @@ export default class PageViewer extends Component {
                   name='close'
                   size={20}
                   color={'white'}
-                  style={{width:20,height:20,alignSelf:'center',paddingLeft:10,fontWeight:100}}
+                  style={{width:20,height:20,alignSelf:'center',paddingLeft:10,fontWeight:'100'}}
                 />
               </TouchableOpacity>
             </View>

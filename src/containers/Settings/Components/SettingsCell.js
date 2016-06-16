@@ -20,7 +20,7 @@ export default class SettingsCell extends Component {
                   name={this.props.icon}
                   size={26}
                   color={'tomato'}
-                  style={{width:26,height:26,alignSelf:'center',fontWeight:100}}
+                  style={{width:26,height:26,alignSelf:'center',fontWeight:'100'}}
                 />
               </View>
               <View style={styles.middleCol}>

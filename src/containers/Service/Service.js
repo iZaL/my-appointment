@@ -24,7 +24,7 @@ class Service extends Component {
   }
 
   loadCompany(company) {
-    Actions.main();
+    // Actions.main();
     Actions.companyEntity({
       title:company.name_en,
       itemID: company.id
@@ -43,7 +43,7 @@ class Service extends Component {
   render() {
     const {serviceReducer, companies } = this.props;
     return (
-      <Image source={require('./../../assets/img/info-background.png')} style={{flex: 1,width: null,height: null,paddingTop: 10,backgroundColor:'white'}} >
+      <Image source={require('./../../assets/img/bg.png')} style={{flex: 1,width: null,height: null,paddingTop: 10,backgroundColor:'white'}} >
         {serviceReducer.isFetching && <LoadingIndicator />  }
         <CompanyList
           loadCompany={this.loadCompany.bind(this)}

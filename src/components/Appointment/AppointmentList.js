@@ -20,7 +20,7 @@ export default class AppointmentList extends Component {
               name='person'
               size={40}
               color={'white'}
-              style={{width:40,height:40,alignSelf:'center',fontWeight:100}}
+              style={{width:40,height:40,alignSelf:'center',fontWeight:'100'}}
             />
           </View>
           <View style={styles.middleCol}>

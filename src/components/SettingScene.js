@@ -20,7 +20,7 @@ export default class SettingScene extends Component {
                 name='power'
                 size={20}
                 color={'red'}
-                style={{width:20,height:20,alignSelf:'center',fontWeight:100}}
+                style={{width:20,height:20,alignSelf:'center',fontWeight:'100'}}
               />
             </View>
             <View style={styles.middleCol}>
