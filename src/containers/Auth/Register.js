@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { signup,onRegisterFormFieldChange } from '../../actions/Auth/register';
 import RegisterScene from './../../components/Auth/RegisterScene';
 import LoadingIndicator from './../../components/LoadingIndicator';
-const Actions = require('react-native-router-flux').Actions;
+import { Actions } from 'react-native-router-flux';
 
 class Register extends Component {
 

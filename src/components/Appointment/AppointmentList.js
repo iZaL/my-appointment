@@ -1,10 +1,10 @@
 'use strict';
 import React, {Component,PropTypes} from 'react';
 import { TouchableHighlight, StyleSheet, Text, View } from 'react-native';
-import { Icon } from 'react-native-icons';
+import { Icon } from 'react-native-vector-icons/Ionicons';
 import LoadingIndicator from './../../components/LoadingIndicator';
 import Seperator from './../Seperator';
-const Actions = require('react-native-router-flux').Actions;
+import { Actions } from 'react-native-router-flux';
 import { APP_STYLES } from './../../utils/AppStyles';
 
 export default class AppointmentList extends Component {

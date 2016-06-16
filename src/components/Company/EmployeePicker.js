@@ -1,9 +1,9 @@
 'use strict';
 import React, { Component, PropTypes } from 'react';
 import { ListView,ScrollView, TouchableHighlight, StyleSheet, Text, View,AlertIOS } from 'react-native';
-import { Icon } from 'react-native-icons';
+import { Icon } from 'react-native-vector-icons/Ionicons';
 import LoadingIndicator from './../LoadingIndicator';
-const Actions = require('react-native-router-flux').Actions;
+import { Actions } from 'react-native-router-flux';
 const Modal = require('react-native-modalbox');
 import EmployeeList from './EmployeeList';
 

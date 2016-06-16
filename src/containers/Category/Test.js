@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { assets } from './../../utils/assets';
 import CategoryList from './../../components/Category/CategoryList';
 import LoadingIndicator from './../../components/LoadingIndicator';
-const Actions = require('react-native-router-flux').Actions;
+import { Actions } from 'react-native-router-flux';
 import {Record} from 'immutable';
 import {API_ROOT} from './../../constants/config';
 import { normalize, Schema, arrayOf,valuesOf,unionOf } from 'normalizr';

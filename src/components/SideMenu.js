@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { ScrollView, StyleSheet,View,Text,TouchableHighlight,Image } from 'react-native';
 import { Actions } from "react-native-router-flux";
 import { assets } from './../utils/assets';
-import { Icon } from 'react-native-icons';
+import { Icon } from 'react-native-vector-icons/Ionicons';
 import { fetchServices } from './../actions/Service/services';
 import { connect } from 'react-redux';
 import ServiceSidebarList from './../components/Service/ServiceSidebarList';

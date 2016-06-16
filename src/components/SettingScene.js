@@ -1,6 +1,6 @@
 import React, { Component, PropTypes} from 'react';
 import { ListView,ScrollView, TouchableHighlight, StyleSheet, Text, View,AlertIOS } from 'react-native';
-import { Icon } from 'react-native-icons';
+import { Icon } from 'react-native-vector-icons/Ionicons';
 
 export default class SettingScene extends Component {
 

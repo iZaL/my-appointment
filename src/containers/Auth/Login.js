@@ -4,7 +4,7 @@ import { ScrollView, View, Image } from 'react-native';
 import { login,onLoginFormFieldChange } from '../../actions/Auth/login';
 import { connect } from 'react-redux';
 import LoginScene from './../../components/Auth/LoginScene';
-const Actions = require('react-native-router-flux').Actions;
+import { Actions } from 'react-native-router-flux';
 
 export default class Login extends Component {
 

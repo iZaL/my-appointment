@@ -1,6 +1,6 @@
 import React, { Component, PropTypes} from 'react';
 import { StatusBar,TouchableOpacity, StyleSheet, Text, View,} from 'react-native';
-import { Icon } from 'react-native-icons';
+import { Icon } from 'react-native-vector-icons/Ionicons';
 import PromoImage from './PromoImage';
 var Carousel = require('react-native-carousel');
 import { Actions } from 'react-native-router-flux';

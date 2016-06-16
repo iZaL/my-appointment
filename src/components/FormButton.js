@@ -1,6 +1,5 @@
-import React,
-{
-  PropTypes,
+import React, { Component, PropTypes}  from 'react';
+import {
   StyleSheet,
   View,
   Text
@@ -8,29 +7,15 @@ import React,
 
 import Button from 'react-native-button';
 
-var styles = StyleSheet.create({
-  containerStyle: {
-    backgroundColor: '#5BC3BE',
-    borderColor: '#5BC3BE',
-    borderRadius: 0,
+export default class FormButton extends Component {
 
-  },
-  style: {
-    fontSize: 18,
-    color:'white',
-    padding:10
-  }
-});
-
-var FormButton = React.createClass({
-
-  propTypes: {
+  static propTypes = {
     disabled: PropTypes.bool,
     onPress: PropTypes.func,
     buttonText: PropTypes.string,
     containerStyle:View.propTypes.style,
     style:Text.propTypes.style
-  },
+  }
 
   render() {
     return (
@@ -46,6 +31,18 @@ var FormButton = React.createClass({
       </View>
     );
   }
-});
+}
 
-module.exports = FormButton;
+const styles = StyleSheet.create({
+  containerStyle: {
+    backgroundColor: '#5BC3BE',
+    borderColor: '#5BC3BE',
+    borderRadius: 0,
+
+  },
+  style: {
+    fontSize: 18,
+    color:'white',
+    padding:10
+  }
+});

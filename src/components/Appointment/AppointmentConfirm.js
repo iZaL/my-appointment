@@ -1,9 +1,9 @@
 'use strict';
 import React, { PropTypes, Component } from 'react';
 import { TouchableHighlight, StyleSheet, Text, View } from 'react-native';
-import { Icon } from 'react-native-icons';
+import { Icon } from 'react-native-vector-icons/Ionicons';
 import LoadingIndicator from './../LoadingIndicator';
-const Actions = require('react-native-router-flux').Actions;
+import { Actions } from 'react-native-router-flux'
 const Modal = require('react-native-modalbox');
 
 export default class AppointmentConfirm extends Component {

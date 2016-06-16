@@ -1,7 +1,7 @@
 'use strict';
 import React, { PropTypes, Component } from 'react';
 import { ScrollView, View, Text, TouchableHighlight, StyleSheet,ListView } from 'react-native';
-import { Icon } from 'react-native-icons';
+import { Icon } from 'react-native-vector-icons/Ionicons';
 
 export default class EmployeeList extends Component {
 

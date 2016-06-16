@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {fetchServices} from './../../actions/Service/services';
 import ServiceList from './../../components/Service/ServiceList';
 import LoadingIndicator from './../../components/LoadingIndicator';
-const Actions = require('react-native-router-flux').Actions;
+import { Actions } from 'react-native-router-flux';
 
 class Services extends Component {
 

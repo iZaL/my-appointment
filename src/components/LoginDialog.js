@@ -3,7 +3,7 @@ import { StyleSheet,View,Text,Image,Component } from 'react-native';
 import { assets } from './../utils/assets';
 import FormButton from './../components/FormButton';
 
-const Actions = require('react-native-router-flux').Actions;
+import { Actions } from 'react-native-router-flux';
 
 export default class LoginDialog extends Component {
 
