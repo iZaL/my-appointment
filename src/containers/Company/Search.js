@@ -25,7 +25,7 @@ class Search extends  Component {
   }
 
   loadCompany(company) {
-    Actions.main();
+    // Actions.main();
     Actions.companyEntity({
       title:company.name_en,
       itemID: company.id
@@ -34,7 +34,7 @@ class Search extends  Component {
 
   favoriteCompany(company) {
     if(!this.props.userReducer.isAuthenticated) {
-      Actions.root();
+      // Actions.root();
       Actions.loginDialog({dialogText:'Please login to add to favorites'});
     } else {
       const {dispatch} = this.props;

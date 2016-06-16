@@ -28,7 +28,7 @@ class Favorites extends Component {
   }
 
   loadCompany(company) {
-    Actions.main();
+    // Actions.main();
     Actions.companyEntity({
       title:company.name_en,
       itemID: company.id
