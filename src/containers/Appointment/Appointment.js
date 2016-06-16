@@ -10,7 +10,6 @@ import TimingList from './../../components/Appointment/TimingList';
 import AppointmentList from './../../components/Appointment/AppointmentList';
 import AppointmentConfirm from './../../components/Appointment/AppointmentConfirm';
 import EmployeePicker from './../../components/Company/EmployeePicker';
-import LoadingIndicator from './../../components/LoadingIndicator';
 import { Actions } from 'react-native-router-flux';
 import FormButton from './../../components/FormButton';
 
@@ -38,8 +37,9 @@ class Appointment extends Component {
 
   componentDidMount() {
     const {dispatch} = this.props;
+    dispatch(fetchTimings());
+
     if(this.props.userReducer.isAuthenticated) {
-      dispatch(fetchTimings());
       dispatch(invalidateCreatedAppointment());
     }
   }

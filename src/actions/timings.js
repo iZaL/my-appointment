@@ -33,9 +33,9 @@ function timingsFailure(error) {
 export function fetchTimings() {
   var url = API_ROOT +'/timings';
   return (dispatch,getState) => {
-    if(!isEmpty(getState().entities.timings)) {
-      return;
-    }
+    // if(!isEmpty(getState().entities.timings)) {
+    //   return;
+    // }
     dispatch(timingsRequest());
     return fetch(url)
       .then(response => response.json())

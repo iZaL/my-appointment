@@ -9,7 +9,7 @@ export default class Root extends Component {
 
   constructor() {
     super();
-    //CodePush.sync();
+    CodePush.sync();
   }
 
   render() {

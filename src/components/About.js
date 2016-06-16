@@ -33,50 +33,15 @@ export default class About extends Component {
           title="Maps"
           backgroundImage={require('./../assets/img/schedule-background.png')}
           backgroundColor={'#9176D2'}
-          parallaxContent={profilePicture}
           leftItem={this.filterItem()}
-          stickyHeader={filterHeader}
         >
           <F8PureListView
             title='ABCD'
             renderEmptyList={() =>
-            <View style={styles.container}>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
-              <Text>asdasd</Text>
+            <View>
+              <View style={{ flex:1, height:100, marginVertical: 20,paddingHorizontal: 20, backgroundColor:'blue'}}>
+                  <Text>asd</Text>
+                </View>
             </View>
           }
           />
@@ -98,7 +63,6 @@ export default class About extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
   },
 
 });

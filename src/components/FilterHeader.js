@@ -62,6 +62,7 @@ class FilterHeader extends React.Component {
 
 var styles = StyleSheet.create({
   container: {
+    flex:1,
     height: 36,
     flexDirection: 'row',
     alignItems: 'center',

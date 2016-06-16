@@ -21,6 +21,8 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		351A35B11CE7A4310016464A /* Splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 351A35B01CE7A4310016464A /* Splash@2x.png */; };
+		351A35C01CE7A5720016464A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 351A35BF1CE7A5720016464A /* Default-568h@2x.png */; };
 		35346ECA1CE3E9580077259A /* F8Scrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 35346EC91CE3E9580077259A /* F8Scrolling.m */; };
 		35CE88B81CB9919A00A80531 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35CE88B71CB9919A00A80531 /* libz.tbd */; };
 		35CE88B91CB991BB00A80531 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35CE88A91CB9910900A80531 /* libCodePush.a */; };
@@ -153,6 +155,8 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		2709A4D030C14B1F93F50FC8 /* CodePush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 0; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		2BF4672352844524BC597CC9 /* ReactNativeIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 0; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeIcons.xcodeproj; path = "../node_modules/react-native-icons/ios/ReactNativeIcons.xcodeproj"; sourceTree = "<group>"; };
+		351A35B01CE7A4310016464A /* Splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Splash@2x.png"; sourceTree = "<group>"; };
+		351A35BF1CE7A5720016464A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		35346EC81CE3E9580077259A /* F8Scrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F8Scrolling.h; path = ../../projects/f8app/ios/F8Scrolling.h; sourceTree = "<group>"; };
 		35346EC91CE3E9580077259A /* F8Scrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = F8Scrolling.m; path = ../../projects/f8app/ios/F8Scrolling.m; sourceTree = "<group>"; };
 		35CE88B71CB9919A00A80531 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -270,6 +274,8 @@
 		13B07FAE1A68108700A75B9A /* MyAppointment */ = {
 			isa = PBXGroup;
 			children = (
+				351A35BF1CE7A5720016464A /* Default-568h@2x.png */,
+				351A35B01CE7A4310016464A /* Splash@2x.png */,
 				35346EC81CE3E9580077259A /* F8Scrolling.h */,
 				35346EC91CE3E9580077259A /* F8Scrolling.m */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -611,7 +617,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				35CE88BD1CB9926A00A80531 /* ionicons.ttf in Resources */,
+				351A35B11CE7A4310016464A /* Splash@2x.png in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				351A35C01CE7A5720016464A /* Default-568h@2x.png in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

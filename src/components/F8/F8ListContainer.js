@@ -106,11 +106,12 @@ export default class F8ListContainer extends Component {
         <View style={styles.headerWrapper}>
           <F8ParallaxBackground
             minHeight={this.state.stickyHeaderHeight + F8Header.height}
-            maxHeight={EMPTY_CELL_HEIGHT + this.state.stickyHeaderHeight + F8Header.height}
+            maxHeight={EMPTY_CELL_HEIGHT + this.state.stickyHeaderHeight + 20}
             offset={this.state.anim}
             backgroundImage={this.props.backgroundImage}
             backgroundShift={backgroundShift}
-            backgroundColor={this.props.backgroundColor}>
+            backgroundColor={this.props.backgroundColor}
+          >
             {this.renderParallaxContent()}
           </F8ParallaxBackground>
           <F8Header
@@ -276,10 +277,13 @@ F8ListContainer.contextTypes = {
   hasUnreadNotifications: React.PropTypes.number,
 };
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
+
+  },
+  headerWrapper:{
   },
   listView: {
     backgroundColor: 'transparent',
