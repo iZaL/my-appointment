@@ -1,5 +1,6 @@
 'use strict';
-import React, { Component, Image, StyleSheet, Text, TouchableHighlight, View, ListView} from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { Image, StyleSheet, Text, TouchableHighlight, View, ListView} from 'react-native';
 import { Icon } from 'react-native-vector-icons/Ionicons';
 
 export default class CategoryItem extends Component {

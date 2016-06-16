@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react-native';
+import React, { PropTypes, Component } from 'react';
 import { ScrollView, StyleSheet,View,Text,Dimensions,TouchableOpacity,Linking } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
