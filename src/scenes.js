@@ -40,8 +40,8 @@ export const scenes = Actions.create(
         >
           <Scene initial={true} key="main"
                  icon={TabIcon}
-                 selectedTabIcon="ion|ios-home"
-                 tabIcon="ion|ios-home-outline"
+                 selectedTabIcon="ios-home"
+                 tabIcon="ios-home-outline"
                  navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                  titleStyle={{ color:'white' }}
           >
@@ -52,26 +52,26 @@ export const scenes = Actions.create(
           </Scene>
 
           <Scene key="maps" component={Map} icon={TabIcon}
-                 selectedTabIcon="ion|ios-location" tabIcon="ion|ios-location-outline"
+                 selectedTabIcon="ios-location" tabIcon="ios-location-outline"
                  hideNavBar={true}
           />
 
           <Scene key="favorites" component={Favorites} icon={TabIcon} title="Favorites"
-                 selectedTabIcon="ion|android-favorite" tabIcon="ion|android-favorite-outline"
+                 selectedTabIcon="android-favorite" tabIcon="android-favorite-outline"
                  navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                  titleStyle={{ color:'white' }}
                  hideNavBar={true}
           />
 
           <Scene key="appointments" component={Appointments}  icon={TabIcon} title="Appointments"
-                 selectedTabIcon="ion|ios-alarm" tabIcon="ion|ios-alarm-outline"
+                 selectedTabIcon="ios-alarm" tabIcon="ios-alarm-outline"
                  navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                  titleStyle={{ color:'white' }}
                  hideNavBar={true}
 
           />
           <Scene  key="settings" icon={TabIcon}  title="Settings"
-                  selectedTabIcon="ion|ios-gear" tabIcon="ion|ios-gear-outline"
+                  selectedTabIcon="ios-gear" tabIcon="ios-gear-outline"
                   navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                   titleStyle={{ color:'white' }}
           >

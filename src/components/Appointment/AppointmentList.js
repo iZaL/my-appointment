@@ -17,7 +17,7 @@ export default class AppointmentList extends Component {
         <View style={styles.cellWrapper}>
           <View style={styles.leftCol}>
             <Icon
-              name='ion|person'
+              name='person'
               size={40}
               color={'white'}
               style={{width:40,height:40,alignSelf:'center',fontWeight:100}}
@@ -36,7 +36,7 @@ export default class AppointmentList extends Component {
                 </View>
                 <View style={{flex:1}}>
                   <Icon
-                    name='ion|chevron-right'
+                    name='chevron-right'
                     size={15}
                     color={'white'}
                     style={{width:15,height:15,alignSelf:'flex-end',fontWeight:'300'}}

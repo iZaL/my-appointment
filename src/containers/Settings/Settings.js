@@ -40,11 +40,11 @@ class Settings extends Component {
   render() {
     return (
       <ScrollView style={{flex:1,backgroundColor: 'white',paddingTop:80}}>
-        <SettingsCell icon="ion|power" title="Logout" callback={()=>this.logout()} />
-        <SettingsCell icon="ion|person" title="Profile" callback={()=>this.loadLink('profile')} />
-        <SettingsCell icon="ion|information-circled" title="About" callback={()=>this.loadLink('about')} />
-        <SettingsCell icon="ion|help-circled" title="Contact Us" callback={()=>this.loadLink('contact')} />
-        <SettingsCell icon="ion|ios-checkmark" title="Terms and Conditions" callback={()=>this.loadLink('term')} />
+        <SettingsCell icon="power" title="Logout" callback={()=>this.logout()} />
+        <SettingsCell icon="person" title="Profile" callback={()=>this.loadLink('profile')} />
+        <SettingsCell icon="information-circled" title="About" callback={()=>this.loadLink('about')} />
+        <SettingsCell icon="help-circled" title="Contact Us" callback={()=>this.loadLink('contact')} />
+        <SettingsCell icon="ios-checkmark" title="Terms and Conditions" callback={()=>this.loadLink('term')} />
       </ScrollView>
     );
   }

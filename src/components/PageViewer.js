@@ -103,7 +103,7 @@ export default class PageViewer extends Component {
             <View style={styles.backButton}>
               <TouchableOpacity onPress={() => Actions.pop()} >
                 <Icon
-                  name='ion|close'
+                  name='close'
                   size={20}
                   color={'white'}
                   style={{width:20,height:20,alignSelf:'center',paddingLeft:10,fontWeight:100}}

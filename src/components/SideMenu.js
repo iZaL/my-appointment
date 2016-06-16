@@ -10,7 +10,6 @@ import ServiceSidebarList from './../components/Service/ServiceSidebarList';
 class SideMenu extends Component {
 
   componentWillMount() {
-    console.log('scenekey',this.props);
     const { dispatch } =this.props;
     dispatch(fetchServices());
   }
@@ -35,7 +34,7 @@ class SideMenu extends Component {
           <View style={styles.list}>
             <View style={styles.titleWrapper}>
               <Icon
-                name='ion|ios-search-strong'
+                name='ios-search-strong'
                 size={20}
                 color={'#ecf2f9'}
                 style={styles.rightArrow}
@@ -45,7 +44,7 @@ class SideMenu extends Component {
             </View>
             <View style={styles.arrowWrapper}>
               <Icon
-                name='ion|chevron-right'
+                name='chevron-right'
                 size={20}
                 color={'#a6a6a6'}
                 style={styles.rightArrow}

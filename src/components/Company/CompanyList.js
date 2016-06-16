@@ -27,7 +27,7 @@ export default class CompanyList extends Component {
               <Text style={styles.name} numberOfLines={5}> {company.name_en}</Text>
               <View style={{flexDirection:'row',marginTop:5}}>
                 <Icon
-                  name='ion|location'
+                  name='location'
                   size={20}
                   color={'#99ddff'}
                   style={styles.followIcon}
@@ -36,7 +36,7 @@ export default class CompanyList extends Component {
               </View>
               <TouchableHighlight onPress={() => this.handleFavorites(company)} underlayColor="transparent">
                 <Icon
-                  name={company.isFavorited ? 'ion|android-favorite' : 'ion|android-favorite-outline'}
+                  name={company.isFavorited ? 'android-favorite' : 'android-favorite-outline'}
                   size={30}
                   color={'red'}
                   style={styles.heartIcon}

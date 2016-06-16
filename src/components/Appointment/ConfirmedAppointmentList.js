@@ -24,7 +24,7 @@ export default class ConfirmedAppointmentList extends Component {
           <View style={styles.leftCol}>
             <View style={{flexDirection:'row',alignItems:'center'}}>
               <Icon
-                name='ion|calendar'
+                name='calendar'
                 size={20}
                 color={'red'}
                 style={{width:20,height:20,alignSelf:'center',fontWeight:100}}
@@ -34,7 +34,7 @@ export default class ConfirmedAppointmentList extends Component {
             <Text style={styles.day}>{appointmentDate.getDay()}</Text>
             <View style={{flexDirection:'row',alignItems:'center'}}>
               <Icon
-                name='ion|clock'
+                name='clock'
                 size={20}
                 color={'#999999'}
                 style={{width:20,height:20,alignSelf:'center',fontWeight:100}}
@@ -46,7 +46,7 @@ export default class ConfirmedAppointmentList extends Component {
             <Text style={styles.company}>{company.name_en}</Text>
             <View style={{flexDirection:'row',alignItems:'center',paddingBottom:5}}>
               <Icon
-                name='ion|location'
+                name='location'
                 size={15}
                 color={'gray'}
                 style={{width:15,height:15,alignSelf:'center'}}
@@ -75,7 +75,7 @@ export default class ConfirmedAppointmentList extends Component {
                       </View>
                       <View style={{flex:1}}>
                         <Icon
-                          name='ion|close-circled'
+                          name='close-circled'
                           size={15}
                           color={'white'}
                           style={{width:15,height:15,fontWeight:'300'}}

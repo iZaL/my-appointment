@@ -28,7 +28,7 @@ export default class SettingsCell extends Component {
               </View>
               <View style={styles.rightCol}>
                 <Icon
-                  name='ion|chevron-right'
+                  name='chevron-right'
                   size={20}
                   color={'#f0f5f5'}
                   style={{width:20,height:20,alignSelf:'flex-end',fontWeight:'200'}}

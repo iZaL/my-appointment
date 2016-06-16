@@ -22,7 +22,7 @@ export default class ServiceList extends Component {
               </Text>
               <View style={styles.bookButtonWrapper} >
                 <Icon
-                  name='ion|calendar'
+                  name='calendar'
                   size={20}
                   color='white'
                   style={styles.calendarIcon}

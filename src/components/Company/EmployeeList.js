@@ -12,7 +12,7 @@ export default class EmployeeList extends Component {
           <View style={styles.cellWrapper}>
             <View style={styles.leftCol}>
               <Icon
-                name='ion|person'
+                name='person'
                 size={24}
                 color={'#e7e7e7'}
                 style={styles.personIcon}
@@ -25,7 +25,7 @@ export default class EmployeeList extends Component {
             </View>
             <View style={styles.rightCol}>
               <Icon
-                name='ion|chevron-right'
+                name='chevron-right'
                 size={24}
                 color={'#e7e7e7'}
                 style={styles.followIcon}

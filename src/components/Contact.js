@@ -36,9 +36,9 @@ export default class Contact extends Component {
       >
         <View style={styles.container}>
 
-          <SettingsCell icon="ion|social-instagram" title="Follow us on Instagram " callback={()=>this.loadLink('instagram')} />
-          <SettingsCell icon="ion|social-twitter" title="Follow us on Twitter" callback={()=>this.loadLink('twitter')} />
-          <SettingsCell icon="ion|social-facebook" title="Join our Facebook Page" callback={()=>this.loadLink('facebook')} />
+          <SettingsCell icon="social-instagram" title="Follow us on Instagram " callback={()=>this.loadLink('instagram')} />
+          <SettingsCell icon="social-twitter" title="Follow us on Twitter" callback={()=>this.loadLink('twitter')} />
+          <SettingsCell icon="social-facebook" title="Join our Facebook Page" callback={()=>this.loadLink('facebook')} />
         </View>
       </PageViewer>
 

@@ -101,7 +101,7 @@ export default class AppointmentConfirm extends Component {
         onClosed={this.props.onClosed}
         backdropContent={
             <Icon
-              name='ion|close'
+              name='close'
               size={20}
               color={'white'}
               style={styles.closeButton}
