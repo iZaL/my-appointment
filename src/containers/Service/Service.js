@@ -24,7 +24,6 @@ class Service extends Component {
   }
 
   loadCompany(company) {
-    // Actions.main();
     Actions.companyEntity({
       title:company.name_en,
       itemID: company.id
@@ -32,12 +31,8 @@ class Service extends Component {
   }
 
   favoriteCompany(company) {
-    if(!this.props.userReducer.isAuthenticated) {
-      Actions.loginDialog({dialogText:'Please login to add to favorites'});
-    } else {
       const {dispatch} = this.props;
       dispatch(favoriteCompany(company));
-    }
   }
 
   render() {

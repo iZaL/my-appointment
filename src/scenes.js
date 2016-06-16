@@ -86,7 +86,7 @@ export const scenes = Actions.create(
                  navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                  titleStyle={{ color:'white' }}
           >
-            <Scene key="serviceEntity" component={Service} title="Service" type="reset"/>
+            <Scene key="serviceEntity" component={Service} title="Service" />
           </Scene>
 
           <Scene key="search" component={Search} title="search" hideNavBar={false}
