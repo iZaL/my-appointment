@@ -1,7 +1,7 @@
 'use strict';
 import React, {Component ,PropTypes} from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View, ListView, Linking} from 'react-native';
-import { Icon } from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class CompanyContact extends Component {
 

@@ -1,7 +1,7 @@
 'use strict';
 import React, { Component, PropTypes } from 'react';
 import { ListView,ScrollView, TouchableHighlight, StyleSheet, Text, View,AlertIOS } from 'react-native';
-import { Icon } from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import LoadingIndicator from './../LoadingIndicator';
 import { Actions } from 'react-native-router-flux';
 const Modal = require('react-native-modalbox');

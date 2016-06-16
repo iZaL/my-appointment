@@ -4,7 +4,7 @@ import { ScrollView,AlertIOS,View,Text } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchTimings } from './../../actions/timings';
 import { createAppointment, invalidateCreatedAppointment } from './../../actions/appointments';
-import { Icon } from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import Calendar from './../../components/Appointment/Calendar';
 import TimingList from './../../components/Appointment/TimingList';
 import AppointmentList from './../../components/Appointment/AppointmentList';

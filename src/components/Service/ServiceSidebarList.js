@@ -1,7 +1,7 @@
 'use strict';
 import React, { PropTypes, Component } from 'react';
 import { ScrollView, Image, StyleSheet, Text, TouchableHighlight, View, ListView } from 'react-native';
-import { Icon } from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class ServiceSidebarList extends Component {
 

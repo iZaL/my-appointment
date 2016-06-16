@@ -1,7 +1,7 @@
 'use strict';
 import React, { Component, PropTypes } from 'react';
 import { StyleSheet,View,TouchableHighlight,Text,TextInput } from 'react-native';
-import { Icon } from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import FormButton from './../FormButton';
 
 export default class SearchScene extends Component {
