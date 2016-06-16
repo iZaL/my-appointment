@@ -9,5 +9,6 @@ export const APP_STYLES =  {
   cellBorder: '#EEEEEE',
   darkBackground: '#183E63',
   primaryColor:APP_COLOR,
+  secondaryColor:'#5BC3BE',
   buttonBackground:APP_COLOR
 };

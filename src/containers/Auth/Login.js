@@ -3,8 +3,8 @@ import React, { Component, PropTypes } from 'react';
 import { ScrollView, View, Image } from 'react-native';
 import { login } from '../../actions/Auth/login';
 import { connect } from 'react-redux';
-import LoginScene from './../../components/Auth/LoginScene';
 import { Actions } from 'react-native-router-flux';
+import LoginScene from './../../components/Auth/LoginScene';
 
 export default class Login extends Component {
 
@@ -20,9 +20,9 @@ export default class Login extends Component {
   };
 
   loginUser() {
-    
+    console.log('login user');
     const {dispatch} = this.props;
-    const credentials = {email:this.state.email,password:this.state.password};
+    const credentials = { email:this.state.email,password:this.state.password};
 
     dispatch(login(credentials))
       .then((success)=> {
@@ -60,10 +60,10 @@ export default class Login extends Component {
         <LoginScene
           {...this.state}
           loginReducer={loginReducer}
-          loginUser={this.loginUser}
-          onRegisterRoutePress={this.handleRegisterRoute}
-          onForgotPasswordRoutePress={this.handleForgotPasswordRoute}
-          handleForm={this.handleForm}
+          loginUser={()=>this.loginUser()}
+          handleRegisterRoute={()=>this.handleRegisterRoute()}
+          handleForgotPasswordRoute={()=>this.handleForgotPasswordRoute()}
+          handleForm={()=>this.handleForm()}
         />
       </ScrollView>
     );

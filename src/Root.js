@@ -9,6 +9,7 @@ export default class Root extends Component {
 
   constructor() {
     super();
+    console.disableYellowBox=true;
     CodePush.sync();
   }
 

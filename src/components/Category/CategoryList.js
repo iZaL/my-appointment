@@ -19,7 +19,6 @@ export default class CategoryList extends Component {
   getCategoryImage(name){
 
     var name = name.replace(/\s+/g, '-').toLowerCase();
-    console.log('name',name);
     if(name == 'salon') {
       return require('./../../assets/img/salon.png');
     } else if(name == 'clinic') {
