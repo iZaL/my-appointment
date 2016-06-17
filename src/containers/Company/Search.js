@@ -17,11 +17,12 @@ class Search extends  Component {
 
   constructor(props) {
     super(props);
+    this.favoriteCompany = this.favoriteCompany.bind(this)
+    this.search = this.search.bind(this)
   }
 
   search(string) {
-    const {dispatch} = this.props;
-    dispatch(searchCompany(string));
+    this.props.dispatch(searchCompany(string));
   }
 
   loadCompany(company) {

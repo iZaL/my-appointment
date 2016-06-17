@@ -16,6 +16,11 @@ class Service extends Component {
     userReducer:PropTypes.object.isRequired
   };
 
+  constructor() {
+    super();
+    this.favoriteCompany = this.favoriteCompany.bind(this);
+  }
+
   componentDidMount() {
     if(this.props.itemID) {
       this.props.dispatch(fetchService(this.props.itemID,['companies']));

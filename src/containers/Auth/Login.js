@@ -17,13 +17,13 @@ export default class Login extends Component {
     };
     
     this.onFieldChange = this.onFieldChange.bind(this);
+    this.loginUser = this.loginUser.bind(this);
   };
 
   loginUser() {
-    const {dispatch} = this.props;
     const credentials = { email:this.state.email,password:this.state.password};
 
-    dispatch(login(credentials))
+    this.props.dispatch(login(credentials))
       .then((success)=> {
         if(success) {
           Actions.main();

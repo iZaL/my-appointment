@@ -14,18 +14,19 @@ import {Actions} from "react-native-router-flux";
 
 class Company extends Component {
 
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    itemID:PropTypes.number.isRequired
+  };
+
   constructor(props) {
     super(props);
     this.state = {
       selectedIndex : 0
     };
     this.onChange = this.onChange.bind(this);
+    this.loadDateTime = this.loadDateTime.bind(this);
   }
-
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    itemID:PropTypes.number.isRequired
-  };
 
   componentDidMount() {
     this.props.dispatch(fetchCompany(this.props.itemID,['services','employees','favorites']));

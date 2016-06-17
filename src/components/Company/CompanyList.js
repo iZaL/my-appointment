@@ -11,13 +11,8 @@ export default class CompanyList extends Component {
     favoriteCompany:PropTypes.func.isRequired,
   });
 
-
-  handleFavorites(company) {
-    this.props.favoriteCompany(company)
-  }
-
   renderRow(company) {
-    const {loadCompany} = this.props;
+    const {loadCompany,favoriteCompany} = this.props;
     return (
       <View style={styles.cellWrapper}>
         <TouchableHighlight onPress={() => loadCompany(company)} underlayColor="transparent">
@@ -34,7 +29,7 @@ export default class CompanyList extends Component {
                 />
                 <Text style={styles.city}>{company.city_en},{company.address_en}</Text>
               </View>
-              <TouchableHighlight onPress={() => this.handleFavorites(company)} underlayColor="transparent">
+              <TouchableHighlight onPress={() => favoriteCompany(company)} underlayColor="transparent">
                 <Icon
                   name={company.isFavorited ? 'ios-heart' : 'ios-heart-outline'}
                   size={30}

@@ -41,14 +41,15 @@ class Appointment extends Component {
     this.onEmployeeListModalClosed = this.onEmployeeListModalClosed.bind(this);
     this.onAppointmentConfirmModalListClosed = this.onAppointmentConfirmModalListClosed.bind(this);
     this.handleNext = this.handleNext.bind(this);
+    this.inValidateAppointment = this.inValidateAppointment.bind(this);
+    this.handleConfirm = this.handleConfirm.bind(this);
   }
 
   componentDidMount() {
-    const {dispatch} = this.props;
     dispatch(fetchTimings());
 
     if(this.props.userReducer.isAuthenticated) {
-      dispatch(invalidateCreatedAppointment());
+      this.props.dispatch(invalidateCreatedAppointment());
     }
   }
 
@@ -61,9 +62,7 @@ class Appointment extends Component {
   }
 
   onTimeSelect(time) {
-    this.setState({
-      selectedTime: time,
-    });
+    this.setState({ selectedTime: time });
   };
 
   onEmployeeSelect(employee){
@@ -74,17 +73,15 @@ class Appointment extends Component {
   }
 
   onEmployeeListModalClosed() {
-    this.setState({showEmployeeListModal:false});
+    this.setState({ showEmployeeListModal:false });
   }
 
   onAppointmentConfirmModalListClosed() {
-    this.setState({showAppointmentConfirmModal:false});
+    this.setState({ showAppointmentConfirmModal:false });
   }
 
   handleNext() {
-    this.setState({
-      showAppointmentConfirmModal:true
-    });
+    this.setState({ showAppointmentConfirmModal:true });
   }
 
   inValidateAppointment() {
@@ -101,6 +98,7 @@ class Appointment extends Component {
 
   render() {
 
+    console.log('renderd Appointment');
     const {timings,employees,company,userReducer,service,timingsReducer} = this.props;
     return (
       <ScrollView

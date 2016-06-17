@@ -14,14 +14,13 @@ import NoResult from './../../components/NoResult';
 
 class Appointments extends Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+    this.cancelAppointment = this.cancelAppointment.bind(this);
   }
 
   componentDidMount() {
     if(this.props.userReducer.isAuthenticated) {
-      //  Actions.loginDialog({ dialogText:'Please login to manage your Appointments'});
-      //} else {
       this.props.dispatch(fetchTimings());
       this.props.dispatch(fetchAppointments());
     }

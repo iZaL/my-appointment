@@ -13,13 +13,12 @@ class Categories extends Component {
     super(props);
   }
 
-  componentWillMount() {
-    const {dispatch} = this.props;
-    dispatch(fetchCategories());
+  componentDidMount() {
+    this.props.dispatch(fetchCategories());
   }
 
   loadCategory(category) {
-    Actions.categoryEntity({
+    return Actions.categoryEntity({
       title:category.name_en,
       itemID:category.id
     });

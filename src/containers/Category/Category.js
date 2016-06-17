@@ -13,6 +13,7 @@ class Category extends Component {
 
   constructor(props) {
     super(props);
+    this.favoriteCompany = this.favoriteCompany.bind(this);
   }
 
   componentDidMount() {
@@ -31,6 +32,7 @@ class Category extends Component {
   }
 
   render() {
+    console.log('render category');
     const {categoryReducer,companies} = this.props;
     return (
       <Image source={assets.bg} style={{flex: 1,width: null,height: null,paddingTop: 10,backgroundColor:'white'}}>
@@ -46,7 +48,6 @@ class Category extends Component {
 }
 
 Category.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   itemID:PropTypes.number.isRequired,
   userReducer:PropTypes.object.isRequired
 };

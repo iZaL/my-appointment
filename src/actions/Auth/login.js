@@ -8,7 +8,6 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
   LOGOUT_USER,
-  ON_LOGIN_FORM_FIELD_CHANGE
 } from '../../constants/ActionTypes';
 
 function loginRequest() {
@@ -84,13 +83,6 @@ export function loginUserByToken() {
         return false;
       });
   }
-}
-
-export function onLoginFormFieldChange(field,value) {
-  return {
-    type: ON_LOGIN_FORM_FIELD_CHANGE,
-    payload: {field: field, value: value}
-  };
 }
 
 export function logoutUser() {

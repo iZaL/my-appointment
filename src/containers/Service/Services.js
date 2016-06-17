@@ -9,13 +9,8 @@ import { Actions } from 'react-native-router-flux';
 
 class Services extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   componentWillMount() {
-    const {dispatch} = this.props;
-    //dispatch(fetchServices());
+    //this.props.dispatch(fetchServices());
   }
 
   loadService(service) {

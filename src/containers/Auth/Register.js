@@ -28,9 +28,8 @@ class Register extends Component {
   }
 
   registerUser() {
-    const {dispatch} = this.props;
     const fields = {...this.state};
-    dispatch(signup(fields, (cb)=> {
+    this.props.dispatch(signup(fields, (cb)=> {
       Actions.login();
     }));
   }

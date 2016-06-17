@@ -4,7 +4,6 @@ import {
   REGISTER_FAILURE,
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
-  ON_REGISTER_FORM_FIELD_CHANGE
 } from '../../constants/ActionTypes';
 
 function registerRequest() {
@@ -26,9 +25,7 @@ function registerFailure(errors) {
   };
 }
 
-export function signup(inputs, cb = ()=> {
-  success: false
-}) {
+export function signup(inputs, cb = ()=> { success: false }) {
   return dispatch => {
 
     // change passwordConfirmation to password_confirmation
@@ -53,12 +50,5 @@ export function signup(inputs, cb = ()=> {
         console.log(err);
         dispatch(registerFailure(err))
       });
-  };
-}
-
-export function onRegisterFormFieldChange(field, value) {
-  return {
-    type: ON_REGISTER_FORM_FIELD_CHANGE,
-    payload: {field: field, value: value}
   };
 }

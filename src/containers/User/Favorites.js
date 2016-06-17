@@ -17,6 +17,7 @@ class Favorites extends Component {
       isRefreshing:false
     };
     this.onRefresh = this.onRefresh.bind(this);
+    this.favoriteCompany = this.favoriteCompany.bind(this)
   }
 
   componentDidMount() {
@@ -28,17 +29,14 @@ class Favorites extends Component {
   }
 
   loadCompany(company) {
-    // Actions.main();
-    Actions.companyEntity({
+    return Actions.companyEntity({
       title:company.name_en,
       itemID: company.id
     });
   }
 
   favoriteCompany(company) {
-    //console.log('wa');
-    const {dispatch} = this.props;
-    dispatch(favoriteCompany(company));
+    this.props.dispatch(favoriteCompany(company));
   }
 
   onRefresh() {
@@ -47,6 +45,7 @@ class Favorites extends Component {
   }
 
   render() {
+    console.log('render Favorites');
     const { userReducer,favorites } = this.props;
 
     return (
