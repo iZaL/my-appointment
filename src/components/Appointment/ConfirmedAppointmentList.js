@@ -95,7 +95,7 @@ export default class ConfirmedAppointmentList extends Component {
   }
 
   render() {
-    console.log('reached');
+    console.log('reached confirmed appointment list');
     const {appointments} = this.props;
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2});
     let dataSource = appointments ? ds.cloneWithRows(appointments) : ds.cloneWithRows([]);

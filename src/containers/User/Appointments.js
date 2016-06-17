@@ -66,7 +66,6 @@ class Appointments extends Component {
             <ConfirmedAppointmentList appointments={appointmentsArray} cancelAppointment={this.cancelAppointment} />
         }
 
-
       </Image>
     );
   }

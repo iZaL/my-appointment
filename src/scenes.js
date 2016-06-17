@@ -34,7 +34,8 @@ export const scenes = Actions.create(
                tabBarStyle={{ backgroundColor:APP_STYLES.primaryColor ,height:40}}
                tabBarSelectedItemStyle={{backgroundColor:APP_STYLES.primaryColor,height:40}}
                navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
-               drawerImage={<Image source={require('./assets/img/hamburger.png') } style={{height:30,width:30}}  />}
+               drawerImage={<Image source={require('./assets/img/hamburger.png') } style={{height:30,width:30}}
+                 />}
         >
           <Scene  key="main"
                   icon={TabIcon}

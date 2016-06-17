@@ -68,20 +68,21 @@ class Favorites extends Component {
           {userReducer.favorites.isFetching &&  <LoadingIndicator /> }
 
           {
-            isEmpty(favorites) &&
-            <NoResult
-              title="No Favorites Yet"
-              description="Favorite Salons and spas you know and you love"
-              buttonText="Explore Salons"
-              callback={()=>Actions.main()}
-            />
+            isEmpty(favorites) ?
+              <NoResult
+                title="No Favorites Yet"
+                description="Favorite Salons and spas you know and you love"
+                buttonText="Explore Salons"
+                callback={()=>Actions.main()}
+              />
+              :
+              <CompanyList
+                companies={favorites.filter((company)=>!company.unFavorited)}
+                loadCompany={this.loadCompany.bind(this)}
+                favoriteCompany={this.favoriteCompany.bind(this)}
+              />
           }
 
-          <CompanyList
-            companies={favorites.filter((company)=>!company.unFavorited)}
-            loadCompany={this.loadCompany.bind(this)}
-            favoriteCompany={this.favoriteCompany.bind(this)}
-          />
         </ScrollView>
 
       </Image>

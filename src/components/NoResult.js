@@ -30,7 +30,7 @@ export default class NoResult extends Component {
             {this.props.description}
           </Text>
           <FormButton
-            onPress={()=>this.handleCallback()}
+            onPress={this.handleCallback}
             buttonText='Browse Salons'
           />
         </View>
