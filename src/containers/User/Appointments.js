@@ -44,7 +44,7 @@ class Appointments extends Component {
       });
     });
     return (
-      <Image source={assets.bg} style={{flex: 1,width: null,height: null,padding: 10,flexWrap:'wrap',backgroundColor:'white'}}>
+      <Image source={assets.bg} style={{flex: 1,width: null,height: null,padding: 10,backgroundColor:'white'}}>
         { userReducer.appointments.isFetching && <LoadingIndicator /> }
         {
           isEmpty(appointmentsArray) &&

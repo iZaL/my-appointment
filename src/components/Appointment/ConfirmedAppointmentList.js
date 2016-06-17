@@ -14,10 +14,13 @@ export default class ConfirmedAppointmentList extends Component {
   };
 
   renderRow(appointment) {
+    
     const {company,employee,timing,pivot,service} = appointment;
     const appointmentDate = new Date(appointment.date);
     const month = appointmentDate.toLocaleString('en-us', { month: "short" });
+
     if(appointment.isDeleted) {return <View/>}
+
     return (
       <View style={styles.cellContainer}>
         <View style={styles.cellWrapper}>
@@ -61,12 +64,10 @@ export default class ConfirmedAppointmentList extends Component {
                   </Text>
                 </View>
                 {employee ? <Text style={styles.employee}>with {employee.name_en}</Text>  : <Text/>}
-
               </View>
 
               <View style={styles.cancelContainer}>
                 <TouchableHighlight onPress={()=>this.props.cancelAppointment(appointment)} underlayColor="transparent">
-
                   <View >
                     <Text style={styles.price}>{pivot.price | 0} KD</Text>
                     <View style={styles.cancelWrapper}>
