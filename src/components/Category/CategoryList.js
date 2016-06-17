@@ -13,9 +13,11 @@ export default class CategoryList extends Component {
     loadCategory:PropTypes.func.isRequired
   });
 
+
   renderHeader() {
     return this.props.categoriesReducer.isFetching && <LoadingIndicator />
   }
+  
   getCategoryImage(name){
 
     var name = name.replace(/\s+/g, '-').toLowerCase();
@@ -45,10 +47,10 @@ export default class CategoryList extends Component {
   }
 
   render() {
-    console.log('render category list');
     const {categories} = this.props;
+    console.log('render category list',categories);
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2})
-    let dataSource = categories ? ds.cloneWithRows(categories) : ds.cloneWithRows([]);
+    let dataSource = ds.cloneWithRows(categories);
 
     return (
       <Image style={styles.container} source={require('./../../assets/img/bghome.png')}  >

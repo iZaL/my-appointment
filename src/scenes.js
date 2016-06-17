@@ -37,7 +37,7 @@ export const scenes = Actions.create(
                drawerImage={<Image source={require('./assets/img/hamburger.png') } style={{height:30,width:30}}
                  />}
         >
-          <Scene  key="main"
+          <Scene initial={true} key="main"
                   icon={TabIcon}
                   selectedTabIcon="ios-home"
                   tabIcon="ios-home-outline"
@@ -93,7 +93,7 @@ export const scenes = Actions.create(
                  titleStyle={{ color:'white' }}
           />
 
-          <Scene initial={true} key="login" component={Login} hideNavBar={true} />
+          <Scene  key="login" component={Login} hideNavBar={true} />
           <Scene key="register" component={Register} hideNavBar={true} />
           <Scene key="loginDialog" component={LoginDialog} hideNavBar={true} />
           <Scene key="introCarousel" component={IntroCarousel}  hideTabBar={true} hideNavBar={true}/>

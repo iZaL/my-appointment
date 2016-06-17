@@ -18,7 +18,7 @@ class Categories extends Component {
   }
 
   loadCategory(category) {
-    return Actions.categoryEntity({
+    Actions.categoryEntity({
       title:category.name_en,
       itemID:category.id
     });
@@ -28,11 +28,11 @@ class Categories extends Component {
     console.log('render categories');
     const { categories,categoriesReducer } = this.props;
     return (
-        <CategoryList
-          categories={categories}
-          loadCategory={this.loadCategory}
-          categoriesReducer={categoriesReducer}
-        />
+      <CategoryList
+        categories={categories}
+        loadCategory={this.loadCategory}
+        categoriesReducer={categoriesReducer}
+      />
     );
   }
 }
