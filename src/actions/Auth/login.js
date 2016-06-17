@@ -98,7 +98,6 @@ export function logoutUser() {
   return (dispatch,getState) => {
     const currentUser = Object.assign({},getState().entities.users[getState().userReducer.authUserID],{favorites:[]});
     const normalized = normalize(currentUser,Schemas.USER);
-    console.log('normz',normalized);
     dispatch({type:LOGOUT_USER,entities:normalized.entities});
     const normalizedAppointments = normalize({},Schemas.APPOINTMENT_ARRAY);
     dispatch({type:LOGOUT_USER,entities:normalizedAppointments.entities});

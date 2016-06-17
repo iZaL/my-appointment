@@ -1,16 +1,16 @@
 'use strict';
-import React, { Component, PropTypes } from 'react';
-import { View, ScrollView, SegmentedControlIOS,Linking } from 'react-native';
-import { connect } from 'react-redux';
-import { fetchCompany, setCompanyService } from './../../actions/Company/company';
-import CompanyItem from './../../components/Company/CompanyItem';
-import ServiceList from './../../components/Service/ServiceList';
-import LoadingIndicator from './../../components/LoadingIndicator';
-import CompanyMap from './../../components/Company/CompanyMap';
-import CompanyDescription from './../../components/Company/CompanyDescription';
-import CompanyContact from './../../components/Company/CompanyContact';
-import { APP_STYLES } from './../../utils/AppStyles';
-import { Actions } from 'react-native-router-flux';
+import React, {Component, PropTypes} from "react";
+import {View, ScrollView, SegmentedControlIOS, Linking} from "react-native";
+import {connect} from "react-redux";
+import {fetchCompany, setCompanyService} from "./../../actions/Company/company";
+import CompanyItem from "./../../components/Company/CompanyItem";
+import ServiceList from "./../../components/Service/ServiceList";
+import LoadingIndicator from "./../../components/LoadingIndicator";
+import CompanyMap from "./../../components/Company/CompanyMap";
+import CompanyDescription from "./../../components/Company/CompanyDescription";
+import CompanyContact from "./../../components/Company/CompanyContact";
+import {APP_STYLES} from "./../../utils/AppStyles";
+import {Actions} from "react-native-router-flux";
 
 class Company extends Component {
 
@@ -28,14 +28,12 @@ class Company extends Component {
   };
 
   componentDidMount() {
-    const {dispatch} = this.props;
-    dispatch(fetchCompany(this.props.itemID,['services','employees','favorites']));
+    this.props.dispatch(fetchCompany(this.props.itemID,['services','employees','favorites']));
   }
 
   loadDateTime(service) {
-    const {dispatch} = this.props;
-    dispatch(setCompanyService(service.id));
-    Actions.appointmentContainer({
+    this.props.dispatch(setCompanyService(service.id));
+    return Actions.appointmentContainer({
       title:service.name_en,
       serviceID:service.id,
       companyID:this.props.itemID
@@ -61,6 +59,7 @@ class Company extends Component {
     const {company, services } = this.props;
 
     let selectedComponent;
+
     let mapPin = {
       title:company.name,
       subtitle:company.location,
@@ -69,21 +68,25 @@ class Company extends Component {
     };
 
     if(this.state.selectedIndex === 1) {
-      selectedComponent =  <View>
-        <CompanyDescription company={company} />
-        <CompanyContact company={company} />
-      </View>
+      selectedComponent =
+        <View>
+          <CompanyDescription company={company} />
+          <CompanyContact company={company} />
+        </View>
     } else if(this.state.selectedIndex === 2) {
-      selectedComponent = <CompanyMap
-        company={company}
-        followLocation={this.followLocation.bind(this)}
-        pin={mapPin}
-      />
+      selectedComponent =
+        <CompanyMap
+          company={company}
+          followLocation={this.followLocation}
+          pin={mapPin}
+        />
     } else {
       if(company.services) {
-        selectedComponent = <ServiceList company={company} services={services} loadDateTime={this.loadDateTime.bind(this)} />
+        selectedComponent =
+          <ServiceList company={company} services={services} loadDateTime={this.loadDateTime} />
       } else {
-        selectedComponent = <LoadingIndicator />
+        selectedComponent =
+          <LoadingIndicator />
       }
     }
 
@@ -91,8 +94,11 @@ class Company extends Component {
       <ScrollView style={{ flex:1,backgroundColor:'white' }} contentContainerStyle={{paddingTop: 64}} contentInset={{ bottom:50 }} >
         <CompanyItem company={company}/>
         <View style={{flex:1,margin:5,marginTop:20}}>
-          <SegmentedControlIOS values={['Services', 'Description','Map']} tintColor={APP_STYLES.primaryColor}  selectedIndex={this.state.selectedIndex}
-                               onChange={(event)=> this.onChange(event)}
+          <SegmentedControlIOS
+            values={['Services', 'Description','Map']}
+            tintColor={APP_STYLES.primaryColor}
+            selectedIndex={this.state.selectedIndex}
+            onChange={this.onChange}
           />
           {selectedComponent}
         </View>

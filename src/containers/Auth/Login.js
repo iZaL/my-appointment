@@ -20,7 +20,6 @@ export default class Login extends Component {
   };
 
   loginUser() {
-    console.log('login user');
     const {dispatch} = this.props;
     const credentials = { email:this.state.email,password:this.state.password};
 
@@ -36,14 +35,10 @@ export default class Login extends Component {
   }
 
   handleRegisterRoute() {
-    console.log('handleRegisterRoute');
-
     return Actions.register();
   }
 
   handleForgotPasswordRoute() {
-    console.log('handleForgotPasswordRoute');
-
     // @todo: implement route
     return Actions.main();
   }
@@ -59,10 +54,10 @@ export default class Login extends Component {
         <LoginScene
           {...this.state}
           loginReducer={loginReducer}
-          loginUser={()=>this.loginUser()}
-          handleRegisterRoute={()=>this.handleRegisterRoute()}
-          handleForgotPasswordRoute={()=>this.handleForgotPasswordRoute()}
-          onFieldChange={(field,value)=>this.onFieldChange(field,value)}
+          loginUser={this.loginUser}
+          handleRegisterRoute={this.handleRegisterRoute}
+          handleForgotPasswordRoute={this.handleForgotPasswordRoute}
+          onFieldChange={this.onFieldChange}
         />
       </ScrollView>
     );

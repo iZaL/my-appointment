@@ -6,7 +6,7 @@ import { loginUserByToken } from './actions/Auth/login';
 import { connect } from 'react-redux';
 import { scenes } from './scenes';
 
-const reducerCreate = params=>{
+const reducerCreate = params=> {
   const defaultReducer = Reducer(params);
   return (state, action)=>{
     console.log("ACTION:", action);

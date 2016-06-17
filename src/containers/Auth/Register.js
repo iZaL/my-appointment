@@ -50,9 +50,9 @@ class Register extends Component {
         <RegisterScene
           {...this.state}
           registerReducer={registerReducer}
-          registerUser={()=>this.registerUser()}
-          handleLoginRoute={()=>this.handleLoginRoute()}
-          onFieldChange={(field,value)=>this.onFieldChange(field,value)}
+          registerUser={this.registerUser}
+          handleLoginRoute={this.handleLoginRoute}
+          onFieldChange={this.onFieldChange}
         />
 
       </ScrollView>

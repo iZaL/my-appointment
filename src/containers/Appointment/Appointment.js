@@ -33,6 +33,14 @@ class Appointment extends Component {
       showEmployeeListModal : false,
       showAppointmentConfirmModal : false
     };
+    
+    this.listEmployees = this.listEmployees.bind(this);
+    this.onDateChange = this.onDateChange.bind(this);
+    this.onTimeSelect = this.onTimeSelect.bind(this);
+    this.onEmployeeSelect = this.onEmployeeSelect.bind(this);
+    this.onEmployeeListModalClosed = this.onEmployeeListModalClosed.bind(this);
+    this.onAppointmentConfirmModalListClosed = this.onAppointmentConfirmModalListClosed.bind(this);
+    this.handleNext = this.handleNext.bind(this);
   }
 
   componentDidMount() {
@@ -73,11 +81,15 @@ class Appointment extends Component {
     this.setState({showAppointmentConfirmModal:false});
   }
 
+  handleNext() {
+    this.setState({
+      showAppointmentConfirmModal:true
+    });
+  }
 
   inValidateAppointment() {
-    const {dispatch} = this.props;
-    dispatch(invalidateCreatedAppointment());
-    Actions.pop();
+    this.props.dispatch(invalidateCreatedAppointment());
+    return Actions.pop();
   }
 
   handleConfirm() {
@@ -86,11 +98,6 @@ class Appointment extends Component {
       .catch(()=>console.log('error'));
   }
 
-  handleNext() {
-    this.setState({
-      showAppointmentConfirmModal:true
-    });
-  }
 
   render() {
 
@@ -105,19 +112,19 @@ class Appointment extends Component {
       >
         <Calendar
           selectedDate={this.state.selectedDate}
-          onDateChange={this.onDateChange.bind(this)}
+          onDateChange={this.onDateChange}
         />
 
         <AppointmentList
           service={service}
           selectedEmployee={this.state.selectedEmployee}
-          listEmployees={this.listEmployees.bind(this)}
+          listEmployees={this.listEmployees}
         />
 
         <TimingList
           timings={timings}
           selectedTime={this.state.selectedTime}
-          onTimeSelect={this.onTimeSelect.bind(this)}
+          onTimeSelect={this.onTimeSelect}
           timingsReducer={timingsReducer}
         />
 
@@ -125,8 +132,8 @@ class Appointment extends Component {
           employees &&
           <EmployeePicker
             employees={employees}
-            onEmployeeSelect={this.onEmployeeSelect.bind(this)}
-            onClosed={this.onEmployeeListModalClosed.bind(this)}
+            onEmployeeSelect={this.onEmployeeSelect}
+            onClosed={this.onEmployeeListModalClosed}
             showEmployeeListModal={this.state.showEmployeeListModal}
           />
         }
@@ -138,14 +145,14 @@ class Appointment extends Component {
           selectedTime={this.state.selectedTime}
           selectedDate={this.state.selectedDate}
           showAppointmentConfirmModal={this.state.showAppointmentConfirmModal}
-          onClosed={this.onAppointmentConfirmModalListClosed.bind(this)}
-          onAppointmentConfirm={this.handleConfirm.bind(this)}
-          inValidateAppointment={this.inValidateAppointment.bind(this)}
+          onClosed={this.onAppointmentConfirmModalListClosed}
+          onAppointmentConfirm={this.handleConfirm}
+          inValidateAppointment={this.inValidateAppointment}
         />
 
         {!this.state.showAppointmentConfirmModal  &&
         <FormButton
-          onPress={this.handleNext.bind(this)}
+          onPress={this.handleNext}
           buttonText='Next'
           containerStyle={{padding:5,margin:10,marginTop:0,marginBottom:0,backgroundColor:'tomato',opacity:0.7}}
         />

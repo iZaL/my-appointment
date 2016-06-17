@@ -15,37 +15,29 @@ class Category extends Component {
     super(props);
   }
 
-  componentWillMount() {
-    const {dispatch} = this.props;
-    dispatch(fetchCategory(this.props.itemID,['companies']));
+  componentDidMount() {
+    this.props.dispatch(fetchCategory(this.props.itemID,['companies']));
   }
 
   loadCompany(company) {
-    Actions.companyEntity({
+    return Actions.companyEntity({
       title:company.name_en,
       itemID: company.id
     });
   }
 
   favoriteCompany(company) {
-
-    if(!this.props.userReducer.isAuthenticated) {
-      Actions.loginDialog({dialogText:'Please login to add to favorites'});
-    } else {
-      const {dispatch} = this.props;
-      dispatch(favoriteCompany(company));
-    }
-
+    this.props.dispatch(favoriteCompany(company));
   }
 
   render() {
     const {categoryReducer,companies} = this.props;
     return (
       <Image source={assets.bg} style={{flex: 1,width: null,height: null,paddingTop: 10,backgroundColor:'white'}}>
-        {categoryReducer.isFetching ? <LoadingIndicator /> : <View />}
+        {categoryReducer.isFetching && <LoadingIndicator /> }
         <CompanyList
-          loadCompany={this.loadCompany.bind(this)}
-          favoriteCompany={this.favoriteCompany.bind(this)}
+          loadCompany={this.loadCompany}
+          favoriteCompany={this.favoriteCompany}
           companies={companies}
         />
       </Image>
