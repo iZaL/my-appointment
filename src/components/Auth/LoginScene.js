@@ -63,7 +63,6 @@ LoginScene.propTypes = ({
 var styles = StyleSheet.create({
 
   container:{
-    flex:1,
     padding:10
   },
   label: {
@@ -90,7 +89,9 @@ var styles = StyleSheet.create({
     borderColor: APP_STYLES.secondaryColor,
     borderWidth: 1,
     marginBottom:20,
-    fontSize:15
+    fontSize:15,
+    paddingLeft:10,
+
   },
 })
 

@@ -48,9 +48,8 @@ export default class Login extends Component {
     return Actions.main();
   }
 
-  onFieldChange(name,value) {
-    console.log('name',name);
-    console.log('value',value);
+  onFieldChange(field,value) {
+    this.setState({[field]:value});
   }
 
   render() {
@@ -63,7 +62,7 @@ export default class Login extends Component {
           loginUser={()=>this.loginUser()}
           handleRegisterRoute={()=>this.handleRegisterRoute()}
           handleForgotPasswordRoute={()=>this.handleForgotPasswordRoute()}
-          onFieldChange={()=>this.onFieldChange()}
+          onFieldChange={(field,value)=>this.onFieldChange(field,value)}
         />
       </ScrollView>
     );

@@ -24,10 +24,10 @@ class Register extends Component {
   }
 
   onFieldChange(field,value) {
-    this.setState({field: value});
+    this.setState({[field]: value});
   }
 
-  handleRegister() {
+  registerUser() {
     const {dispatch} = this.props;
     const fields = {...this.state};
     dispatch(signup(fields, (cb)=> {
@@ -50,9 +50,9 @@ class Register extends Component {
         <RegisterScene
           {...this.state}
           registerReducer={registerReducer}
-          onRegisterPress={()=>this.handleRegister()}
+          registerUser={()=>this.registerUser()}
           handleLoginRoute={()=>this.handleLoginRoute()}
-          onFieldChange={()=>this.onFieldChange()}
+          onFieldChange={(field,value)=>this.onFieldChange(field,value)}
         />
 
       </ScrollView>

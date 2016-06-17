@@ -23,6 +23,7 @@ export default class RegisterScene extends Component {
           value={name}
           maxLength={40}
           placeholderTextColor="gray"
+          placeholder="Name"
         />
 
         <TextInput
@@ -31,6 +32,7 @@ export default class RegisterScene extends Component {
           value={email}
           maxLength={40}
           placeholderTextColor="gray"
+          placeholder="Email"
         />
 
         <TextInput
@@ -39,6 +41,8 @@ export default class RegisterScene extends Component {
           value={password}
           maxLength={40}
           placeholderTextColor="gray"
+          placeholder="Password"
+          secureTextEntry={true}
         />
         <TextInput
           style={[styles.textInput]}
@@ -46,6 +50,9 @@ export default class RegisterScene extends Component {
           value={passwordConfirmation}
           maxLength={40}
           placeholderTextColor="gray"
+          placeholder="Password Confirmation"
+          secureTextEntry={true}
+
         />
         <TextInput
           style={[styles.textInput]}
@@ -53,6 +60,7 @@ export default class RegisterScene extends Component {
           value={mobile}
           maxLength={40}
           placeholderTextColor="gray"
+          placeholder="Mobile"
         />
 
 
@@ -117,6 +125,7 @@ var styles = StyleSheet.create({
     borderColor: APP_STYLES.secondaryColor,
     borderWidth: 1,
     marginBottom:20,
-    fontSize:15
+    fontSize:15,
+    paddingLeft:10,
   },
 });
