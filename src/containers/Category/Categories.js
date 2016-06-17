@@ -26,6 +26,7 @@ class Categories extends Component {
   }
 
   render() {
+    console.log('render categories');
     const { categories,categoriesReducer } = this.props;
     return (
         <CategoryList
@@ -41,7 +42,7 @@ function mapStateToProps(state) {
   const { entities,categoriesReducer } = state;
   return {
     categoriesReducer,
-    categories:entities.categories ? entities.categories : []
+    categories:entities.categories && entities.categories
   }
 }
 

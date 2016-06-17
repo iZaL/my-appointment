@@ -56,7 +56,7 @@ function mapStateToProps(state,ownProps) {
   const category = entities.categories[ownProps.itemID];
   return {
     categoryReducer,
-    companies:category && category.companies ? category.companies.map((company) => entities.companies[company]) : [] ,
+    companies:category.companies ? category.companies.map((company) => entities.companies[company]) : [],
     userReducer:state.userReducer
   }
 }

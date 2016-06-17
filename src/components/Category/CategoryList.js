@@ -45,6 +45,7 @@ export default class CategoryList extends Component {
   }
 
   render() {
+    console.log('render category list');
     const {categories} = this.props;
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2})
     let dataSource = categories ? ds.cloneWithRows(categories) : ds.cloneWithRows([]);
