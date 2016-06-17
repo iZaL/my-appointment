@@ -59,7 +59,7 @@ export default class ServiceList extends Component {
 }
 
 ServiceList.propTypes= {
-  services:PropTypes.array.isRequired
+  // services:PropTypes.array.isRequired
 }
 
 var styles = StyleSheet.create({

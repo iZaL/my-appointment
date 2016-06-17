@@ -5,10 +5,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class ServiceSidebarList extends Component {
 
-  static propTypes= {
-    loadService:PropTypes.func.isRequired,
-    //services:PropTypes.object.isRequired
-  };
 
   renderRow(service) {
     return (
@@ -50,7 +46,8 @@ export default class ServiceSidebarList extends Component {
 }
 
 ServiceSidebarList.propTypes= {
-  services:PropTypes.array.isRequired
+  loadService:PropTypes.func.isRequired,
+  //services:PropTypes.object.isRequired
 }
 
 var styles = StyleSheet.create({

@@ -34,9 +34,7 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  return {
-    ...state
-  }
+  return {};
 }
 
 const styles=  StyleSheet.create({
