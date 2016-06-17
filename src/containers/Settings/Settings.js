@@ -10,6 +10,7 @@ class Settings extends Component {
 
   constructor(props) {
     super(props);
+    this.loadLink = this.loadLink.bind(this);
   }
 
   performLogout() {
@@ -27,23 +28,21 @@ class Settings extends Component {
         return Actions.profile();
       case 'contact':
         return Actions.contact();
+      case 'logout' :
+        return AlertIOS.alert('Are you sure you want to logout ?  ', null, [{text: 'Yes', onPress:()=>{this.performLogout()}},{text:'No'}]);
       default :
         return;
     }
   }
 
-  logout() {
-    AlertIOS.alert('Are you sure you want to logout ?  ', null, [{text: 'Yes', onPress:()=>{this.performLogout()}},{text:'No'}]);
-  }
-
   render() {
     return (
       <ScrollView style={{flex:1,backgroundColor: 'white',paddingTop:80}}>
-        <SettingsCell icon="ios-power-outline" title="Logout" callback={()=>this.logout()} />
-        <SettingsCell icon="ios-person-outline" title="Profile" callback={()=>this.loadLink('profile')} />
-        <SettingsCell icon="ios-information-circle-outline" title="About" callback={()=>this.loadLink('about')} />
-        <SettingsCell icon="ios-help-circle-outline" title="Contact Us" callback={()=>this.loadLink('contact')} />
-        <SettingsCell icon="ios-checkmark" title="Terms and Conditions" callback={()=>this.loadLink('term')} />
+        <SettingsCell icon="ios-power-outline" title="Logout" name="logout" callback={this.loadLink} />
+        <SettingsCell icon="ios-person-outline" title="Profile" name="profile" callback={this.loadLink} />
+        <SettingsCell icon="ios-information-circle-outline" title="About" name="about" callback={this.loadLink} />
+        <SettingsCell icon="ios-help-circle-outline" title="Contact Us" name="contact" callback={this.loadLink} />
+        <SettingsCell icon="ios-checkmark" title="Terms and Conditions" name="term" callback={this.loadLink} />
       </ScrollView>
     );
   }

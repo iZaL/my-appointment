@@ -8,23 +8,25 @@ export default class SettingsCell extends Component {
     callback:PropTypes.func.isRequired,
     icon: PropTypes.string.isRequired,
     title:PropTypes.string.isRequired,
+    name:PropTypes.string.isRequired
   };
 
   render() {
+    const {callback,icon,title,name} = this.props;
     return (
         <View style={styles.container}>
-          <TouchableHighlight onPress={() => this.props.callback()} underlayColor='transparent'>
+          <TouchableHighlight onPress={() => callback(name)} underlayColor='transparent'>
             <View style={styles.cellWrapper}>
               <View style={styles.leftCol}>
                 <Icon
-                  name={this.props.icon}
+                  name={icon}
                   size={26}
                   color={'tomato'}
                   style={{width:26,height:26,alignSelf:'center',fontWeight:'100'}}
                 />
               </View>
               <View style={styles.middleCol}>
-                <Text>{this.props.title}</Text>
+                <Text>{title}</Text>
               </View>
               <View style={styles.rightCol}>
                 <Icon

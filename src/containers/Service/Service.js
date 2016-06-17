@@ -17,22 +17,20 @@ class Service extends Component {
   };
 
   componentDidMount() {
-    const {dispatch} = this.props;
     if(this.props.itemID) {
-      dispatch(fetchService(this.props.itemID,['companies']));
+      this.props.dispatch(fetchService(this.props.itemID,['companies']));
     }
   }
 
   loadCompany(company) {
-    Actions.companyEntity({
+    return Actions.companyEntity({
       title:company.name_en,
       itemID: company.id
     });
   }
 
   favoriteCompany(company) {
-      const {dispatch} = this.props;
-      dispatch(favoriteCompany(company));
+    this.props.dispatch(favoriteCompany(company));
   }
 
   render() {
@@ -41,8 +39,8 @@ class Service extends Component {
       <Image source={require('./../../assets/img/bg.png')} style={{flex: 1,width: null,height: null,paddingTop: 10,backgroundColor:'white'}} >
         {serviceReducer.isFetching && <LoadingIndicator />  }
         <CompanyList
-          loadCompany={this.loadCompany.bind(this)}
-          favoriteCompany={this.favoriteCompany.bind(this)}
+          loadCompany={this.loadCompany}
+          favoriteCompany={this.favoriteCompany}
           companies={companies}
         />
       </Image>

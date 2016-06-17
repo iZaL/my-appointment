@@ -48,7 +48,7 @@ class Category extends Component {
 Category.propTypes = {
   dispatch: PropTypes.func.isRequired,
   itemID:PropTypes.number.isRequired,
-  userReducer:PropTypes.object.isRequired,
+  userReducer:PropTypes.object.isRequired
 };
 
 function mapStateToProps(state,ownProps) {

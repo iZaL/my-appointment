@@ -38,7 +38,6 @@ class Map extends  Component {
   }
 
   followLocation(company) {
-    //let url = `http://maps.apple.com/?ll=${company.latitude},${company.longitude}`;
     let url = `comgooglemaps://?center=${parseFloat(company.latitude)},${parseFloat(company.longitude)}&zoom=14&views=traffic`;
     Linking.canOpenURL(url).then(supported => {
       if (supported) {
@@ -52,9 +51,9 @@ class Map extends  Component {
     return (
       <CompanyMapsMarker
         region={this.state.region}
-        onRegionChange={this.onRegionChange.bind(this)}
+        onRegionChange={this.onRegionChange}
         companies={companies}
-        followLocation={this.followLocation.bind(this)}
+        followLocation={this.followLocation}
       />
     );
   }

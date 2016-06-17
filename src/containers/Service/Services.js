@@ -19,14 +19,14 @@ class Services extends Component {
   }
 
   loadService(service) {
-    Actions.serviceEntity({
+    return Actions.serviceEntity({
       data: service
     });
   }
 
   render() {
 
-    const {  services } = this.props;
+    const { services } = this.props;
 
     if (services.isFetching) {
       return <LoadingIndicator />;
@@ -40,10 +40,8 @@ class Services extends Component {
 }
 
 function mapStateToProps(state) {
-  const { services } = state
   return {
-    ...state,
-    services: services,
+    services: state.services
   }
 }
 

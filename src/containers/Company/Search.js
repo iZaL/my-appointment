@@ -25,36 +25,29 @@ class Search extends  Component {
   }
 
   loadCompany(company) {
-    // Actions.main();
-    Actions.companyEntity({
+    return Actions.companyEntity({
       title:company.name_en,
       itemID: company.id
     });
   }
 
   favoriteCompany(company) {
-    if(!this.props.userReducer.isAuthenticated) {
-      // Actions.root();
-      Actions.loginDialog({dialogText:'Please login to add to favorites'});
-    } else {
-      const {dispatch} = this.props;
-      dispatch(favoriteCompany(company));
-    }
+    this.props.dispatch(favoriteCompany(company));
   }
 
   render() {
 
     const { companies,companyReducer } = this.props;
     return (
-     <ScrollView contentInset={{ bottom:40 }} automaticallyAdjustContentInsets={false} style={styles.container}>
-       <SearchScene search={this.search.bind(this)} />
-       { companyReducer.isSearching && <LoadingIndicator />}
-       <CompanyList
-         loadCompany={this.loadCompany.bind(this)}
-         favoriteCompany={this.favoriteCompany.bind(this)}
-         companies={companies}
-       />
-     </ScrollView>
+      <ScrollView contentInset={{ bottom:40 }} automaticallyAdjustContentInsets={false} style={styles.container}>
+        <SearchScene search={this.search} />
+        { companyReducer.isSearching && <LoadingIndicator />}
+        <CompanyList
+          loadCompany={this.loadCompany}
+          favoriteCompany={this.favoriteCompany}
+          companies={companies}
+        />
+      </ScrollView>
     );
   }
 }
