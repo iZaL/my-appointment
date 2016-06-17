@@ -2,21 +2,12 @@
 import React, {Component,PropTypes} from 'react';
 import {  StyleSheet, Text, View,  TouchableHighlight, TextInput } from 'react-native';
 import FormButton from './../FormButton';
-import stylesheet from './../../assets/style/form';
 
 export default class RegisterScene extends Component {
 
-  // handleRegister() {
-  //   this.props.onRegisterPress();
-  // }
-  //
-  // handleLoginRoutePress = () => {
-  //   this.props.onLoginRoutePress();
-  // };
-
   render() {
 
-    const { registerUser, handleLoginRoutePress } = this.props;
+    const { registerUser, handleLoginRoute } = this.props;
     // const registerForm = t.struct({
     //   name: t.String,
     //   email: t.String,
@@ -34,7 +25,7 @@ export default class RegisterScene extends Component {
           buttonText='Register'/>
 
         <TouchableHighlight
-          onPress={()=>handleLoginRoutePress()}
+          onPress={()=>handleLoginRoute()}
           style={styles.center}
           underlayColor='transparent'
         >
