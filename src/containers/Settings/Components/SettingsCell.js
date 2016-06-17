@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { ListView, ScrollView, TouchableHighlight, StyleSheet, Text, View, AlertIOS } from 'react-native';
+import { ScrollView, TouchableHighlight, StyleSheet, Text, View, AlertIOS } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class SettingsCell extends Component {
@@ -28,7 +28,7 @@ export default class SettingsCell extends Component {
               </View>
               <View style={styles.rightCol}>
                 <Icon
-                  name='chevron-right'
+                  name='ios-arrow-forward'
                   size={20}
                   color={'#f0f5f5'}
                   style={{width:20,height:20,alignSelf:'flex-end',fontWeight:'200'}}

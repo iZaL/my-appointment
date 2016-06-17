@@ -99,7 +99,6 @@ class Company extends Component {
       </ScrollView>
     );
   }
-  //}
 }
 
 function mapStateToProps(state,ownProps) {

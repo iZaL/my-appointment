@@ -50,12 +50,12 @@ export const scenes = Actions.create(
           </Scene>
 
           <Scene key="maps" component={Map} icon={TabIcon}
-                 selectedTabIcon="ios-location" tabIcon="ios-location-outline"
+                 selectedTabIcon="ios-map" tabIcon="ios-map-outline"
                  hideNavBar={true}
           />
 
           <Scene key="favorites" component={Favorites} icon={TabIcon} title="Favorites"
-                 selectedTabIcon="android-favorite" tabIcon="android-favorite-outline"
+                 selectedTabIcon="ios-star" tabIcon="ios-star-outline"
                  navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                  titleStyle={{ color:'white' }}
                  hideNavBar={true}
@@ -69,7 +69,7 @@ export const scenes = Actions.create(
 
           />
           <Scene  key="settings" icon={TabIcon}  title="Settings"
-                  selectedTabIcon="ios-gear" tabIcon="ios-gear-outline"
+                  selectedTabIcon="ios-settings" tabIcon="ios-settings-outline"
                   navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                   titleStyle={{ color:'white' }}
           >

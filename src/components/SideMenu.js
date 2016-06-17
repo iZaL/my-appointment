@@ -34,7 +34,7 @@ class SideMenu extends Component {
           <View style={styles.list}>
             <View style={styles.titleWrapper}>
               <Icon
-                name='ios-search-strong'
+                name='ios-search'
                 size={20}
                 color={'#ecf2f9'}
                 style={styles.rightArrow}
@@ -44,7 +44,7 @@ class SideMenu extends Component {
             </View>
             <View style={styles.arrowWrapper}>
               <Icon
-                name='chevron-right'
+                name='ios-arrow-forward'
                 size={20}
                 color={'#a6a6a6'}
                 style={styles.rightArrow}

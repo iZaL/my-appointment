@@ -83,7 +83,6 @@ let styles = StyleSheet.create({
     flex: 1,
     margin:5,
     height: 250,
-    justifyContent:'center',
     alignItems:'center'
   },
   getDirectionText:{

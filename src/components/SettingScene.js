@@ -17,7 +17,7 @@ export default class SettingScene extends Component {
           <View style={styles.cellWrapper}>
             <View style={styles.leftCol}>
               <Icon
-                name='power'
+                name='ios-power'
                 size={20}
                 color={'red'}
                 style={{width:20,height:20,alignSelf:'center',fontWeight:'100'}}
@@ -28,7 +28,7 @@ export default class SettingScene extends Component {
             </View>
             <View style={styles.rightCol}>
               <Icon
-                name='chevron-right'
+                name='ios-arrow-back'
                 size={20}
                 color={'#f0f5f5'}
                 style={{width:20,height:20,alignSelf:'flex-end',fontWeight:'200'}}

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { ListView, ScrollView, TouchableHighlight, StyleSheet, Text, View,AlertIOS,Linking } from 'react-native';
+import { ScrollView, AlertIOS } from 'react-native';
 import { logoutUser } from './../../actions/Auth/login';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import SettingsCell from './Components/SettingsCell';
-import SettingScene from './../../components/SettingScene';
 import find from 'lodash/find';
 
 class Settings extends Component {
@@ -15,7 +14,7 @@ class Settings extends Component {
 
   performLogout() {
     this.props.dispatch(logoutUser());
-    Actions.main();
+    return Actions.main();
   }
 
   loadLink(name){
@@ -40,10 +39,10 @@ class Settings extends Component {
   render() {
     return (
       <ScrollView style={{flex:1,backgroundColor: 'white',paddingTop:80}}>
-        <SettingsCell icon="power" title="Logout" callback={()=>this.logout()} />
-        <SettingsCell icon="person" title="Profile" callback={()=>this.loadLink('profile')} />
-        <SettingsCell icon="information-circled" title="About" callback={()=>this.loadLink('about')} />
-        <SettingsCell icon="help-circled" title="Contact Us" callback={()=>this.loadLink('contact')} />
+        <SettingsCell icon="ios-power-outline" title="Logout" callback={()=>this.logout()} />
+        <SettingsCell icon="ios-person-outline" title="Profile" callback={()=>this.loadLink('profile')} />
+        <SettingsCell icon="ios-information-circle-outline" title="About" callback={()=>this.loadLink('about')} />
+        <SettingsCell icon="ios-help-circle-outline" title="Contact Us" callback={()=>this.loadLink('contact')} />
         <SettingsCell icon="ios-checkmark" title="Terms and Conditions" callback={()=>this.loadLink('term')} />
       </ScrollView>
     );
