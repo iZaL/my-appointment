@@ -34,7 +34,7 @@ export default class EmployeePicker extends Component {
         onClosed={this.props.onClosed}
         backdropContent={
             <Icon
-              name='close'
+              name='ios-close'
               size={20}
               color={'white'}
               style={styles.closeButton}

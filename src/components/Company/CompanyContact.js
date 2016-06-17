@@ -40,7 +40,7 @@ export default class CompanyContact extends Component {
             <TouchableOpacity onPress={()=>this.loadLink('instagram','pets')}>
               <View style={styles.iconWrapper}>
                 <Icon
-                  name='social-instagram-outline'
+                  name='logo-instagram'
                   size={20}
                   color={'tomato'}
                   style={styles.icon}
@@ -50,7 +50,7 @@ export default class CompanyContact extends Component {
             <TouchableOpacity onPress={()=>this.loadLink('twitter','pets')}>
               <View style={styles.iconWrapper}>
                 <Icon
-                  name='social-twitter-outline'
+                  name='logo-twitter'
                   size={20}
                   color={'tomato'}
                   style={styles.icon}
@@ -62,7 +62,7 @@ export default class CompanyContact extends Component {
             <TouchableOpacity onPress={()=>this.loadLink('snapchat','pets')}>
               <View style={styles.iconWrapper}>
                 <Icon
-                  name='social-snapchat-outline'
+                  name='logo-snapchat'
                   size={20}
                   color={'tomato'}
                   style={styles.icon}
@@ -73,7 +73,7 @@ export default class CompanyContact extends Component {
             <TouchableOpacity onPress={()=>this.loadLink('facebook','pets')}>
               <View style={styles.iconWrapper}>
                 <Icon
-                  name='social-facebook-outline'
+                  name='logo-facebook'
                   size={20}
                   color={'tomato'}
                   style={styles.icon}
