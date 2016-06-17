@@ -14,10 +14,13 @@ export default class NoResult extends Component {
   }
 
   handleCallback() {
+    console.log('called callback');
     return this.props.callback();
   }
 
   render() {
+    console.log('called no result');
+
     return (
         <View style={styles.container}>
           <Text style={styles.title}>

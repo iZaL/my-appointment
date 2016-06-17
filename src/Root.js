@@ -11,7 +11,7 @@ export default class Root extends Component {
 
   constructor() {
     super();
-    console.disableYellowBox=true;
+    // console.disableYellowBox=true;
     // CodePush.sync();
     // if (process.env.NODE_ENV !== 'production') {
     //   whyDidYouUpdate(React,{ exclude: /^YellowBox,^Connect/ });

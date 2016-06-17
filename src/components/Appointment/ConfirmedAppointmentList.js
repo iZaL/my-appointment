@@ -19,7 +19,7 @@ export default class ConfirmedAppointmentList extends Component {
     const appointmentDate = new Date(appointment.date);
     const month = appointmentDate.toLocaleString('en-us', { month: "short" });
 
-    if(appointment.isDeleted) {return <View/>}
+    if(appointment.isDeleted || !pivot) {return <View/>}
 
     return (
       <View style={styles.cellContainer}>
@@ -95,6 +95,7 @@ export default class ConfirmedAppointmentList extends Component {
   }
 
   render() {
+    console.log('reached');
     const {appointments} = this.props;
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2});
     let dataSource = appointments ? ds.cloneWithRows(appointments) : ds.cloneWithRows([]);
