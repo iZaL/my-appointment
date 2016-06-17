@@ -15,7 +15,7 @@ export default class TabIcon extends Component {
         <Icon
           name={this.props.selected ? this.props.selectedTabIcon : this.props.tabIcon }
           size={22}
-          color={ this.props.selected ? '#66b2ff' :'#FFFFFF'}
+          color={ this.props.selected ? '#0040ff' :'#FFFFFF'}
           style={{width:22,height:22,alignSelf:'center',fontWeight:'300',}}
         />
       </View>

@@ -31,19 +31,17 @@ export const scenes = Actions.create(
       <Scene key="tabbar" component={NavigationDrawer} >
 
         <Scene key="home" tabs={true} default="introCarousel"
-               tabBarStyle={{
-              backgroundColor:APP_STYLES.primaryColor ,
-              height:40
-             }}
+               tabBarStyle={{ backgroundColor:APP_STYLES.primaryColor ,height:40}}
+               tabBarSelectedItemStyle={{backgroundColor:APP_STYLES.primaryColor,height:40}}
                navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                drawerImage={<Image source={require('./assets/img/hamburger.png') } style={{height:30,width:30}}  />}
         >
           <Scene  key="main"
-                 icon={TabIcon}
-                 selectedTabIcon="ios-home"
-                 tabIcon="ios-home-outline"
-                 navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
-                 titleStyle={{ color:'white' }}
+                  icon={TabIcon}
+                  selectedTabIcon="ios-home"
+                  tabIcon="ios-home-outline"
+                  navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
+                  titleStyle={{ color:'white' }}
           >
             <Scene key="categories" component={Categories} initial={true} hideNavBar={false} />
             <Scene key="categoryEntity" component={Category} />
