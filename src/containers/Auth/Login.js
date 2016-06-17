@@ -16,7 +16,7 @@ export default class Login extends Component {
       password: 'password'
     };
     
-    this.handleForm = this.handleForm.bind(this);
+    this.onFieldChange = this.onFieldChange.bind(this);
   };
 
   loginUser() {
@@ -47,8 +47,8 @@ export default class Login extends Component {
     // @todo: implement route
     return Actions.main();
   }
-  
-  handleForm(name,value) {
+
+  onFieldChange(name,value) {
     console.log('name',name);
     console.log('value',value);
   }
@@ -63,7 +63,7 @@ export default class Login extends Component {
           loginUser={()=>this.loginUser()}
           handleRegisterRoute={()=>this.handleRegisterRoute()}
           handleForgotPasswordRoute={()=>this.handleForgotPasswordRoute()}
-          handleForm={()=>this.handleForm()}
+          onFieldChange={()=>this.onFieldChange()}
         />
       </ScrollView>
     );

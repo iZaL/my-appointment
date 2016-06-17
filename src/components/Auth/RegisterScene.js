@@ -2,23 +2,59 @@
 import React, {Component,PropTypes} from 'react';
 import {  StyleSheet, Text, View,  TouchableHighlight, TextInput } from 'react-native';
 import FormButton from './../FormButton';
+import { APP_STYLES } from './../../utils/AppStyles';
+import LoadingIndicator from './../../components/LoadingIndicator';
 
 export default class RegisterScene extends Component {
 
   render() {
 
-    const { registerUser, handleLoginRoute } = this.props;
-    // const registerForm = t.struct({
-    //   name: t.String,
-    //   email: t.String,
-    //   password: t.String,
-    //   passwordConfirmation: t.String,
-    //   mobile: t.String
-    // });
+    const { name,email,password,passwordConfirmation,mobile,registerReducer, registerUser, handleLoginRoute,onFieldChange } = this.props;
 
     return (
 
       <View style={styles.container}>
+
+        {registerReducer.isFetching && <LoadingIndicator style={{ marginTop:10}} /> }
+
+        <TextInput
+          style={[styles.textInput]}
+          onChangeText={(value) => onFieldChange('name',value)}
+          value={name}
+          maxLength={40}
+          placeholderTextColor="gray"
+        />
+
+        <TextInput
+          style={[styles.textInput]}
+          onChangeText={(value) => onFieldChange('email',value)}
+          value={email}
+          maxLength={40}
+          placeholderTextColor="gray"
+        />
+
+        <TextInput
+          style={[styles.textInput]}
+          onChangeText={(value) => onFieldChange('password',value)}
+          value={password}
+          maxLength={40}
+          placeholderTextColor="gray"
+        />
+        <TextInput
+          style={[styles.textInput]}
+          onChangeText={(value) => onFieldChange('passwordConfirmation',value)}
+          value={passwordConfirmation}
+          maxLength={40}
+          placeholderTextColor="gray"
+        />
+        <TextInput
+          style={[styles.textInput]}
+          onChangeText={(value) => onFieldChange('mobile',value)}
+          value={mobile}
+          maxLength={40}
+          placeholderTextColor="gray"
+        />
+
 
         <FormButton
           onPress={()=> registerUser()}
@@ -75,5 +111,12 @@ var styles = StyleSheet.create({
   },
   center: {
     alignSelf: 'center'
+  },
+  textInput:{
+    height: 40,
+    borderColor: APP_STYLES.secondaryColor,
+    borderWidth: 1,
+    marginBottom:20,
+    fontSize:15
   },
 });

@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { signup } from '../../actions/Auth/register';
 import { Actions } from 'react-native-router-flux';
 import RegisterScene from './../../components/Auth/RegisterScene';
-import LoadingIndicator from './../../components/LoadingIndicator';
 
 class Register extends Component {
 
@@ -37,28 +36,23 @@ class Register extends Component {
   }
 
   handleLoginRoute() {
-    Actions.login();
+    return Actions.login();
   }
 
   render() {
-    const { register } = this.props;
-
-    if (register.form.error != null) {
-      alert('Error, Please try again');
-    }
+    const { registerReducer } = this.props;
 
     return (
 
       <ScrollView contentContainerStyle={{flex:1,backgroundColor:'white',paddingTop: 64}}>
 
-        {register.isFetching ? <LoadingIndicator style={{ marginTop:10}} /> : <View />}
 
         <RegisterScene
-          register={register}
-          fields={this.state.fields}
-          onRegisterPress={this.handleRegister.bind(this)}
-          onLoginRoutePress={this.handleLoginRoute.bind(this)}
-          onChange={this.onFieldChange.bind(this)}
+          {...this.state}
+          registerReducer={registerReducer}
+          onRegisterPress={()=>this.handleRegister()}
+          handleLoginRoute={()=>this.handleLoginRoute()}
+          onFieldChange={()=>this.onFieldChange()}
         />
 
       </ScrollView>
@@ -68,10 +62,9 @@ class Register extends Component {
 }
 
 function mapStateToProps(state) {
-  const { register } = state;
+  const { registerReducer } = state;
   return {
-    ...state,
-    register
+    registerReducer
   }
 }
 

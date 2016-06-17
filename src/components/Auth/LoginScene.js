@@ -9,7 +9,7 @@ export default class LoginScene extends Component {
 
   render() {
 
-    const { email, password, handleForm, loginReducer, loginUser, handleRegisterRoute, handleForgotPasswordRoute } = this.props;
+    const { email, password, onFieldChange, loginReducer, loginUser, handleRegisterRoute, handleForgotPasswordRoute } = this.props;
 
     return (
       <View style={styles.container}>
@@ -18,7 +18,7 @@ export default class LoginScene extends Component {
 
         <TextInput
           style={[styles.textInput]}
-          onChangeText={(value) => handleForm('email',value)}
+          onChangeText={(value) => onFieldChange('email',value)}
           value={email}
           maxLength={40}
           placeholderTextColor="gray"
@@ -26,7 +26,7 @@ export default class LoginScene extends Component {
 
         <TextInput
           style={[styles.textInput]}
-          onChangeText={(value) => handleForm('password',value)}
+          onChangeText={(value) => onFieldChange('password',value)}
           value={password}
           maxLength={40}
           placeholderTextColor="gray"
