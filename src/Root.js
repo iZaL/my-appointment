@@ -1,6 +1,6 @@
 'use strict';
 import React,{ Component } from 'react';
-import { Provider } from 'react-redux';
+import { Provider,StatusBar } from 'react-redux';
 import configureStore from './store/configure-store';
 import App from './App';
 import CodePush from "react-native-code-push";
@@ -11,7 +11,6 @@ export default class Root extends Component {
     super();
     // console.disableYellowBox=true;
     CodePush.sync();
-
   }
 
   render() {

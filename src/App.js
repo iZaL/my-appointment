@@ -1,6 +1,6 @@
 'use strict';
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet,StatusBar } from 'react-native';
 import { Router, Reducer } from 'react-native-router-flux'
 import { loginUserByToken } from './actions/Auth/login';
 import { connect } from 'react-redux';
@@ -16,8 +16,9 @@ const reducerCreate = params=> {
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+    StatusBar.setBarStyle('light-content', true);
   }
 
   componentDidMount() {

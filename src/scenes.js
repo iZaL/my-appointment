@@ -34,7 +34,7 @@ export const scenes = Actions.create(
                tabBarSelectedItemStyle={{backgroundColor:APP_STYLES.primaryColor,height:40}}
                navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
         >
-          <Scene initial={true} key="main"
+          <Scene key="main"
                   icon={TabIcon}
                   selectedTabIcon="ios-home"
                   tabIcon="ios-home-outline"
@@ -92,7 +92,7 @@ export const scenes = Actions.create(
           <Scene key="login" component={Login} hideNavBar={true} />
           <Scene key="register" component={Register} hideNavBar={true} />
           <Scene key="loginDialog" component={LoginDialog} hideNavBar={true} />
-          <Scene key="introCarousel" component={IntroCarousel}  hideTabBar={true} hideNavBar={true}/>
+          <Scene initial={true}  key="introCarousel" component={IntroCarousel}  hideTabBar={true} hideNavBar={true}/>
         </Scene>
       </Scene>
     </Scene>
