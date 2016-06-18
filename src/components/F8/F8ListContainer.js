@@ -65,7 +65,6 @@ export default class F8ListContainer extends Component {
 
   render() {
     var leftItem = this.props.leftItem;
-
     const segments = [];
     const content = React.Children.map(this.props.children, (child, idx) => {
       segments.push(child.props.title);

@@ -4,7 +4,6 @@ import { View, Image, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { fetchCategories } from './../../actions/Category/categories';
-import { assets } from './../../utils/assets';
 import CategoryList from './../../components/Category/CategoryList';
 
 class Categories extends Component {

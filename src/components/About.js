@@ -5,8 +5,9 @@ import { Actions } from 'react-native-router-flux';
 import { ScrollView, View, StyleSheet, Text} from 'react-native';
 import F8ListContainer from './F8/F8ListContainer';
 import F8PureListView from './F8/F8PureListView';
-var ProfilePicture = require('./ProfilePicture');
-var FilterHeader = require('./FilterHeader');
+import FilterHeader from './FilterHeader';
+import ProfilePicture from './ProfilePicture';
+import SocialAccounts from './SocialAccounts';
 
 export default class About extends Component {
 
@@ -17,7 +18,6 @@ export default class About extends Component {
   filterItem() {
     return {
       icon: require('./../assets/img/hamburger.png'),
-      title: 'Filter',
       onPress: this.openFilterScreen,
     }
   }
@@ -25,30 +25,30 @@ export default class About extends Component {
   render() {
     const filterHeader = <FilterHeader filter={['ass','aaaasa']} />
 
-    const profilePicture = <ProfilePicture  size={100} />;
+    const parallaxContent = <ProfilePicture  size={100} />;
 
     return (
       <View style={styles.container}>
         <F8ListContainer
-          title="Maps"
-          backgroundImage={require('./../assets/img/schedule-background.png')}
+          title="About us"
+          backgroundImage={require('./../assets/img/notifications-background.png')}
           backgroundColor={'#9176D2'}
           leftItem={this.filterItem()}
+          parallaxContent={parallaxContent}
         >
           <F8PureListView
-            title='ABCD'
+            enableEmptySections={true}
+            title='Follow us'
             renderEmptyList={() =>
-            <View>
-              <View style={{ flex:1, height:100, marginVertical: 20,paddingHorizontal: 20, backgroundColor:'blue'}}>
-                  <Text>asd</Text>
-                </View>
-            </View>
+              <SocialAccounts />
           }
           />
           <F8PureListView
-            title='ABCDE'
+            enableEmptySections={true}
+            title='Location'
             renderEmptyList={() =>
             <View style={styles.container} >
+              <Text>asd</Text>
             </View>
           }
           />
@@ -63,6 +63,7 @@ export default class About extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex:1,
   },
 
 });

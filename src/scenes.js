@@ -21,7 +21,6 @@ import NavigationDrawer from './components/NavigationDrawer';
 import IntroCarousel from './components/IntroCarousel';
 import About from './components/About';
 import Term from './components/Term';
-import Contact from './components/Contact';
 import Profile from './containers/User/Profile';
 
 export const scenes = Actions.create(
@@ -34,8 +33,6 @@ export const scenes = Actions.create(
                tabBarStyle={{ backgroundColor:APP_STYLES.primaryColor ,height:40}}
                tabBarSelectedItemStyle={{backgroundColor:APP_STYLES.primaryColor,height:40}}
                navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
-               drawerImage={<Image source={require('./assets/img/hamburger.png') } style={{height:30,width:30}}
-                 />}
         >
           <Scene initial={true} key="main"
                   icon={TabIcon}
@@ -77,7 +74,6 @@ export const scenes = Actions.create(
             <Scene key="settingsScene" component={Settings} title="Settings"/>
             <Scene key="term" component={Term}  hideTabBar={true} hideNavBar={true} direction="vertical"/>
             <Scene key="profile" component={Profile}  hideTabBar={true} hideNavBar={true} direction="vertical"/>
-            <Scene key="contact" component={Contact}  hideTabBar={true} hideNavBar={true} direction="vertical"/>
             <Scene key="about" component={About} hideNavBar={true} />
           </Scene>
 

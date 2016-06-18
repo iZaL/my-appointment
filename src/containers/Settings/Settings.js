@@ -26,8 +26,6 @@ class Settings extends Component {
         return Actions.term();
       case 'profile':
         return Actions.profile();
-      case 'contact':
-        return Actions.contact();
       case 'logout' :
         return AlertIOS.alert('Are you sure you want to logout ?  ', null, [{text: 'Yes', onPress:()=>{this.performLogout()}},{text:'No'}]);
       case 'login' :
@@ -51,7 +49,6 @@ class Settings extends Component {
         }
 
         <SettingsCell icon="ios-information-circle-outline" title="About" name="about" callback={this.loadLink} />
-        <SettingsCell icon="ios-help-circle-outline" title="Contact Us" name="contact" callback={this.loadLink} />
         <SettingsCell icon="ios-checkmark" title="Terms and Conditions" name="term" callback={this.loadLink} />
       </ScrollView>
     );

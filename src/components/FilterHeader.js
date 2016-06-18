@@ -33,7 +33,7 @@ const Image = require('Image');
 
 // TODO: Pull redux connection up
 
-class FilterHeader extends React.Component {
+export default class FilterHeader extends React.Component {
   render() {
     var topics = Object.keys(this.props.filter);
     if (topics.length === 0) {
@@ -83,6 +83,3 @@ var styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.65)',
   }
 });
-
-
-module.exports = FilterHeader;

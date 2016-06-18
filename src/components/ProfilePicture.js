@@ -27,7 +27,7 @@ var Image = require('Image');
 var React = require('React');
 var PixelRatio = require('PixelRatio');
 
-class ProfilePicture extends React.Component {
+export default class ProfilePicture extends React.Component {
   props: {
     userID: string;
     size: number;
@@ -36,10 +36,10 @@ class ProfilePicture extends React.Component {
   render() {
     const {size} = this.props;
     const scaledSize = size * PixelRatio.get();
-    const uri = `http://graph.facebook.com/630026573700812/picture?width=${scaledSize}&height=${scaledSize}`;
+    const img = require('./../assets/img/logo.png');
     return (
       <Image
-        source={{uri}}
+        source={img}
         style={{
           width: size,
           height: size,
@@ -49,5 +49,3 @@ class ProfilePicture extends React.Component {
     );
   }
 }
-
-module.exports = ProfilePicture;
