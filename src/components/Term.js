@@ -28,7 +28,7 @@ export default class Term extends Component {
         >
           <F8PureListView
             enableEmptySections={true}
-            title='Follow us'
+            title='Terms and Condition'
             renderEmptyList={() =>
             <View>
               <TermInfo />

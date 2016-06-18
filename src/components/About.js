@@ -1,11 +1,9 @@
 'use strict';
 import React, {Component,PropTypes} from 'react';
-import PageViewer from './PageViewer';
 import { Actions } from 'react-native-router-flux';
 import { ScrollView, View, StyleSheet, Text} from 'react-native';
 import F8ListContainer from './F8/F8ListContainer';
 import F8PureListView from './F8/F8PureListView';
-import FilterHeader from './FilterHeader';
 import ProfilePicture from './ProfilePicture';
 import SocialAccounts from './SocialAccounts';
 
@@ -24,7 +22,6 @@ export default class About extends Component {
   }
 
   render() {
-    const filterHeader = <FilterHeader filter={['ass','aaaasa']} />
 
     const parallaxContent = <ProfilePicture  size={100} />;
 
