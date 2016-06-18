@@ -33,7 +33,6 @@ export default class PageViewer extends Component {
   }
 
   _renderScrollViewContent() {
-    console.log(this.props);
     return (
       <View style={styles.scrollViewContent}>
         {this.props.children}

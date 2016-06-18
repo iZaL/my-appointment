@@ -2,6 +2,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Image, View } from 'react-native';
 import { connect } from 'react-redux';
+import { createSelector } from 'reselect';
 import { fetchCategory } from './../../actions/Category/category';
 import { favoriteCompany } from './../../actions/favorites';
 import { assets } from './../../utils/assets';
@@ -52,13 +53,27 @@ Category.propTypes = {
   userReducer:PropTypes.object.isRequired
 };
 
+const alphabetize = createSelector(
+  [],
+  
+);
+
+
+const getCategory = (state,props) => state.entities.categories[props.itemID];
+const getEntities = (state,props) => state.entities;
+
+const getCompanies = createSelector(
+  [ getCategory,getEntities ],
+  ( category,entities ) => {
+    return category.companies ? category.companies.map((company) => entities.companies[company]) : []
+  }
+);
+
 function mapStateToProps(state,ownProps) {
-  const { entities,categoryReducer } = state;
-  const category = entities.categories[ownProps.itemID];
   return {
-    categoryReducer,
-    companies:category.companies ? category.companies.map((company) => entities.companies[company]) : [],
-    userReducer:state.userReducer
+    categoryReducer:state.categoryReducer,
+    userReducer:state.userReducer,
+    companies:getCompanies(state,ownProps)
   }
 }
 
