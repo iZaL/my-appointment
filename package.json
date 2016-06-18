@@ -11,6 +11,7 @@
     "normalizr": "^2.1.0",
     "react": "^15.1.0",
     "react-native": "0.28.0-rc.0",
+    "react-native-alphabetlistview": "github:sunnylqm/react-native-alphabetlistview",
     "react-native-button": "^1.6.0",
     "react-native-calendar-picker": "^2.8.0",
     "react-native-code-push": "^1.12.2-beta",
