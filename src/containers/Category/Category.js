@@ -53,19 +53,20 @@ Category.propTypes = {
   userReducer:PropTypes.object.isRequired
 };
 
-const alphabetize = createSelector(
-  [],
-  
-);
-
-
 const getCategory = (state,props) => state.entities.categories[props.itemID];
 const getEntities = (state,props) => state.entities;
 
 const getCompanies = createSelector(
-  [ getCategory,getEntities ],
-  ( category,entities ) => {
-    return category.companies ? category.companies.map((company) => entities.companies[company]) : []
+  [ getCategory ],
+  ( category ) => {
+    return category.companies ? alphabetize(category.companies) : []
+  }
+);
+
+const alphabetize = createSelector(
+  [getCompanies,getEntities],
+  ( companies, entities ) => {
+    return companies.map((company)=>entities.companies[company]);
   }
 );
 
