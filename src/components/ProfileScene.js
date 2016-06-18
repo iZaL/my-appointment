@@ -30,9 +30,7 @@ export default class ProfileScene extends Component {
           enableEmptySections={true}
           title='Profile'
           renderEmptyList={() =>
-            <View>
-              <ProfileInfo />
-            </View>
+            <ProfileInfo />
           }
         />
       </F8ListContainer>
@@ -40,21 +38,25 @@ export default class ProfileScene extends Component {
   }
 }
 
-class ProfileInfo extends Component {
-  render() {
+const ProfileInfo = () => {
     return (
       <View style={[styles.container]}>
         <View style={styles.header}>
           <Text style={styles.title}>Profile Page</Text>
-          </View>
+        </View>
       </View>
     );
-  }
-}
+};
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop:10
+    backgroundColor: 'white',
+    padding:10
   },
-
+  header: {
+  },
+  title: {
+    fontSize: 17,
+    fontWeight: 'bold'
+  }
 });

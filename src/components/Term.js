@@ -20,22 +20,27 @@ export default class Term extends Component {
 
   render() {
     return (
-        <F8ListContainer
-          title="Terms"
-          backgroundImage={require('./../assets/img/notifications-background.png')}
-          backgroundColor={'#9176D2'}
-          leftItem={this.filterItem()}
-        >
-          <F8PureListView
-            enableEmptySections={true}
-            title='Terms and Condition'
-            renderEmptyList={() =>
-            <View>
-              <TermInfo />
-            </View>
+      <F8ListContainer
+        title="Terms"
+        backgroundImage={require('./../assets/img/notifications-background.png')}
+        backgroundColor={'#9176D2'}
+        leftItem={this.filterItem()}
+      >
+        <F8PureListView
+          enableEmptySections={true}
+          title='Terms and Condition'
+          renderEmptyList={() =>
+            <TermInfo />
           }
-          />
-        </F8ListContainer>
+        />
+        <F8PureListView
+          enableEmptySections={true}
+          title='Terms'
+          renderEmptyList={() =>
+            <TermInfo />
+          }
+        />
+      </F8ListContainer>
     )
   }
 }
@@ -45,31 +50,30 @@ class TermInfo extends Component {
     return (
       <View style={[styles.container]}>
         <View style={styles.header}>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
-          <Text style={styles.title}>asdasdas</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
+          <Text style={styles.title}>terms and conditions</Text>
         </View>
-        {this.props.children}
       </View>
     );
   }
@@ -77,16 +81,13 @@ class TermInfo extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 60,
-    paddingBottom: 0,
     backgroundColor: 'white',
+    padding:10
   },
   header: {
-    marginBottom: 30,
   },
   title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-
+    fontSize: 17,
+    fontWeight: 'bold'
+  }
 });

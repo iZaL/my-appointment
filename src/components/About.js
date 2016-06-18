@@ -44,9 +44,7 @@ export default class About extends Component {
             enableEmptySections={true}
             title='Location'
             renderEmptyList={() =>
-            <View style={styles.container} >
-              <Text>asd</Text>
-            </View>
+              <LocationInfo />
           }
           />
         </F8ListContainer>
@@ -55,11 +53,26 @@ export default class About extends Component {
   }
 }
 
+const LocationInfo = () => {
+  return (
+    <View style={[styles.container]}>
+      <View style={styles.header}>
+        <Text style={styles.title}>Location Info</Text>
+      </View>
+    </View>
+  );
+};
 
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
+    backgroundColor: 'white',
+    padding:10
   },
-
+  header: {
+  },
+  title: {
+    fontSize: 17,
+    fontWeight: 'bold'
+  }
 });
