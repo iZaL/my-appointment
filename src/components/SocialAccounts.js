@@ -4,8 +4,9 @@ import SettingsCell from './../containers/Settings/Components/SettingsCell';
 
 export default class SocialAccounts extends Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+    this.loadLink = this.loadLink.bind(this);
   }
 
   loadLink(name){
@@ -28,9 +29,9 @@ export default class SocialAccounts extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <SettingsCell icon="logo-instagram" title="Follow us on Instagram " callback={()=>this.loadLink('instagram')} />
-        <SettingsCell icon="logo-twitter" title="Follow us on Twitter" callback={()=>this.loadLink('twitter')} />
-        <SettingsCell icon="logo-facebook" title="Join our Facebook Page" callback={()=>this.loadLink('facebook')} />
+        <SettingsCell icon="logo-instagram" name="instagram" title="Follow us on Instagram " callback={this.loadLink} />
+        <SettingsCell icon="logo-twitter" name="twitter" title="Follow us on Twitter" callback={this.loadLink} />
+        <SettingsCell icon="logo-facebook" name="facebook" title="Join our Facebook Page" callback={this.loadLink} />
       </View>
     );
   }

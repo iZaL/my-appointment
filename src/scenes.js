@@ -72,8 +72,8 @@ export const scenes = Actions.create(
                   titleStyle={{ color:'white' }}
           >
             <Scene key="settingsScene" component={Settings} title="Settings"/>
-            <Scene key="term" component={Term}  hideTabBar={true} hideNavBar={true} direction="vertical"/>
-            <Scene key="profile" component={Profile}  hideTabBar={true} hideNavBar={true} direction="vertical"/>
+            <Scene key="term" component={Term}  hideTabBar={true} hideNavBar={true} />
+            <Scene key="profile" component={Profile}  hideTabBar={true} hideNavBar={true} />
             <Scene key="about" component={About} hideNavBar={true} />
           </Scene>
 

@@ -121,7 +121,8 @@ var styles = StyleSheet.create({
   },
   itemText: {
     letterSpacing: 1,
-    fontSize: 12,
+    fontSize: 30,
+    marginTop:-10,
     color: 'white',
   },
 });

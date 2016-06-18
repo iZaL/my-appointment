@@ -18,6 +18,7 @@ export default class About extends Component {
   filterItem() {
     return {
       icon: require('./../assets/img/hamburger.png'),
+      title:'×',
       onPress: this.openFilterScreen,
     }
   }
@@ -28,7 +29,6 @@ export default class About extends Component {
     const parallaxContent = <ProfilePicture  size={100} />;
 
     return (
-      <View style={styles.container}>
         <F8ListContainer
           title="About us"
           backgroundImage={require('./../assets/img/notifications-background.png')}
@@ -53,7 +53,6 @@ export default class About extends Component {
           }
           />
         </F8ListContainer>
-      </View>
 
     )
   }

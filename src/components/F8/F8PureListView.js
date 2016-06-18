@@ -63,7 +63,7 @@ export default class F8PureListView extends Component {
         renderFooter={this.renderFooter}
         contentInset={{bottom, top: contentInset.top}}
         onContentSizeChange={this.onContentSizeChange}
-        style={styles.container}
+        showsVerticalScrollIndicator={false}
       />
     );
   }
