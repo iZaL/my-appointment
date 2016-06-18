@@ -1,6 +1,6 @@
 'use strict';
 import React, { Component, PropTypes } from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView,AlertIOS } from 'react-native';
 import { connect } from 'react-redux';
 import { signup } from '../../actions/Auth/register';
 import { Actions } from 'react-native-router-flux';
@@ -21,6 +21,7 @@ class Register extends Component {
     };
 
     this.onFieldChange  = this.onFieldChange.bind(this);
+    this.registerUser  = this.registerUser.bind(this);
   }
 
   onFieldChange(field,value) {
@@ -29,8 +30,14 @@ class Register extends Component {
 
   registerUser() {
     const fields = {...this.state};
+
     this.props.dispatch(signup(fields, (cb)=> {
-      Actions.login();
+
+      if(!cb.success) {
+        return AlertIOS.alert(`Error occured while Registration.`, cb.errorMessage, [{text: 'Try Again'}]);
+      }
+
+      return Actions.login();
     }));
   }
 

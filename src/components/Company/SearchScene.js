@@ -1,43 +1,31 @@
 'use strict';
 import React, { Component, PropTypes } from 'react';
 import { StyleSheet,View,TouchableHighlight,Text,TextInput } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 import FormButton from './../FormButton';
 
 export default class SearchScene extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state= {
-      searchString : ''
-    }
-  }
-
-  doSearch() {
-    //alert('searching'+this.state.searchString);
-    this.props.search(this.state.searchString);
-    // update search
-  }
-
   render() {
+    const {updateSearchString,search,searchString} = this.props;
+    
     return (
       <View style={styles.container}>
         <View style={styles.textInputWrapper}>
           <TextInput
             style={styles.textInput}
-            onChangeText={(text) => this.setState({searchString:text})}
-            value={this.state.searchString}
-            placeholder="Search company by name or location"
+            onChangeText={(text) => updateSearchString(text)}
+            value={searchString}
+            placeholder="Search Companies by Name or Location"
             clearButtonMode="while-editing"
             returnKeyType="search"
             maxLength={30}
             autoCorrect={false}
-            onSubmitEditing={()=>this.doSearch()}
+            onSubmitEditing={()=>search()}
           />
         </View>
         <View style={styles.searchButtonWrapper}>
           <FormButton
-            onPress={()=>this.doSearch()}
+            onPress={()=>search()}
             buttonText='Search'
             containerStyle={{ height:50,paddingTop:5}}
           />
@@ -49,11 +37,12 @@ export default class SearchScene extends Component {
 
 SearchScene.propTypes = {
   search:PropTypes.func.isRequired,
+  updateSearchString:PropTypes.func.isRequired,
+  searchString:PropTypes.string.isRequired,
 };
 
 let styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent:'center',
     flexDirection:'row',
     paddingLeft:10,

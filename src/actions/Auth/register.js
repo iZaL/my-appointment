@@ -38,16 +38,16 @@ export function signup(inputs, cb = ()=> { success: false }) {
     })
       .then(response => response.json())
       .then(json => {
-        console.log(json);
         if (json.success == false) {
-          dispatch(registerFailure(json.error));
+          dispatch(registerFailure(json.message));
+          let errorMessage = json.error ? json.error[0]: '' ;
+          return cb({success: false,errorMessage:errorMessage});
         } else {
           dispatch(registerSuccess());
           return cb({success: true});
         }
       })
       .catch((err)=> {
-        console.log(err);
         dispatch(registerFailure(err))
       });
   };

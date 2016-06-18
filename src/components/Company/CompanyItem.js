@@ -40,11 +40,12 @@ var styles = StyleSheet.create({
     alignItems:'center'
   },
   name: {
-    color:'gray',
+    color:'white',
     fontSize:26,
     fontWeight:'600',
     alignSelf:'center',
     paddingTop:10,
+    paddingBottom:10,
     fontFamily:'SnellRoundhand'
   }
 

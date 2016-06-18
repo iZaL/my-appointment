@@ -1,6 +1,6 @@
 {
   "name": "MyAppointment",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "start": "react-native start"
@@ -10,7 +10,6 @@
     "lodash": "^4.13.1",
     "normalizr": "^2.1.0",
     "react": "^15.1.0",
-    "react-addons-shallow-compare": "^15.1.0",
     "react-native": "0.28.0-rc.0",
     "react-native-button": "^1.6.0",
     "react-native-calendar-picker": "^2.8.0",
@@ -25,8 +24,6 @@
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
     "redux-storage": "^4.0.1",
-    "redux-thunk": "^2.1.0",
-    "validate.js": "^0.10.0",
-    "why-did-you-update": "0.0.8"
+    "redux-thunk": "^2.1.0"
   }
 }

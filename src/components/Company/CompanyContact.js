@@ -93,11 +93,12 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     padding:5,
+    paddingBottom:50,
     backgroundColor:'tomato',
     opacity:.8,
   },
   iconWrapper:{
-    alignItems:'center',
+    alignSelf:'center',
     justifyContent:'center',
     backgroundColor:'#e7e7e7',
     width:50,

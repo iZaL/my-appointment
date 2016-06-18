@@ -11,8 +11,6 @@ import CompanyDescription from "./../../components/Company/CompanyDescription";
 import CompanyContact from "./../../components/Company/CompanyContact";
 import {APP_STYLES} from "./../../utils/AppStyles";
 import {Actions} from "react-native-router-flux";
-import shallowCompare from 'react-addons-shallow-compare';
-
 
 class Company extends Component {
 
@@ -32,10 +30,6 @@ class Company extends Component {
 
   componentDidMount() {
     this.props.dispatch(fetchCompany(this.props.itemID,['services','employees','favorites']));
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return shallowCompare(this, nextProps, nextState);
   }
 
   loadDateTime(service) {
@@ -100,7 +94,7 @@ class Company extends Component {
     return (
       <ScrollView style={{ flex:1,backgroundColor:'white' }} contentContainerStyle={{paddingTop: 64}} contentInset={{ bottom:50 }} >
         <CompanyItem company={company}/>
-        <View style={{flex:1,margin:5,marginTop:20}}>
+        <View style={{margin:5,marginTop:20}}>
           <SegmentedControlIOS
             values={['Services', 'Description','Map']}
             tintColor={APP_STYLES.primaryColor}

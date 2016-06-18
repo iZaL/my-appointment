@@ -15,14 +15,20 @@ class Search extends  Component {
     userReducer:PropTypes.object.isRequired
   };
 
-  constructor(props) {
-    super(props);
-    this.favoriteCompany = this.favoriteCompany.bind(this)
-    this.search = this.search.bind(this)
+  constructor() {
+    super();
+
+    this.state= {
+      searchString : ''
+    };
+
+    this.favoriteCompany = this.favoriteCompany.bind(this);
+    this.search = this.search.bind(this);
+    this.updateSearchString = this.updateSearchString.bind(this);
   }
 
-  search(string) {
-    this.props.dispatch(searchCompany(string));
+  search() {
+    this.props.dispatch(searchCompany(this.state.searchString));
   }
 
   loadCompany(company) {
@@ -36,12 +42,18 @@ class Search extends  Component {
     this.props.dispatch(favoriteCompany(company));
   }
 
+  updateSearchString(value) {
+    this.setState({
+      searchString:value
+    });
+  }
+
   render() {
 
     const { companies,companyReducer } = this.props;
     return (
       <ScrollView contentInset={{ bottom:40 }} automaticallyAdjustContentInsets={false} style={styles.container}>
-        <SearchScene search={this.search} />
+        <SearchScene search={this.search} searchString={this.state.searchString} updateSearchString={this.updateSearchString} />
         { companyReducer.isSearching && <LoadingIndicator />}
         <CompanyList
           loadCompany={this.loadCompany}

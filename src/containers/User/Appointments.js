@@ -49,7 +49,12 @@ class Appointments extends Component {
 
 
     return (
-      <Image source={assets.bg} style={{flex: 1,width: null,height: null,padding: 10,backgroundColor:'white'}}>
+      <Image source={assets.bg} style={{flex:1,width: null,height: null,backgroundColor:'white'}}>
+
+        <ScrollView
+          automaticallyAdjustContentInsets={false}
+          contentInset={{bottom:40}}
+        >
 
         { userReducer.appointments.isFetching && <LoadingIndicator /> }
 
@@ -65,6 +70,7 @@ class Appointments extends Component {
             <ConfirmedAppointmentList appointments={appointmentsArray} cancelAppointment={this.cancelAppointment} />
         }
 
+          </ScrollView>
       </Image>
     );
   }
