@@ -22,6 +22,7 @@ export default class SearchScene extends Component {
             onChangeText={(text) => updateSearchString(text)}
             value={searchString}
             placeholder="Search Companies by Name or Location"
+            placeholderTextColor ="white"
             clearButtonMode="while-editing"
             returnKeyType="search"
             maxLength={30}
@@ -49,18 +50,29 @@ let styles = StyleSheet.create({
     paddingTop:5,
     marginBottom:10,
     marginTop:10,
-    opacity:0.8,
   },
   textInputWrapper:{
-    flex:3
+    flex:3,
+    backgroundColor:'#4d004d',
+    padding:5,
+    shadowColor:'#b300b3',
+    shadowOffset:{width:0,height:0},
+    shadowRadius:2,
+    shadowOpacity:.8,
+    borderRadius:2,
+    opacity:.7
+
   },
   textInput:{
     height: 50,
-    borderColor: '#E7E7E7',
+    borderColor: '#33001a',
     borderWidth: 1,
     padding:10,
     color:'white',
-    borderRadius:20
+    borderRadius:20,
+    textAlign:'center',
+    backgroundColor:'black',
+    opacity:1
   },
   searchButtonWrapper:{
     flex:1,
