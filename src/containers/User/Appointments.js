@@ -1,6 +1,6 @@
 'use strict';
 import React, { Component, PropTypes } from 'react';
-import { ScrollView, Image, View } from 'react-native';
+import { ScrollView, Image, View, RefreshControl } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { fetchAppointments,cancelAppointment } from './../../actions/appointments';
@@ -16,10 +16,15 @@ class Appointments extends Component {
 
   constructor() {
     super();
+    this.state={
+      isRefreshing:false
+    };
+    this.onRefresh = this.onRefresh.bind(this);
     this.cancelAppointment = this.cancelAppointment.bind(this);
   }
 
   componentDidMount() {
+    console.log('called did mount');
     if(this.props.userReducer.isAuthenticated) {
       this.props.dispatch(fetchTimings());
       this.props.dispatch(fetchAppointments());
@@ -32,6 +37,11 @@ class Appointments extends Component {
 
   callback() {
     return Actions.main();
+  }
+
+  onRefresh() {
+    this.setState({isRefreshing: true});
+    this.props.dispatch(fetchAppointments()).then((val)=>this.setState({isRefreshing: false}));
   }
 
   render() {
@@ -54,6 +64,16 @@ class Appointments extends Component {
         <ScrollView
           automaticallyAdjustContentInsets={false}
           contentInset={{bottom:40}}
+          refreshControl={
+          <RefreshControl
+            refreshing={this.state.isRefreshing}
+            onRefresh={this.onRefresh}
+            tintColor="white"
+            title="Loading..."
+            colors={['#ff0000', '#00ff00', '#0000ff']}
+            progressBackgroundColor="#ffff00"
+          />
+          }
         >
 
         { userReducer.appointments.isFetching && <LoadingIndicator /> }

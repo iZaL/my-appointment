@@ -78,6 +78,7 @@ export function createAppointment(company,service,date,time,employee) {
           .then(json => {
             if (json.success) {
               dispatch(createAppointmentSuccess());
+              dispatch(fetchAppointments());
             } else {
               dispatch(createAppointmentFailure(json.message))
             }
@@ -89,13 +90,12 @@ export function createAppointment(company,service,date,time,employee) {
 export function fetchAppointments() {
   return (dispatch) => {
     dispatch(appointmentRequest());
-    getUserToken().then((token) => {
+    return  getUserToken().then((token) => {
       const url = API_ROOT + `/appointments/?api_token=${token}`;
       return fetch(url)
         .then(response => response.json())
-        .then(json =>  dispatch(appointmentSuccess(json)))
-        .catch((err)=>dispatch(appointmentFailure(err)))
-    });
+        .then(json =>  { dispatch(appointmentSuccess(json)) })
+    }).catch((err)=> { dispatch(appointmentFailure(err)) });
   }
 }
 

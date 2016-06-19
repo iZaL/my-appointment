@@ -11,13 +11,14 @@ import { Actions } from 'react-native-router-flux';
 import isEmpty from 'lodash/isEmpty';
 class Favorites extends Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state={
       isRefreshing:false
     };
     this.onRefresh = this.onRefresh.bind(this);
     this.favoriteCompany = this.favoriteCompany.bind(this)
+    this.loadCompany = this.loadCompany.bind(this)
   }
 
   componentDidMount() {
@@ -44,6 +45,10 @@ class Favorites extends Component {
     this.props.dispatch(fetchFavorites()).then((val)=>this.setState({isRefreshing: false}));
   }
 
+  callback() {
+    return Actions.main();
+  }
+  
   render() {
     console.log('render Favorites');
     const { userReducer,favorites } = this.props;
@@ -72,13 +77,13 @@ class Favorites extends Component {
                 title="No Favorites Yet"
                 description="Favorite Salons and spas you know and you love"
                 buttonText="Explore Salons"
-                callback={()=>Actions.main()}
+                callback={this.callback}
               />
               :
               <CompanyList
                 companies={favorites.filter((company)=>!company.unFavorited)}
-                loadCompany={this.loadCompany.bind(this)}
-                favoriteCompany={this.favoriteCompany.bind(this)}
+                loadCompany={this.loadCompany}
+                favoriteCompany={this.favoriteCompany}
               />
           }
 

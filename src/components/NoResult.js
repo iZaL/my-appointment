@@ -11,27 +11,23 @@ export default class NoResult extends Component {
     title:PropTypes.string.isRequired,
     description:PropTypes.string.isRequired,
     callback:PropTypes.func.isRequired
-  }
-
-  handleCallback() {
-    console.log('called callback');
-    return this.props.callback();
-  }
+  };
 
   render() {
     console.log('called no result');
+    const { title,description,buttonText,callback} = this.props;
 
     return (
         <View style={styles.container}>
           <Text style={styles.title}>
-            {this.props.title}
+            {title}
           </Text>
           <Text style={styles.description}>
-            {this.props.description}
+            {description}
           </Text>
           <FormButton
-            onPress={this.handleCallback}
-            buttonText='Browse Salons'
+            onPress={callback}
+            buttonText={buttonText}
           />
         </View>
     );
