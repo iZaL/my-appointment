@@ -102,11 +102,10 @@ export default class ConfirmedAppointmentList extends Component {
 
     return (
       <ListView
-        contentContainerStyle={styles.container}
+        style={styles.container}
         dataSource={dataSource}
         renderRow={this.renderRow.bind(this)}
         contentInset={{bottom:49}}
-        style={{paddingTop:64}}
         automaticallyAdjustContentInsets={false}
         ref='listView'
         enableEmptySections={true} //@todo remove this in future version
@@ -117,7 +116,11 @@ export default class ConfirmedAppointmentList extends Component {
 
 
 var styles = StyleSheet.create({
-  container: {},
+  container: {
+    flex:1,
+    paddingVertical:10,
+    paddingHorizontal:5
+  },
   cellContainer:{
     backgroundColor:'white',
     opacity:0.6,

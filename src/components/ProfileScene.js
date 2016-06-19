@@ -50,10 +50,12 @@ const ProfileInfo = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
-    padding:10
+    flex:1,
+    paddingTop:10
   },
   header: {
+    flex:1,
+    padding:10,
   },
   title: {
     fontSize: 17,

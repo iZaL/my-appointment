@@ -7,7 +7,13 @@ export default class SearchScene extends Component {
 
   render() {
     const {updateSearchString,search,searchString} = this.props;
-    
+    // <View style={styles.searchButtonWrapper}>
+    //   <FormButton
+    //     onPress={()=>search()}
+    //     buttonText='Search'
+    //     containerStyle={{ height:50,paddingTop:5}}
+    //   />
+    // </View>
     return (
       <View style={styles.container}>
         <View style={styles.textInputWrapper}>
@@ -21,13 +27,6 @@ export default class SearchScene extends Component {
             maxLength={30}
             autoCorrect={false}
             onSubmitEditing={()=>search()}
-          />
-        </View>
-        <View style={styles.searchButtonWrapper}>
-          <FormButton
-            onPress={()=>search()}
-            buttonText='Search'
-            containerStyle={{ height:50,paddingTop:5}}
           />
         </View>
       </View>
@@ -47,7 +46,10 @@ let styles = StyleSheet.create({
     flexDirection:'row',
     paddingLeft:10,
     paddingRight:10,
-    paddingTop:5
+    paddingTop:5,
+    marginBottom:10,
+    marginTop:10,
+    opacity:0.8,
   },
   textInputWrapper:{
     flex:3
@@ -57,6 +59,8 @@ let styles = StyleSheet.create({
     borderColor: '#E7E7E7',
     borderWidth: 1,
     padding:10,
+    color:'white',
+    borderRadius:20
   },
   searchButtonWrapper:{
     flex:1,

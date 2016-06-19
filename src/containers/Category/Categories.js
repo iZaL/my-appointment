@@ -27,11 +27,15 @@ class Categories extends Component {
     console.log('render categories');
     const { categories,categoriesReducer } = this.props;
     return (
-      <CategoryList
-        categories={categories}
-        loadCategory={this.loadCategory}
-        categoriesReducer={categoriesReducer}
-      />
+      <Image style={{flex: 1,width: null,height: null,paddingTop: 64,backgroundColor:'white'}}
+             source={require('./../../assets/img/bghome.png')}
+      >
+        <CategoryList
+          categories={categories}
+          loadCategory={this.loadCategory}
+          categoriesReducer={categoriesReducer}
+        />
+      </Image>
     );
   }
 }

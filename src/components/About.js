@@ -57,7 +57,7 @@ const LocationInfo = () => {
   return (
     <View style={[styles.container]}>
       <View style={styles.header}>
-        <Text style={styles.title}>Location Info</Text>
+        <Text style={styles.title}>Profile Page</Text>
       </View>
     </View>
   );
@@ -66,10 +66,12 @@ const LocationInfo = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
-    padding:10
+    flex:1,
+    paddingTop:10
   },
   header: {
+    flex:1,
+    padding:10,
   },
   title: {
     fontSize: 17,

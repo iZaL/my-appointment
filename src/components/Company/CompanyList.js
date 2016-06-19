@@ -68,9 +68,8 @@ export default class CompanyList extends Component {
 
 var styles = StyleSheet.create({
   contentContainer:{
-    paddingVertical:64,
+    paddingVertical:10,
     paddingHorizontal:5
-
   },
   cellWrapper: {
     marginBottom: 10,

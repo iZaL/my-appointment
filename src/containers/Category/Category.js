@@ -91,7 +91,7 @@ class Category extends Component {
     const {categoryReducer,companies} = this.props;
 
     return (
-      <Image source={assets.bg} style={{flex: 1,width: null,height: null,backgroundColor:'white'}}>
+      <Image source={assets.bg} style={{flex: 1,width: null,height: null,paddingTop:64,backgroundColor:'white'}}>
         { categoryReducer.isFetching && <LoadingIndicator /> }
         <CompanyList
           loadCompany={this.loadCompany}

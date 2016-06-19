@@ -54,7 +54,7 @@ class Favorites extends Component {
     const { userReducer,favorites } = this.props;
 
     return (
-      <Image source={assets.nail} style={{flex:1,width: null,height: null,backgroundColor:'white'}}>
+      <Image source={assets.nail} style={{flex:1,width: null,height: null,paddingTop:64,backgroundColor:'white'}}>
         <ScrollView
           automaticallyAdjustContentInsets={false}
           contentInset={{bottom:40}}
@@ -62,10 +62,10 @@ class Favorites extends Component {
           <RefreshControl
             refreshing={this.state.isRefreshing}
             onRefresh={this.onRefresh}
-            tintColor="white"
+            tintColor="pink"
             title="Loading..."
-            colors={['#ff0000', '#00ff00', '#0000ff']}
-            progressBackgroundColor="#ffff00"
+            colors={['white', 'red', 'green']}
+            progressBackgroundColor="yellow"
           />
         }
         >

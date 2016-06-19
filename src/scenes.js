@@ -48,22 +48,22 @@ export const scenes = Actions.create(
           </Scene>
 
           <Scene key="maps" component={Map} icon={TabIcon}
+                 title="Map"
                  selectedTabIcon="ios-map" tabIcon="ios-map-outline"
-                 hideNavBar={true}
+                 navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
+                 titleStyle={{ color:'white' }}
           />
 
           <Scene key="favorites" component={Favorites} icon={TabIcon} title="Favorites"
                  selectedTabIcon="ios-star" tabIcon="ios-star-outline"
                  navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                  titleStyle={{ color:'white' }}
-                 hideNavBar={true}
           />
 
-          <Scene key="appointments" component={Appointments}  icon={TabIcon} title="Appointments"
+          <Scene key="appointments" component={Appointments}  icon={TabIcon} title="My Appointments"
                  selectedTabIcon="ios-alarm" tabIcon="ios-alarm-outline"
                  navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                  titleStyle={{ color:'white' }}
-                 hideNavBar={true}
 
           />
           <Scene  key="settings" icon={TabIcon}  title="Settings"
@@ -84,7 +84,7 @@ export const scenes = Actions.create(
             <Scene key="serviceEntity" component={Service} title="Service" />
           </Scene>
 
-          <Scene key="search" component={Search} title="search" hideNavBar={false}
+          <Scene key="search" component={Search} title="Search" hideNavBar={false}
                  navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                  titleStyle={{ color:'white' }}
           />

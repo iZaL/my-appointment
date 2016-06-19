@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { ScrollView, StyleSheet,View,Text,Dimensions,TouchableOpacity,Linking } from 'react-native';
+import { ScrollView, StyleSheet,View,Image } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { searchCompany  } from './../../actions/Company/company';
@@ -7,6 +7,7 @@ import { favoriteCompany } from './../../actions/favorites';
 import SearchScene from './../../components/Company/SearchScene';
 import CompanyList from './../../components/Company/CompanyList';
 import LoadingIndicator from './../../components/LoadingIndicator';
+import { assets } from './../../utils/assets';
 
 class Search extends  Component {
 
@@ -52,15 +53,15 @@ class Search extends  Component {
 
     const { companies,companyReducer } = this.props;
     return (
-      <ScrollView contentInset={{ bottom:40 }} automaticallyAdjustContentInsets={false} style={styles.container}>
-        <SearchScene search={this.search} searchString={this.state.searchString} updateSearchString={this.updateSearchString} />
-        { companyReducer.isSearching && <LoadingIndicator />}
-        <CompanyList
-          loadCompany={this.loadCompany}
-          favoriteCompany={this.favoriteCompany}
-          companies={companies}
-        />
-      </ScrollView>
+      <Image source={assets.bg} style={{flex: 1,width: null,height: null,paddingTop: 64,backgroundColor:'white'}}>
+          <SearchScene search={this.search} searchString={this.state.searchString} updateSearchString={this.updateSearchString} />
+          { companyReducer.isSearching && <LoadingIndicator />}
+          <CompanyList
+            loadCompany={this.loadCompany}
+            favoriteCompany={this.favoriteCompany}
+            companies={companies}
+          />
+      </Image>
     );
   }
 }

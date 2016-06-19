@@ -53,7 +53,6 @@ export default class CategoryList extends Component {
     let dataSource = ds.cloneWithRows(categories);
 
     return (
-      <Image style={styles.container} source={require('./../../assets/img/bghome.png')}  >
         <ListView
           contentContainerStyle={styles.contentContainer}
           dataSource={dataSource}
@@ -65,7 +64,6 @@ export default class CategoryList extends Component {
           showsVerticalScrollIndicator={false}
           automaticallyAdjustContentInsets={false}
         />
-      </Image>
     )
 
   }
