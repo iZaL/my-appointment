@@ -41,7 +41,7 @@ export const scenes = Actions.create(
                   navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                   titleStyle={{ color:'white' }}
           >
-            <Scene key="categories" component={Categories} initial={true} hideNavBar={false} />
+            <Scene key="categories" component={Categories} initial={true} hideNavBar={false} type="reset"/>
             <Scene key="categoryEntity" component={Category} />
             <Scene key="companyEntity" component={Company} />
             <Scene key="appointmentContainer" component={Appointment} />
@@ -81,7 +81,7 @@ export const scenes = Actions.create(
                  navigationBarStyle={{ backgroundColor:APP_STYLES.primaryColor }}
                  titleStyle={{ color:'white' }}
           >
-            <Scene key="serviceEntity" component={Service} title="Service" />
+            <Scene key="serviceEntity" component={Service} title="Service" clone />
           </Scene>
 
           <Scene key="search" component={Search} title="Search" hideNavBar={false}

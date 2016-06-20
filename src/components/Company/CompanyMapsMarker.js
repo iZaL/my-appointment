@@ -1,7 +1,8 @@
 'use strict';
 import React, { Component, PropTypes } from 'react';
-import { StyleSheet,View,Text,Dimensions,TouchableOpacity } from 'react-native';
+import { StyleSheet,View,Text,Dimensions,TouchableOpacity,TouchableHighlight } from 'react-native';
 import MapView from 'react-native-maps';
+import { assets } from './../../utils/assets';
 
 export default class CompanyMapsMarker extends Component {
 
@@ -12,13 +13,13 @@ export default class CompanyMapsMarker extends Component {
   };
 
   render() {
-    const {companies,followLocation} = this.props;
+    const {companies,followLocation,region} = this.props;
     return (
 
       <MapView
         ref="map"
         style={styles.map}
-        region={this.props.region}
+        region={region}
         //onRegionChange={()=>this.props.onRegionChange()}
       >
         { Object.keys(companies).map(function (key) {
@@ -28,18 +29,11 @@ export default class CompanyMapsMarker extends Component {
               ref={"ref"+company.id}
               key={"key"+company.id}
               coordinate={{latitude:parseFloat(company.latitude),longitude:parseFloat(company.longitude)}}
-            >
-              <MapView.Callout>
-                <View style={styles.container}>
-                  <Text>{company.name_en}</Text>
-                  <TouchableOpacity underlayColor="transparent" onPress={()=>followLocation(company)}>
-                    <Text style={styles.getDirectionText}>
-                      Click here to get direction (google maps)
-                    </Text>
-                  </TouchableOpacity>
-                </View>
-              </MapView.Callout>
-            </MapView.Marker>
+              title={company.name_en}
+              description={`${company.address_en},${company.city_en}`}
+              onSelect={()=>followLocation(company)}
+              pinColor="blue"
+           />
           );
         })}
         <View/>
@@ -55,13 +49,23 @@ var styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
   container:{
+    flex:1,
     justifyContent:'center',
-    alignItems:'center'
+    backgroundColor:'green'
   },
   getDirectionText:{
     textDecorationLine:'underline',
-    paddingTop:20
+    paddingTop:20,
+    fontSize:9,
+  },
+  companyName : {
+    fontSize:9,
+    padding:5,
+    color:'black',
+    fontWeight:'400'
   }
 });

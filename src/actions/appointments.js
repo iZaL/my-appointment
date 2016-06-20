@@ -2,6 +2,8 @@ import { API_ROOT } from './../constants/config';
 import { getUserToken } from './../utils/storage';
 import { Schemas } from './../utils/schema';
 import { normalize } from 'normalizr';
+import moment from 'moment';
+
 import {
   APPOINTMENTS_REQUEST,
   APPOINTMENTS_SUCCESS,
@@ -62,8 +64,9 @@ export function createAppointment(company,service,date,time,employee) {
 
     return getUserToken()
       .then((token) => {
+        const formattedDate = moment(date).format('YYYY-MM-DD');
         let params = {
-          date:date.toISOString().slice(0, 10),
+          date:formattedDate,
           timing_id:time.id,
           employee_id:employee.id,
           company_id:company,

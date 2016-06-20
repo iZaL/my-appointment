@@ -1,6 +1,6 @@
 'use strict';
 import React, { Component, PropTypes } from 'react';
-import { ScrollView, Image, View, RefreshControl } from 'react-native';
+import { ScrollView, Image, View, RefreshControl,Linking,ActionSheetIOS } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { fetchAppointments,cancelAppointment } from './../../actions/appointments';
@@ -11,7 +11,6 @@ import LoadingIndicator from './../../components/LoadingIndicator';
 import mapValues from 'lodash/mapValues';
 import isEmpty from 'lodash/isEmpty';
 import NoResult from './../../components/NoResult';
-
 class Appointments extends Component {
 
   constructor() {
@@ -21,10 +20,10 @@ class Appointments extends Component {
     };
     this.onRefresh = this.onRefresh.bind(this);
     this.cancelAppointment = this.cancelAppointment.bind(this);
+    this.followLocation = this.followLocation.bind(this);
   }
 
   componentDidMount() {
-    console.log('called did mount');
     if(this.props.userReducer.isAuthenticated) {
       this.props.dispatch(fetchTimings());
       this.props.dispatch(fetchAppointments());
@@ -38,6 +37,41 @@ class Appointments extends Component {
   callback() {
     return Actions.main();
   }
+
+  followLocation(company) {
+    console.log('following map' ,company);
+    ActionSheetIOS.showActionSheetWithOptions(
+      {
+        title: `${company.name_en}, ${company.address_en} - ${company.city_en}`,
+        options: ['Open in Apple Maps', 'Open in Google Maps', 'Cancel'],
+        destructiveButtonIndex: -1,
+        cancelButtonIndex: 2,
+      },
+      (buttonIndex) => {
+        this.openMaps(company, buttonIndex);
+      }
+    );
+  }
+  
+  openMaps(company,buttonIndex) {
+    var address = encodeURIComponent(company.address_en);
+    switch (buttonIndex) {
+      case 0:
+        Linking.openURL('http://maps.apple.com/?q=' + address);
+        break;
+      case 1:
+        // var nativeGoogleUrl = 'comgooglemaps://?q=' +
+        //   address + '&x-success=f8://&x-source=F8';
+        var nativeGoogleUrl = `comgooglemaps://?daddr=${parseFloat(company.latitude)},${parseFloat(company.longitude)}&center=${parseFloat(company.latitude)},${parseFloat(company.longitude)}&zoom=14&views=traffic&directionsmode=driving`;
+        Linking.canOpenURL(nativeGoogleUrl).then((supported) => {
+          var url = supported ? nativeGoogleUrl : 'http://maps.google.com/?q=' + address;
+          Linking.openURL(url);
+        });
+        break;
+    }
+
+  }
+
 
   onRefresh() {
     this.setState({isRefreshing: true});
@@ -86,13 +120,21 @@ class Appointments extends Component {
               callback={this.callback}
             />
             :
-            <ConfirmedAppointmentList appointments={appointmentsArray} cancelAppointment={this.cancelAppointment} />
+            <ConfirmedAppointmentList
+              appointments={appointmentsArray}
+              cancelAppointment={this.cancelAppointment}
+              followLocation={this.followLocation}
+            />
         }
 
           </ScrollView>
       </Image>
     );
   }
+}
+
+function getAppointments() {
+  
 }
 
 function mapStateToProps(state) {

@@ -18,7 +18,7 @@ class Categories extends Component {
 
   loadCategory(category) {
     Actions.categoryEntity({
-      title:category.name_en,
+      title:category.name_en.toUpperCase(),
       itemID:category.id
     });
   }

@@ -10,4 +10,5 @@ export const assets = {
   clinic:require('./../assets/img/clinic.png'),
   spa:require('./../assets/img/spa.png'),
   salon:require('./../assets/img/salon.png'),
+  marker:require('./../assets/img/map.png')
 };

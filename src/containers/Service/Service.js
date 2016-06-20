@@ -41,7 +41,7 @@ class Service extends Component {
   render() {
     const {serviceReducer, companies } = this.props;
     return (
-      <Image source={require('./../../assets/img/bg.png')} style={{flex: 1,width: null,height: null,paddingTop: 10,backgroundColor:'white'}} >
+      <Image source={require('./../../assets/img/bg.png')} style={{flex: 1,width: null,height: null,paddingTop: 64,backgroundColor:'white'}} >
         {serviceReducer.isFetching && <LoadingIndicator />  }
         <CompanyList
           loadCompany={this.loadCompany}

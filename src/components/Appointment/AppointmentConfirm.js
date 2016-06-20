@@ -53,16 +53,15 @@ export default class AppointmentConfirm extends Component {
   showAppointmentButton() {
 
     const { selectedDate,selectedTime,selectedEmployee,company,userReducer,service } = this.props;
-
     return (
       <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
         <Text style={{ fontSize:20,color:'#003333' }}>ALMOST DONE !</Text>
-        <Text style={{ paddingTop:20, fontSize:13, textAlign:'center',color:'#003333',fontFamily:'menlo',lineHeight:25 }}> You Wanted a
-          <Text style={{ color:'#722A2A'}}> {service.name_en} </Text>
-          <Text style={{ color:'#722A2A'}}> {selectedEmployee.id  ? ' with ' + selectedEmployee.name_en : ''} at </Text>
-          <Text style={{ color:'#722A2A'}}> {selectedTime.time_en} </Text> At
-          <Text style={{ color:'#722A2A'}}> {company.name_en} </Text> On
-          <Text style={{ color:'#722A2A'}}> {selectedDate.toISOString().slice(0, 10)} </Text>
+        <Text style={{ paddingTop:20, fontSize:13, textAlign:'center',color:'#003333',fontFamily:'menlo',lineHeight:25 }}> You Wanted
+          <Text style={styles.name}> {service.name_en} </Text>
+          <Text style={styles.name}> {selectedEmployee.id  && `(Staff : ${selectedEmployee.name_en})` } </Text>
+          <Text style={styles.name}> {company.name_en} </Text> On
+          <Text style={styles.name}> {selectedDate.toDateString()} At </Text>
+          <Text style={styles.name}> {selectedTime.time_en} </Text>
         </Text>
 
         { userReducer.appointments.error != null ? <Text>Error occured, try again </Text>: <Text/>}
@@ -130,5 +129,9 @@ const styles = StyleSheet.create({
     alignSelf:'flex-end',
     paddingTop:150,
     margin:10
+  },
+  name:{
+    color:'#722A2A',
+    fontWeight:'700'
   }
 });

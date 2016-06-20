@@ -34,11 +34,13 @@ export default class IntroCarousel extends Component {
             />
           </View>
         </Swiper>
-        <View style={styles.skipWrapper}>
-          <TouchableOpacity onPress={()=>Actions.main()} >
+        <TouchableOpacity onPress={()=>Actions.main()} >
+
+          <View style={styles.skipWrapper}>
             <Text style={styles.skipText}>Skip</Text>
-          </TouchableOpacity>
-        </View>
+          </View>
+
+        </TouchableOpacity>
       </View>
     );
   }
@@ -52,13 +54,15 @@ var styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   skipWrapper:{
-    bottom:50,
-    alignItems:'center'
+    flex:1,
+    bottom:150,
+    padding:10,
+    alignItems:'center',
   },
   skipText: {
     color:'white',
     textDecorationLine:'underline',
-    fontSize:16,
-    bottom:50
+    fontSize:17,
+    fontWeight:'500'
   }
 });

@@ -1,20 +1,17 @@
 'use strict';
 import React, { Component, PropTypes } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Dimensions} from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
 
 export default class Calendar extends Component {
 
-  handleDateChange = (date) =>{
-    this.props.onDateChange(date);
-  };
-
   render() {
-    const {selectedDate} = this.props;
+    const {selectedDate,onDateChange} = this.props;
     return (
       <CalendarPicker
         selectedDate={selectedDate}
-        onDateChange={this.handleDateChange}
+        onDateChange={onDateChange}
+        screenWidth={Dimensions.get('window').width}
       />
     );
   }
