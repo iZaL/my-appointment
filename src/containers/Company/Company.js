@@ -1,6 +1,6 @@
 'use strict';
 import React, {Component, PropTypes} from "react";
-import {View, ScrollView, SegmentedControlIOS, Linking} from "react-native";
+import {View, ScrollView, SegmentedControlIOS, Linking,ActionSheetIOS} from "react-native";
 import {connect} from "react-redux";
 import {fetchCompany, setCompanyService} from "./../../actions/Company/company";
 import CompanyItem from "./../../components/Company/CompanyItem";
@@ -26,6 +26,7 @@ class Company extends Component {
     };
     this.onChange = this.onChange.bind(this);
     this.loadDateTime = this.loadDateTime.bind(this);
+    this.followLocation = this.followLocation.bind(this);
   }
 
   componentDidMount() {
@@ -46,16 +47,41 @@ class Company extends Component {
       selectedIndex: event.nativeEvent.selectedSegmentIndex
     });
   }
-
+  
   followLocation(company) {
-    let url = `comgooglemaps://?center=${parseFloat(company.latitude)},${parseFloat(company.longitude)}&zoom=14&views=traffic`;
-    Linking.canOpenURL(url).then(supported => {
-      if (supported) {
-        Linking.openURL(url);
+    ActionSheetIOS.showActionSheetWithOptions(
+      {
+        title: `${company.name_en}, ${company.address_en} - ${company.city_en}`,
+        options: ['Open in Apple Maps', 'Open in Google Maps', 'Cancel'],
+        destructiveButtonIndex: -1,
+        cancelButtonIndex: 2,
+      },
+      (buttonIndex) => {
+        this.openMaps(company,buttonIndex);
       }
-    });
+    );
+
   }
 
+  openMaps(company,buttonIndex) {
+    var address = encodeURIComponent(company.address_en);
+    switch (buttonIndex) {
+      case 0:
+        Linking.openURL('http://maps.apple.com/?q=' + address);
+        break;
+      case 1:
+        // var nativeGoogleUrl = 'comgooglemaps://?q=' +
+        //   address + '&x-success=f8://&x-source=F8';
+        var nativeGoogleUrl = `comgooglemaps://?daddr=${parseFloat(company.latitude)},${parseFloat(company.longitude)}&center=${parseFloat(company.latitude)},${parseFloat(company.longitude)}&zoom=14&views=traffic&directionsmode=driving`;
+        Linking.canOpenURL(nativeGoogleUrl).then((supported) => {
+          var url = supported ? nativeGoogleUrl : 'http://maps.google.com/?q=' + address;
+          Linking.openURL(url);
+        });
+        break;
+    }
+
+  }
+  
   render() {
     const {company, services } = this.props;
 

@@ -43,7 +43,7 @@ export default class CompanyMap extends Component {
   };
 
   render() {
-    const {company} = this.props;
+    const {company,followLocation} = this.props;
     return (
       <MapView
         ref="map"
@@ -54,18 +54,11 @@ export default class CompanyMap extends Component {
           ref={"ref"+company.id}
           key={"key"+company.id}
           coordinate={{latitude:parseFloat(company.latitude),longitude:parseFloat(company.longitude)}}
-        >
-          <MapView.Callout>
-            <View style={styles.container}>
-              <Text>{company.name_en}</Text>
-              <TouchableOpacity underlayColor="transparent" onPress={()=>this.props.followLocation(company)}>
-                <Text style={styles.getDirectionText}>
-                  Click here to get direction (google maps)
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </MapView.Callout>
-        </MapView.Marker>
+          title={company.name_en}
+          description={`${company.address_en},${company.city_en}`}
+          onSelect={()=>followLocation(company)}
+          pinColor="blue"
+        />
         <View/>
       </MapView>
     );
