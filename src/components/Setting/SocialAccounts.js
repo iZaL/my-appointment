@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Linking } from 'react-native';
-import SettingsCell from './../containers/Settings/Components/SettingsCell';
+import SettingsCell from '../../containers/Setting/Components/SettingsCell';
 
 export default class SocialAccounts extends Component {
 

@@ -128,13 +128,14 @@ var styles = StyleSheet.create({
     flex:1,
     alignItems:'center',
     padding:10,
+    marginBottom:10,
   },
   rightCol:{
     flex:2,
   },
   cancelContainer:{
     flex:1,
-    alignSelf:'center'
+    alignSelf:'center',
   },
   middleCol:{
     flex:1.5,

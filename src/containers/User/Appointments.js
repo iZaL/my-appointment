@@ -92,6 +92,8 @@ class Appointments extends Component {
     });
 
 
+    console.log('appointments',appointments);
+    console.log('appointmentsarrya',appointmentsArray);
     return (
       <Image source={assets.bg} style={{flex:1,width: null,height: null,paddingTop:64,backgroundColor:'white'}}>
         <ScrollView

@@ -36,7 +36,7 @@ export default class ProfilePicture extends React.Component {
   render() {
     const {size} = this.props;
     const scaledSize = size * PixelRatio.get();
-    const img = require('./../assets/img/logo.png');
+    const img = require('./../../assets/img/logo.png');
     return (
       <Image
         source={img}

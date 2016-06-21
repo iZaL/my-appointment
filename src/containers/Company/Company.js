@@ -81,7 +81,7 @@ class Company extends Component {
     }
 
   }
-  
+
   render() {
     const {company, services } = this.props;
 

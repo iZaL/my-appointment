@@ -2,8 +2,8 @@
 import React, {Component,PropTypes} from 'react';
 import {Actions } from 'react-native-router-flux';
 import { ScrollView, StyleSheet, Text, View} from 'react-native';
-import F8ListContainer from './F8/F8ListContainer';
-import F8PureListView from './F8/F8PureListView';
+import F8ListContainer from '../F8/F8ListContainer';
+import F8PureListView from '../F8/F8PureListView';
 
 export default class Term extends Component {
 
@@ -22,7 +22,7 @@ export default class Term extends Component {
     return (
       <F8ListContainer
         title="Terms"
-        backgroundImage={require('./../assets/img/notifications-background.png')}
+        backgroundImage={require('./../../assets/img/notifications-background.png')}
         backgroundColor={'#9176D2'}
         leftItem={this.filterItem()}
       >

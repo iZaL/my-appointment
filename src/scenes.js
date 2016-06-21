@@ -10,7 +10,6 @@ import Category from './containers/Category/Category';
 import Company from './containers/Company/Company';
 import Appointment from './containers/Appointment/Appointment';
 import Map from './containers/Company/Map';
-import Settings from './containers/Settings/Settings';
 import Favorites from './containers/User/Favorites';
 import Appointments from './containers/User/Appointments';
 import Search from './containers/Company/Search';
@@ -19,8 +18,9 @@ import TabIcon from './components/TabIcon';
 import LoginDialog from './components/LoginDialog';
 import NavigationDrawer from './components/NavigationDrawer';
 import IntroCarousel from './components/IntroCarousel';
-import About from './components/About';
-import Term from './components/Term';
+import Settings from './containers/Setting/Settings';
+import About from './components/Setting/About';
+import Term from './components/Setting/Term';
 import Profile from './containers/User/Profile';
 
 export const scenes = Actions.create(
