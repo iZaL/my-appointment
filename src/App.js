@@ -9,7 +9,6 @@ import { scenes } from './scenes';
 const reducerCreate = params=> {
   const defaultReducer = Reducer(params);
   return (state, action)=>{
-    // console.log("ACTION:", action);
     return defaultReducer(state, action);
   }
 };

@@ -17,8 +17,6 @@ class SideMenu extends Component {
   loadService(service) {
     const drawer = this.context.drawer;
     drawer.close();
-    // redirect to service
-    // Actions.serviceTab();
     Actions.serviceEntity({
       title:service.name_en,
       itemID:service.id

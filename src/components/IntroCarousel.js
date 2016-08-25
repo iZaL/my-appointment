@@ -1,19 +1,10 @@
 import React, { Component, PropTypes} from 'react';
 import { StatusBar,TouchableOpacity, StyleSheet, Text, View,} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 import PromoImage from './PromoImage';
 import { Actions } from 'react-native-router-flux';
 import Swiper from 'react-native-swiper';
 
 export default class IntroCarousel extends Component {
-
-  // componentWillMount() {
-  //   StatusBar.setHidden(true);
-  // }
-  //
-  // componentWillUnmount() {
-  //   StatusBar.setHidden(false);
-  // }
 
   render() {
     return (

@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { StyleSheet,View,Text,Image,TouchableOpacity } from 'react-native';
-import { assets } from './../utils/assets';
 import FormButton from './../components/FormButton';
-import Actions from 'react-native-router-flux';
 
 export default class NoResult extends Component {
 
@@ -14,7 +12,6 @@ export default class NoResult extends Component {
   };
 
   render() {
-    console.log('called no result');
     const { title,description,buttonText,callback} = this.props;
 
     return (

@@ -2,8 +2,6 @@
 import React, {Component,PropTypes} from 'react';
 import { TouchableHighlight, StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import LoadingIndicator from './../../components/LoadingIndicator';
-import Seperator from './../Seperator';
 import { Actions } from 'react-native-router-flux';
 import { APP_STYLES } from './../../utils/AppStyles';
 
