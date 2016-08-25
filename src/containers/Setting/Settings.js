@@ -38,19 +38,32 @@ class Settings extends Component {
   render() {
     console.log('auth user',this.props.authUserID);
     return (
+      // <ScrollView style={{flex:1,backgroundColor: 'white',paddingTop:80}}>
+      //   {this.props.authUserID !== null ?
+      //     <View>
+      //       <SettingsCell icon="ios-power-outline" title="Logout" name="logout" callback={this.loadLink} />
+      //       <SettingsCell icon="ios-person-outline" title="Profile" name="profile" callback={this.loadLink} />
+      //     </View>
+      //     :
+      //     <SettingsCell icon="ios-key-outline" title="Login" name="login" callback={this.loadLink} />
+      //   }
+      //
+      //   <SettingsCell icon="ios-information-circle-outline" title="About" name="about" callback={this.loadLink} />
+      //   <SettingsCell icon="ios-checkmark" title="Terms and Conditions" name="term" callback={this.loadLink} />
+      // </ScrollView>
+
       <ScrollView style={{flex:1,backgroundColor: 'white',paddingTop:80}}>
         {this.props.authUserID !== null ?
           <View>
             <SettingsCell icon="ios-power-outline" title="Logout" name="logout" callback={this.loadLink} />
-            <SettingsCell icon="ios-person-outline" title="Profile" name="profile" callback={this.loadLink} />
           </View>
           :
           <SettingsCell icon="ios-key-outline" title="Login" name="login" callback={this.loadLink} />
         }
 
         <SettingsCell icon="ios-information-circle-outline" title="About" name="about" callback={this.loadLink} />
-        <SettingsCell icon="ios-checkmark" title="Terms and Conditions" name="term" callback={this.loadLink} />
       </ScrollView>
+
     );
   }
 }
