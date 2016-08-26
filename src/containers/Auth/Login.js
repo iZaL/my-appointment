@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import LoginScene from './../../components/Auth/LoginScene';
 
-export default class Login extends Component {
+class Login extends Component {
 
   constructor(props) {
     super(props);
