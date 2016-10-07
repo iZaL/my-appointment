@@ -98,7 +98,6 @@ class Appointment extends Component {
 
   render() {
 
-    console.log('renderd Appointment');
     const {timings,employees,company,userReducer,service,timingsReducer} = this.props;
     return (
       <ScrollView
