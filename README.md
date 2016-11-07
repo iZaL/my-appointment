@@ -1,4 +1,4 @@
-# My Appointment
+# My Appointment (React Native IOS App)
 Appointment Booking App built with React Native and Redux
 
 [watch the demo here ](https://www.youtube.com/watch?v=It2kq7CRfGA)
