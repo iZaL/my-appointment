@@ -12,15 +12,10 @@ export default class TimingList extends Component {
     return (
       <View style={[styles.cellContainer, selectedTime.id ?  (selectedTime.id == time.id ? styles.activeCell : '') : '']} key={time.id} >
         <TouchableHighlight onPress={()=>this.props.onTimeSelect(time)} underlayColor='transparent'>
-          <View style={styles.cellWrapper}>
-            <View style={styles.titleWrapper}>
-              <Text style={styles.name}>
-                {time.time_en}
-              </Text>
-            </View>
-          </View>
+          <Text style={styles.name}>
+            {time.time_en}
+          </Text>
         </TouchableHighlight>
-        <Seperator />
       </View>
     )
   }
@@ -32,19 +27,17 @@ export default class TimingList extends Component {
     return (
       <View >
         <View style={styles.separator}/>
-
         {timingsReducer.isFetching ? <LoadingIndicator style={{marginTop:10}}/> : <View/>}
         <ListView
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           dataSource={dataSource}
-          renderRow={(rowData, sec, i) => this.renderRow.bind(this)}
           renderRow={this.renderRow.bind(this)}
           automaticallyAdjustContentInsets={false}
           style={styles.container}
           enableEmptySections={true}
+          renderFooter={()=><Seperator />}
         />
-
       </View>
     );
   }
@@ -60,10 +53,10 @@ TimingList.propTypes = {
 
 var styles = StyleSheet.create({
   container: {
-    flex:1,
     marginBottom:20
   },
   cellContainer:{
+    flex:1,
     backgroundColor:'#e7e7e7',
     height:50,
     width:50,
@@ -93,8 +86,8 @@ var styles = StyleSheet.create({
     color: '#FFFFFD',
     fontSize:14,
     fontWeight:'700',
-    textAlign:'center'
-
+    textAlign:'center',
+    paddingTop:10,
   },
   separator: {
     height:1,

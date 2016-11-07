@@ -10,7 +10,7 @@ export default class IntroCarousel extends Component {
     return (
       <View >
         <Swiper showsButtons={false} loop={false} automaticallyAdjustContentInsets={false} >
-          <View style={{flex:1 }}>
+          <View style={{flex:1}}>
             <PromoImage image={require('./../assets/img/bghome.png')}
                         header="My Appointment"
                         description="book your appointment"
@@ -26,11 +26,9 @@ export default class IntroCarousel extends Component {
           </View>
         </Swiper>
         <TouchableOpacity onPress={()=>Actions.main()} >
-
           <View style={styles.skipWrapper}>
             <Text style={styles.skipText}>Skip</Text>
           </View>
-
         </TouchableOpacity>
       </View>
     );
@@ -45,15 +43,15 @@ var styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   skipWrapper:{
-    flex:1,
-    bottom:150,
     padding:10,
     alignItems:'center',
+    backgroundColor:'green'
   },
   skipText: {
     color:'white',
     textDecorationLine:'underline',
     fontSize:17,
-    fontWeight:'500'
+    fontWeight:'500',
+
   }
 });

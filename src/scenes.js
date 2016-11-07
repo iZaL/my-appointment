@@ -92,7 +92,7 @@ export const scenes = Actions.create(
           <Scene key="login" component={Login} hideNavBar={true} />
           <Scene key="register" component={Register} hideNavBar={true} />
           <Scene key="loginDialog" component={LoginDialog} hideNavBar={true} />
-          <Scene initial={true}  key="introCarousel" component={IntroCarousel}  hideTabBar={true} hideNavBar={true}/>
+          <Scene key="introCarousel" component={IntroCarousel}  hideTabBar={true} hideNavBar={true}/>
         </Scene>
       </Scene>
     </Scene>
