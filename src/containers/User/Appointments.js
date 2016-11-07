@@ -39,7 +39,6 @@ class Appointments extends Component {
   }
 
   followLocation(company) {
-    console.log('following map' ,company);
     ActionSheetIOS.showActionSheetWithOptions(
       {
         title: `${company.name_en}, ${company.address_en} - ${company.city_en}`,
@@ -81,6 +80,7 @@ class Appointments extends Component {
   render() {
     const { userReducer,appointments,companies,services,timings,users,employees } = this.props;
 
+    //@todo: move to selector
     const appointmentsArray = mapValues(appointments,(appointment) => {
       return Object.assign({},appointment,{
         company:companies[appointment.company],
@@ -91,9 +91,6 @@ class Appointments extends Component {
       });
     });
 
-
-    console.log('appointments',appointments);
-    console.log('appointmentsarrya',appointmentsArray);
     return (
       <Image source={assets.bg} style={{flex:1,width: null,height: null,paddingTop:64,backgroundColor:'white'}}>
         <ScrollView
@@ -133,10 +130,6 @@ class Appointments extends Component {
       </Image>
     );
   }
-}
-
-function getAppointments() {
-  
 }
 
 function mapStateToProps(state) {
