@@ -9,3 +9,5 @@ Note: Run 'react-native link' if you have issues with native dependencies.
   - Redux
   - ImmutableJS
   - Normalizr
+  
+## License MIT
