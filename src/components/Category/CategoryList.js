@@ -13,7 +13,6 @@ export default class CategoryList extends Component {
     loadCategory:PropTypes.func.isRequired
   });
 
-
   renderHeader() {
     return this.props.categoriesReducer.isFetching && <LoadingIndicator />
   }
@@ -48,7 +47,6 @@ export default class CategoryList extends Component {
 
   render() {
     const {categories} = this.props;
-    console.log('render category list',categories);
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2})
     let dataSource = ds.cloneWithRows(categories);
 

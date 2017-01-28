@@ -24,7 +24,6 @@ class Categories extends Component {
   }
 
   render() {
-    console.log('render categories');
     const { categories,categoriesReducer } = this.props;
     return (
       <Image style={{flex: 1,width: null,height: null,paddingTop: 64,backgroundColor:'white'}}
