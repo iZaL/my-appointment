@@ -71,7 +71,6 @@ class Appointments extends Component {
 
   }
 
-
   onRefresh() {
     this.setState({isRefreshing: true});
     this.props.dispatch(fetchAppointments()).then((val)=>this.setState({isRefreshing: false}));
